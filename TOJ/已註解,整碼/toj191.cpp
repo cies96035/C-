@@ -4,28 +4,28 @@ using namespace std;
 
 int main() {
     int Sx,Sy,Ex,Ey;
-    //N,M¨S¥Î 
+    //N,Mæ²’ç”¨ 
     cin>>Sx>>Sx>>Sx>>Sy>>Ex>>Ey;
-    //¥u¯à©¹¤U©¹¥k¡A¦pªG¥X²{³oºØª¬ªp´N¨ì¤£¤F 
+    //åªèƒ½å¾€ä¸‹å¾€å³ï¼Œå¦‚æžœå‡ºç¾é€™ç¨®ç‹€æ³å°±åˆ°ä¸äº† 
     if(Sy>Ey||Sx>Ex)
     {
         cout<<0<<endl;
         return 0;
     }
-    int x=Ex-Sx,y=Ey-Sy;//x,yªø«× 
-    int migon[x+1][y+1];//¬ö¿ý±q°_ÂI¨ì¬YÂI¦³´XºØ¨«ªk 
+    int x=Ex-Sx,y=Ey-Sy;//x,yé•·åº¦ 
+    int migon[x+1][y+1];//ç´€éŒ„å¾žèµ·é»žåˆ°æŸé»žæœ‰å¹¾ç¨®èµ°æ³• 
     memset(migon,0,sizeof(migon));
-    for(int i=0;i<=x;i++)migon[i][0]=1;//°_ÂI©¹¥k³£¥u¦³¤@ºØ¨«ªk 
-    for(int i=0;i<=y;i++)migon[0][i]=1;//°_ÂI©¹¤U¤]³£¥u¦³¤@ºØ¨«ªk 
+    for(int i=0;i<=x;i++)migon[i][0]=1;//èµ·é»žå¾€å³éƒ½åªæœ‰ä¸€ç¨®èµ°æ³• 
+    for(int i=0;i<=y;i++)migon[0][i]=1;//èµ·é»žå¾€ä¸‹ä¹Ÿéƒ½åªæœ‰ä¸€ç¨®èµ°æ³• 
     for(int i=1;i<=x;i++)
     {
         for(int j=1;j<=y;j++)
         {
-			//¦¹®æ¨«ªkÁ`©M=±q¥ª¤W¨Ó+±q¥ª¨Ó+±q¤W¨Ó 
+			//æ­¤æ ¼èµ°æ³•ç¸½å’Œ=å¾žå·¦ä¸Šä¾†+å¾žå·¦ä¾†+å¾žä¸Šä¾† 
             migon[i][j]=migon[i-1][j-1]+migon[i-1][j]+migon[i][j-1];
         }
     }
-    //¿é¥X¥Ø¼Ð¦ì¸mªº¨«ªkÁ`©M 
+    //è¼¸å‡ºç›®æ¨™ä½ç½®çš„èµ°æ³•ç¸½å’Œ 
     cout<<migon[x][y]<<endl;
     return 0;
 }

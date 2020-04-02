@@ -11,7 +11,7 @@ int main() {
     for(int i=0;i<N;i++)
         cin>>k[i];
     
-    //ª½¨ì¥X²{²Ä¤@­Óleft>=rightªº±¡ªp¤~µ²§ô°j°é 
+    //ç›´åˆ°å‡ºç¾ç¬¬ä¸€å€‹left>=rightçš„æƒ…æ³æ‰çµæŸè¿´åœˆ 
     for(int e=0;e<N;e++)
     {
         int left=0,right=0,l=0,r=0;

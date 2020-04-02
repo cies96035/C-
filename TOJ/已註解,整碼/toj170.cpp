@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
 
-//¿é¥XN¶¥¬P¬P¾ğ(¦³¨Ç¯S¨Ò­n²¾¦ì)
+//è¼¸å‡ºNéšæ˜Ÿæ˜Ÿæ¨¹(æœ‰äº›ç‰¹ä¾‹è¦ç§»ä½)
 void coutstartree(int N,int shift)
 {
-    for(int i=0;i<N;i++)//N¼h¬P¬P¾ğ 
+    for(int i=0;i<N;i++)//Nå±¤æ˜Ÿæ˜Ÿæ¨¹ 
     {
-    	for(int j=0;j<shift;j++)//¬Y¨Ç¯S¨Ò­n²¾¦ì¬P¬P¾ğ
+    	for(int j=0;j<shift;j++)//æŸäº›ç‰¹ä¾‹è¦ç§»ä½æ˜Ÿæ˜Ÿæ¨¹
 			cout<<' ';
-    	for(int j=i+1;j<N;j++)//¸É¬P¬P¾ğªÅ®æ
+    	for(int j=i+1;j<N;j++)//è£œæ˜Ÿæ˜Ÿæ¨¹ç©ºæ ¼
 			 cout<<' ';
-		for(int j=0;j<2*i+1;j++)//¿é¥X¬P¬P
+		for(int j=0;j<2*i+1;j++)//è¼¸å‡ºæ˜Ÿæ˜Ÿ
 			cout<<'*';
 		cout<<endl; 
 	}
@@ -23,27 +23,27 @@ int main()
     int T; 
     cin>>T;
     char c;
-	int n; //«Å§ic,nÅÜ¼Æ 
-    while(T--)//¿é¤Jc,n,¦@T¦¸ 
+	int n; //å®£å‘Šc,nè®Šæ•¸ 
+    while(T--)//è¼¸å…¥c,n,å…±Tæ¬¡ 
     {
         cin>>c>>n;
         if(c=='A')
-        	coutstartree(n,0);//n¼h¬P¬P¾ğ 
+        	coutstartree(n,0);//nå±¤æ˜Ÿæ˜Ÿæ¨¹ 
         else if(c=='B')
         {
-        	coutstartree(n,0);//Âùn¼h¬P¬P¾ğ 
+        	coutstartree(n,0);//é›™nå±¤æ˜Ÿæ˜Ÿæ¨¹ 
         	coutstartree(n,0);
 		}
         else if(c=='C')
         	for(int i=1;i<=n;i++)
-        		coutstartree(i,n-i);//i¼h¬P¬P¾ğ¡A²Äi¼h²¾¦ìn-i¼h 
+        		coutstartree(i,n-i);//iå±¤æ˜Ÿæ˜Ÿæ¨¹ï¼Œç¬¬iå±¤ç§»ä½n-iå±¤ 
         else if(c=='D')
         	coutstartree(10*n,0);
         else if(c=='E')
         {
-        	coutstartree(n,2);//²¾¦ì2¼h
+        	coutstartree(n,2);//ç§»ä½2å±¤
 			for(int i=0;i<3+2*n;i++)
-				cout<<'#';//¸É¬Ö®â
+				cout<<'#';//è£œç›†æ ½
 			cout<<endl;
 		}
         else if(c=='F')

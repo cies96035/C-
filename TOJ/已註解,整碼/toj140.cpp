@@ -4,20 +4,20 @@ using namespace std;
 int main() {
     char a;
     int num,T,ans=0;
-    cin>>T;//´ú¸ê¼Æ 
+    cin>>T;//æ¸¬è³‡æ•¸ 
     while(T--)
     {
-    	for(int i=0;i<3;i++)//¤T­Ó¸¹½X 
+    	for(int i=0;i<3;i++)//ä¸‰å€‹è™Ÿç¢¼ 
     	{
 	        cin>>a;
 	        ans=ans*26+a-'A';
 		}
-		cin>>num;//¿é¤J¤@­Ó­t¼Æ 
+		cin>>num;//è¼¸å…¥ä¸€å€‹è² æ•¸ 
 		ans+=num;
-		//§PÂ_ 
+		//åˆ¤æ–· 
         if(ans<=100&&ans>=-100)cout<<"nice"<<endl;
         else cout<<"not nice"<<endl;
-        ans=0;//Âk¹s 
+        ans=0;//æ­¸é›¶ 
     }
     return 0;
 }

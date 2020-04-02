@@ -1,7 +1,7 @@
 #include<iostream> 
 using namespace std;
 
-//gcd¨ç¼Æ *ÆZ±`¥Îªº* 
+//gcdå‡½æ•¸ *è »å¸¸ç”¨çš„* 
 int gcd(int a,int b)
 {
     while((a%=b)&&(b%=a));

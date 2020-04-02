@@ -7,13 +7,13 @@ int main()
 	int X,Y,num;
 	while(cin>>todo)
 	{
-		if(todo=='B')continue;//¶}©l«ü¥O 
-		if(todo=='E')break;//µ²§ô«ü¥O
+		if(todo=='B')continue;//é–‹å§‹æŒ‡ä»¤ 
+		if(todo=='E')break;//çµæŸæŒ‡ä»¤
 		cin>>num;
-		//³]­È 
+		//è¨­å€¼ 
 		if(todo=='X')X=num;
 		else if(todo=='Y')Y=num;
-		//½Õ¾ã­È 
+		//èª¿æ•´å€¼ 
 		else if(todo=='U')Y+=num;
 		else if(todo=='D')Y-=num;
 		else if(todo=='R')X+=num;

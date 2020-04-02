@@ -1,4 +1,4 @@
-//ª`·N¤@¤Umod¦ì¸m¡AÁ×§K¶W¥Xlong long½d³ò
+//æ³¨æ„ä¸€ä¸‹modä½ç½®ï¼Œé¿å…è¶…å‡ºlong longç¯„åœ
 #include<iostream>
 using namespace std;
 int main()

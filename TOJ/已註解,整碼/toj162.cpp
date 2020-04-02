@@ -10,14 +10,14 @@ int main() {
     cin>>T;
     while(T--)
     {
-        cin.ignore();//¦Y±¼\n¡A¤£µMÅª¤£¨ì¦W¤l 
-        string PlayerX,PlayerO;//Àx¦s¦W¤l 
+        cin.ignore();//åƒæ‰\nï¼Œä¸ç„¶è®€ä¸åˆ°åå­ 
+        string PlayerX,PlayerO;//å„²å­˜åå­ 
         int OOXX[3][3];
 		bool getscoreX=0,getscoreO=0;
         getline(cin,PlayerX);
         getline(cin,PlayerO);
         
-        /* ¿é¤J
+        /* è¼¸å…¥
         00 01 02
         10 11 12
         20 21 22
@@ -26,30 +26,30 @@ int main() {
             for(int j=0;j<3;j++)
                 cin>>OOXX[i][j];
              
-        //§PÂ_ª½¦æ¬O§_¬Û¦P¡A¦P®É§PÂ_½Ö±o¤À 
+        //åˆ¤æ–·ç›´è¡Œæ˜¯å¦ç›¸åŒï¼ŒåŒæ™‚åˆ¤æ–·èª°å¾—åˆ† 
         for(int x=0;x<3;x++)
             if(OOXX[0][x]==OOXX[1][x]&&OOXX[0][x]==OOXX[2][x]&&OOXX[0][x]!=2)
-                OOXX[0][x]?getscoreX=1:getscoreO=1;//³s½uªº¬O1¡AX±o¤À,§_«hY±o¤À 
+                OOXX[0][x]?getscoreX=1:getscoreO=1;//é€£ç·šçš„æ˜¯1ï¼ŒXå¾—åˆ†,å¦å‰‡Yå¾—åˆ† 
                 
-        //§PÂ_¾î¦æ¬O§_¬Û¦P¡A¬Û¦P®É§PÂ_½Ö±o¤À
+        //åˆ¤æ–·æ©«è¡Œæ˜¯å¦ç›¸åŒï¼Œç›¸åŒæ™‚åˆ¤æ–·èª°å¾—åˆ†
         for(int y=0;y<3;y++)
             if(OOXX[y][0]==OOXX[y][1]&&OOXX[y][0]==OOXX[y][2]&&OOXX[y][0]!=2)
                 OOXX[y][0]?getscoreX=1:getscoreO=1;
         
         
-        //§PÂ_¥ª¤W¥k¤U±×¦æ¬O§_¬Û¦P¡A¬Û¦P®É§PÂ_½Ö±o¤À
+        //åˆ¤æ–·å·¦ä¸Šå³ä¸‹æ–œè¡Œæ˜¯å¦ç›¸åŒï¼Œç›¸åŒæ™‚åˆ¤æ–·èª°å¾—åˆ†
         if(OOXX[0][0]==OOXX[1][1]&&OOXX[0][0]==OOXX[2][2]&&OOXX[0][0]!=2)
             OOXX[0][0]?getscoreX=1:getscoreO=1;
         
-        //§PÂ_¥k¤W¥ª¤U±×¦æ¬O§_¬Û¦P¡A¬Û¦P®É§PÂ_½Ö±o¤À
+        //åˆ¤æ–·å³ä¸Šå·¦ä¸‹æ–œè¡Œæ˜¯å¦ç›¸åŒï¼Œç›¸åŒæ™‚åˆ¤æ–·èª°å¾—åˆ†
         if(OOXX[0][2]==OOXX[1][1]&&OOXX[0][2]==OOXX[2][0]&&OOXX[0][2]!=2)
             OOXX[0][2]?getscoreX=1:getscoreO=1;
         
-        //§PÂ_±o¤Àª¬ªp 
-        if(!getscoreX&&!getscoreO)cout<<"Not yet"<<endl;//¦pªG³£¨S±o¹L¤À 
-        else if(getscoreO&&getscoreX)cout<<"Impossible"<<endl;//¦pªG¨â­Ó³£¦³±o¤À 
-        else if(getscoreX)cout<<PlayerX<<endl;//¥u¦³X±o¤À 
-        else cout<<PlayerO<<endl;//¥u¦³O±o¤À 
+        //åˆ¤æ–·å¾—åˆ†ç‹€æ³ 
+        if(!getscoreX&&!getscoreO)cout<<"Not yet"<<endl;//å¦‚æœéƒ½æ²’å¾—éåˆ† 
+        else if(getscoreO&&getscoreX)cout<<"Impossible"<<endl;//å¦‚æœå…©å€‹éƒ½æœ‰å¾—åˆ† 
+        else if(getscoreX)cout<<PlayerX<<endl;//åªæœ‰Xå¾—åˆ† 
+        else cout<<PlayerO<<endl;//åªæœ‰Oå¾—åˆ† 
     }
     return 0;
 }

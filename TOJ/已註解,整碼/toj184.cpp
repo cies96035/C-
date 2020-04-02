@@ -10,42 +10,42 @@ int main()
     while(cin>>A>>B)
     {
         
-        if(A=="0"||B=="0") //¬O§_­¼¥H¹sªº¯S¨Ò 
+        if(A=="0"||B=="0") //æ˜¯å¦ä¹˜ä»¥é›¶çš„ç‰¹ä¾‹ 
         {
             cout<<"0"<<endl;
             continue;
         }
         
-        bool nA=(A[0]=='-'),nB=(B[0]=='-');//§PÂ_¬O§_¬°­t¼Æ 
+        bool nA=(A[0]=='-'),nB=(B[0]=='-');//åˆ¤æ–·æ˜¯å¦ç‚ºè² æ•¸ 
         int As=A.size(),Bs=B.size(),ABs=As+Bs;
 		
 		/*
 		string a.append(string b,int a,int b);
-		±NA«á­±´¡¤JB²Äa¦ì¶}©lªº¦r¤¸¦@b¦ì 
-		(¦binclude cstring¸Ì­±) 
+		å°‡Aå¾Œé¢æ’å…¥Bç¬¬aä½é–‹å§‹çš„å­—å…ƒå…±bä½ 
+		(åœ¨include cstringè£¡é¢) 
 		*/
-        if(nA&&nB) //­t+­t 
+        if(nA&&nB) //è² +è²  
         {
-	        B.append(A,2,As-2); //B¸ÉAªº¹s¡A¦@As-2­Ó¹s 
-	        ans.append(B,1,ABs-3); //¦A¥h±¼B¦h¾lªº "-" 
+	        B.append(A,2,As-2); //Bè£œAçš„é›¶ï¼Œå…±As-2å€‹é›¶ 
+	        ans.append(B,1,ABs-3); //å†å»æ‰Bå¤šé¤˜çš„ "-" 
         }
-        else if(!nA&&!nB) //¥¿+¥¿ 
+        else if(!nA&&!nB) //æ­£+æ­£ 
         {
-       		ans=B.append(A,1,As-1); //B¥[¤WAs«á­±ªº0 
+       		ans=B.append(A,1,As-1); //BåŠ ä¸ŠAså¾Œé¢çš„0 
         }
-        else if(nA&&!nB) //­t+¥¿ 
+        else if(nA&&!nB) //è² +æ­£ 
         {
-        	cout<<"-"; //¸É­t¸¹ 
-        	ans=B.append(A,2,As-2); //B¥[¤WA¥h±¼ "-1"ªº¦r¦ê 
+        	cout<<"-"; //è£œè² è™Ÿ 
+        	ans=B.append(A,2,As-2); //BåŠ ä¸ŠAå»æ‰ "-1"çš„å­—ä¸² 
         }
-        else //¥¿+­t
+        else //æ­£+è² 
         {
-        	ans=B.append(A,1,As-1); //B¥[¤WA¥h±¼ "1"ªº¦r¦ê 
+        	ans=B.append(A,1,As-1); //BåŠ ä¸ŠAå»æ‰ "1"çš„å­—ä¸² 
         }
             
         cout<<ans<<endl;
         
-        //­«¸m 
+        //é‡ç½® 
 		ans="";
     }
     return 0;

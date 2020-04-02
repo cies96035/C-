@@ -9,11 +9,11 @@ int main()
     int N;
     while(cin>>N)
     {
-        //¹w³]²Ä¹sµ§¸ê®Æ¬°µL­­¤j¡Aleft_lower¬ö¿ý¨C®Úªº¥ªÃä¤ñ¸Ó®Ú§Cªº¦@¦³´X­Ó
-        //tocmpid¡A­n¤ñ¸ûªºid
+        //é è¨­ç¬¬é›¶ç­†è³‡æ–™ç‚ºç„¡é™å¤§ï¼Œleft_lowerç´€éŒ„æ¯æ ¹çš„å·¦é‚Šæ¯”è©²æ ¹ä½Žçš„å…±æœ‰å¹¾å€‹
+        //tocmpidï¼Œè¦æ¯”è¼ƒçš„id
         int n[N+1]={2147483647},left_lower[N+1]={0},tocmpid;
         
-        //¿é¤J
+        //è¼¸å…¥
         for(int i=1;i<=N;i++)
 			cin>>n[i];
         
@@ -21,17 +21,17 @@ int main()
         {
             left_lower[i]=0;
         	tocmpid=i-1;
-        	//¦pªG¨S³Q¾×¦í¡A§ä¥X¤ñ¸Ó®Ú¤pªº¦³´X®Ú 
+        	//å¦‚æžœæ²’è¢«æ“‹ä½ï¼Œæ‰¾å‡ºæ¯”è©²æ ¹å°çš„æœ‰å¹¾æ ¹ 
             while(n[i]>n[tocmpid])
             {
-                //¦pªG¤ñ­n¤ñ¸ûªº´Î´Î¤j¡A«h¦Y±¼¥Lªºµª®×©M¥L¥»¨­
+                //å¦‚æžœæ¯”è¦æ¯”è¼ƒçš„æ£’æ£’å¤§ï¼Œå‰‡åƒæŽ‰ä»–çš„ç­”æ¡ˆå’Œä»–æœ¬èº«
                 left_lower[i]+=left_lower[tocmpid]+1;
-                //¬O§_¯à¦Y±¼§ó«e­±ªº´Î´Î 
+                //æ˜¯å¦èƒ½åƒæŽ‰æ›´å‰é¢çš„æ£’æ£’ 
             	tocmpid-=left_lower[tocmpid]+1;
             }
         }
         
-        //¿é¥X 
+        //è¼¸å‡º 
         for(int i=1;i<N;i++)
         {
             cout<<left_lower[i];

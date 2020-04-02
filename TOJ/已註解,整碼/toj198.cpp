@@ -1,24 +1,24 @@
 /*
-²z½×¤W«D¥¿¸Ñ
-³t«×¤ñ¥L¤HºC«Ü¦h
-¦ıÁÙ¬O¯à¹L 
+ç†è«–ä¸Šéæ­£è§£
+é€Ÿåº¦æ¯”ä»–äººæ…¢å¾ˆå¤š
+ä½†é‚„æ˜¯èƒ½é 
 */ 
 
 #include<iostream>
 #include<cstring>
 using namespace std;
 
-//±N­^¤å¥H¥~ªº¥h±¼¡A¨Ã±N­^¤å¥Î¦¨¤p¼g¥H§Q§PÂ_ 
+//å°‡è‹±æ–‡ä»¥å¤–çš„å»æ‰ï¼Œä¸¦å°‡è‹±æ–‡ç”¨æˆå°å¯«ä»¥åˆ©åˆ¤æ–· 
 string strtouse(string k)
 {
 	string d;
 	int klen=k.size();
     for(int h=0;h<klen;h++)
     {
-        //§PÂ_¬O§_¬°­^¤å(¥u¨ú­^¤å)
+        //åˆ¤æ–·æ˜¯å¦ç‚ºè‹±æ–‡(åªå–è‹±æ–‡)
         if((k[h]>='A'&&k[h]<='Z')||(k[h]>='a'&&k[h]<='z'))
         {
-            //¬Oªº¸Ü¤@«ß¥Î¤p¼g½s¶id¦r¦ê 
+            //æ˜¯çš„è©±ä¸€å¾‹ç”¨å°å¯«ç·¨é€²då­—ä¸² 
             d+=tolower(k[h]);
         }
     }
@@ -36,9 +36,9 @@ int main()
         a=strtouse(a);
         b=strtouse(b);
         /*
-		a.find(b,num)¡Acstring¸Ìªº¨ç¼Æ 
-		±qa¦r¦êªº²Änum¦ì§äb¦r¦ê
-		§ä¨ì¦^¶Ç¦ì¸m¡A§ä¤£¨ì¦^¶Ç-1 
+		a.find(b,num)ï¼Œcstringè£¡çš„å‡½æ•¸ 
+		å¾aå­—ä¸²çš„ç¬¬numä½æ‰¾bå­—ä¸²
+		æ‰¾åˆ°å›å‚³ä½ç½®ï¼Œæ‰¾ä¸åˆ°å›å‚³-1 
 		*/ 
         if(a.find(b,0)!=-1)cout<<"Yes\n";
         else cout<<"No\n";

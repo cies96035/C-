@@ -8,13 +8,13 @@ int main()
     int N;
     while(cin>>N)
     {
-        int n[N],ans=0,highest=0;//highest¬ö¿ı³Ì°ªªº±ì§ı
+        int n[N],ans=0,highest=0;//highestç´€éŒ„æœ€é«˜çš„æ¡¿æ†
         
         for(int i=0;i<N;i++)cin>>n[i];
         
         while(N--)
         {
-        	//¦pªG¦¹±ì§ı¤ñ«e­±ªº°ª¡A´N¥Nªí¬İªº¨ì¡A¬ö¿ı¬°³Ì°ª­È¨Ã¬ö¿ı¦¸¼Æ 
+        	//å¦‚æœæ­¤æ¡¿æ†æ¯”å‰é¢çš„é«˜ï¼Œå°±ä»£è¡¨çœ‹çš„åˆ°ï¼Œç´€éŒ„ç‚ºæœ€é«˜å€¼ä¸¦ç´€éŒ„æ¬¡æ•¸ 
             if(n[N]>highest)
             {
                 highest=n[N];

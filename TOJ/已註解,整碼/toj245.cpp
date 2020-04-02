@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-	long long a,ta,b,tb;//¼Æ¦r½d³ò¶W¹Lint 
+	long long a,ta,b,tb;//æ•¸å­—ç¯„åœè¶…éint 
 	cin>>a>>ta>>b>>tb;
 	cout<<a*ta+b*tb<<endl;
 	return 0;

@@ -3,18 +3,18 @@ using namespace std;
 int main()
 {
     int a,b;    
-    //╕p╙GцD╔ь╣╧30~40║A╩╥╤W╧Lint╫dЁР║A╜n╔нlong long
-    //╜╪╙k╙╨ЁФ╕Л╓╦╞ю╛╟1 
+    //Е╕┌Ф·°И║▄Г⌡╝Г╣╕30~40О╪▄И│═Х╤┘И│▌intГ╞└Е°█О╪▄Х╕│Г■╗long long
+    //Д╧≤ФЁ∙Г └Е√╝Д╫█Е┘┐Г╢═Г┌╨1 
     long long ans=1;
     cin>>a>>b;
-    if(a>b)swap(a,b);//ав╖K╔X©Ы 
-    //╠qa╜╪╗Лb 
+    if(a>b)swap(a,b);//И│©Е┘█Е┤╨И▄╞ 
+    //Е╬·aД╧≤Е┬╟b 
     while(a<=b)
     {
         ans*=a;
         a++;
     }
-    //©И╔X╣╙╝в 
+    //Х╪╦Е┤╨Г╜■Ф║┬ 
     cout<<ans<<endl;
     return 0;
 }

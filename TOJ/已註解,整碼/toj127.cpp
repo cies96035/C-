@@ -10,7 +10,7 @@ int main()
 	while(cin.get(D))
 	{
 		if(D=='\n')break;
-		D=(D-'A'-t+26)%26+'A';//+26¬OÁ×§K­t¼Æ
+		D=(D-'A'-t+26)%26+'A';//+26æ˜¯é¿å…è² æ•¸
 		cout<<D;
 	}
 	cout<<endl;

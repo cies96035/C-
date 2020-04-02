@@ -3,7 +3,7 @@ using namespace std;
 
 const int maxNode = 4000000;
 
-//¥ª¤l¸`ÂI©M¥k¤l¸`ÂIªº®y¼Ğ¦ì¸m 
+//å·¦å­ç¯€é»å’Œå³å­ç¯€é»çš„åº§æ¨™ä½ç½® 
 #define LC (now*2)
 #define RC (now*2+1) 
 #define M (L+R)/2
@@ -13,30 +13,30 @@ struct Node
     int max,min,flag;
 }node[maxNode];
 
-//«Ø³y¤@­ÓH[]ªº½u¬q¼Æ
-//now¬°½u¬q¼Æªº®y¼Ğ
-//L,R¬°¦¹ÂI¤¤¥]§tHªº¦ì¸m 
-//H*¬°H[] 
+//å»ºé€ ä¸€å€‹H[]çš„ç·šæ®µæ•¸
+//nowç‚ºç·šæ®µæ•¸çš„åº§æ¨™
+//L,Rç‚ºæ­¤é»ä¸­åŒ…å«Hçš„ä½ç½® 
+//H*ç‚ºH[] 
 void build(int now,int L,int R,int *H)
 {
 	node[now].flag=0;
-    if(L==R)//¨ì½u¬q¾ğ³Ì©³¼h®É¡A¸Ó¼h¼Æ­È¬°H[L]ªº¼Æ­È 
+    if(L==R)//åˆ°ç·šæ®µæ¨¹æœ€åº•å±¤æ™‚ï¼Œè©²å±¤æ•¸å€¼ç‚ºH[L]çš„æ•¸å€¼ 
     {
         node[now].max=node[now].min=H[L];
         return;
     }
-    //­Y¨Ã«D³Ì©³¼h¡A«Øºc©³¤Uªº¥ª¥k¨â¼h½u¬q¾ğ
-	//¤@­Ó¸`ÂI¤À¦¨¨â¥b
-	//¤À§O¬°L¨ìM(¥ª¸`ÂI)¡AM+1¨ìR(¥k¸`ÂI) 
+    //è‹¥ä¸¦éæœ€åº•å±¤ï¼Œå»ºæ§‹åº•ä¸‹çš„å·¦å³å…©å±¤ç·šæ®µæ¨¹
+	//ä¸€å€‹ç¯€é»åˆ†æˆå…©åŠ
+	//åˆ†åˆ¥ç‚ºLåˆ°M(å·¦ç¯€é»)ï¼ŒM+1åˆ°R(å³ç¯€é») 
     build(LC,L,M,H);
     build(RC,M+1,R,H);
     
-    //¬ö¿ı¦¹¸`ÂI¥ª¥k¨â¤l¸`ÂIªº³Ì¤j©M³Ì¤p­È 
+    //ç´€éŒ„æ­¤ç¯€é»å·¦å³å…©å­ç¯€é»çš„æœ€å¤§å’Œæœ€å°å€¼ 
     node[now].max=max(node[LC].max,node[RC].max);
     node[now].min=min(node[LC].min,node[RC].min);
 }
 
-//«İ²z¸Ñ 
+//å¾…ç†è§£ 
 void pushdown(int now)
 {
 	if(node[now].flag)
@@ -52,10 +52,10 @@ void pushdown(int now)
 	}
 }
 
-//now ¥Ø«e¸`ÂI®y¼Ğ
-//L,R¥Ø«e¸`ÂI¥]§tªº½d³ò
-//uL,uR·Q­n§ó·s¸ê®Æªº½d³ò
-//add§ó·sªº¸ê®Æ¤º®e 
+//now ç›®å‰ç¯€é»åº§æ¨™
+//L,Rç›®å‰ç¯€é»åŒ…å«çš„ç¯„åœ
+//uL,uRæƒ³è¦æ›´æ–°è³‡æ–™çš„ç¯„åœ
+//addæ›´æ–°çš„è³‡æ–™å…§å®¹ 
 int add;
 void update(int now,int L, int R,int uL,int uR)
 {

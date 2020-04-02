@@ -6,9 +6,9 @@ int main()
     cin>>N;
     while(N--)
     {
-        long long a,b,c;//int¥­¤è·|·¸¦ì¡Along long~~ 
+        long long a,b,c;//intå¹³æ–¹æœƒæº¢ä½ï¼Œlong long~~ 
         cin>>a>>b>>c;
-        if(a<b)swap(a,b);//a¬°³Ì¤j­È 
+        if(a<b)swap(a,b);//aç‚ºæœ€å¤§å€¼ 
         if(a<c)swap(a,c);
         if(a>=b+c)cout<<"illegal triangle"<<endl;
         else if(a*a<b*b+c*c)cout<<"obtuse triangle"<<endl;

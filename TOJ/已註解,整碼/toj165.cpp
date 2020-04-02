@@ -3,34 +3,34 @@ using namespace std;
 
 #define n 100001
 
-int division[n];//¨C­Ó¤Hªº¤À²Õ 
+int division[n];//æ¯å€‹äººçš„åˆ†çµ„ 
 
-//ªì©l¤Æ¡A¨C­Ó¤H¦Û¤v¤@²Õ 
+//åˆå§‹åŒ–ï¼Œæ¯å€‹äººè‡ªå·±ä¸€çµ„ 
 inline void Init(int k)
 {
 	for(int i=0;i<k;i++)
 		division[i]=i;
 }
 
-//´M§äaªº²Õ§O 
+//å°‹æ‰¾açš„çµ„åˆ¥ 
 inline int find (int a)
 {
 	return division[a]==a ? a : division[a]=find(division[a]);
 	/*
-	³o¼Ë¤]¥i¥H¡A¦ı¬Û¤ñ¤W­±¤j¶q°õ¦æ®É·|¸ûºC 
+	é€™æ¨£ä¹Ÿå¯ä»¥ï¼Œä½†ç›¸æ¯”ä¸Šé¢å¤§é‡åŸ·è¡Œæ™‚æœƒè¼ƒæ…¢ 
 	return division[a]==a ? a : find(division[a]);
 	*/
 }
 
-//±Na,b¨â¤Hªº²Õ§O¦X¨Ö¬°b²Õ§O 
+//å°‡a,bå…©äººçš„çµ„åˆ¥åˆä½µç‚ºbçµ„åˆ¥ 
 inline void Union (int a,int b)
 {
-	//¤£¥Î±N¥ş³¡¦P¹ÎÅéªº³£§ï¬°bªº²Õ§O¡A
-	//¥u­n§ïÅÜa²Õ§OªºÀYÀY¦ì¸m´N¦n¡A¤§«á¥Îfind´N·|§ä¨ì 
+	//ä¸ç”¨å°‡å…¨éƒ¨åŒåœ˜é«”çš„éƒ½æ”¹ç‚ºbçš„çµ„åˆ¥ï¼Œ
+	//åªè¦æ”¹è®Šaçµ„åˆ¥çš„é ­é ­ä½ç½®å°±å¥½ï¼Œä¹‹å¾Œç”¨findå°±æœƒæ‰¾åˆ° 
 	division[find(a)]=find(b);
 }
 
-//§PÂ_¨â­Ó¤Hªº²Õ§O¬O§_¤@¼Ë 
+//åˆ¤æ–·å…©å€‹äººçš„çµ„åˆ¥æ˜¯å¦ä¸€æ¨£ 
 inline bool same (int a,int b){
 	return find(a)==find(b);
 }
@@ -45,13 +45,13 @@ int main()
     {
         int N,M; 
         cin>>N>>M;
-        Init(N+1);//ªì©l¤Æ 
+        Init(N+1);//åˆå§‹åŒ– 
         
 		while(M--)
         {
             int a,b;
             cin>>a>>b;
-            //±Nb²Õ§Oªº¤H²¾¦Üa²Õ 
+            //å°‡bçµ„åˆ¥çš„äººç§»è‡³açµ„ 
             Union(b,a);
         }
         

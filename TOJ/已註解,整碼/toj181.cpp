@@ -1,9 +1,9 @@
 #include<iostream>
 using namespace std;
 
-char def[62];//Àx¦s¾ğ¸­¥Ñ¥~¦Ó¤º 
+char def[62];//å„²å­˜æ¨¹è‘‰ç”±å¤–è€Œå…§ 
 
-void Init()//³]©w¾ğ¸­ªì­È 
+void Init()//è¨­å®šæ¨¹è‘‰åˆå€¼ 
 {
 	char set='A';
 	for(int i=0;i<62;i++)
@@ -26,7 +26,7 @@ void Init()//³]©w¾ğ¸­ªì­È
 	} 
 }
 
-void coutline(int n,int shift)//¿é¥X2n+1¤ù¸­¤l+²¾¦ìshift®æ 
+void coutline(int n,int shift)//è¼¸å‡º2n+1ç‰‡è‘‰å­+ç§»ä½shiftæ ¼ 
 {
 	while(shift--)cout<<' ';
 	for(int i=0;i<n;i++)cout<<def[i];
@@ -35,13 +35,13 @@ void coutline(int n,int shift)//¿é¥X2n+1¤ù¸­¤l+²¾¦ìshift®æ
 }
 
 int main() {
-	Init();//ªì©l¤Æ½á­È 
+	Init();//åˆå§‹åŒ–è³¦å€¼ 
     int N;
 	while(cin>>N)
     {
-        if(N<0)N=-N;//µ´¹ï­È 
+        if(N<0)N=-N;//çµ•å°å€¼ 
         if(N>62)
-			cout<<"ERROR!"<<endl;//¥X¿ù 
+			cout<<"ERROR!"<<endl;//å‡ºéŒ¯ 
         else
         {
 	        for(int i=0;i<N;i++)
@@ -50,7 +50,7 @@ int main() {
 	        }
 	        for(int i=0;i<N;i++)
 	        {
-	        	//¿é¥X¾ğ·F 
+	        	//è¼¸å‡ºæ¨¹å¹¹ 
 	            for(int j=1;j<N;j++)cout<<" ";
 	            cout<<def[N-1]<<endl;
 	        }

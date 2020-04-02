@@ -4,7 +4,7 @@
 #include<iomanip>
 using namespace std;
 
-//PI­È
+//PIå€¼
 #define PI 3.141592653589793
 
 int main()
@@ -12,11 +12,11 @@ int main()
     cin.tie(0);
     ios_base::sync_with_stdio(0);
     
-    //¿é¥X¨ì¤p¼Æ¤G¦ì
+    //è¼¸å‡ºåˆ°å°æ•¸äºŒä½
     cout<<fixed<<setprecision(2);
     
-    //side_size¬ö¿ı¥Ñ¤p¨ì¤jªºÃä, 
-    //side_turn¬ö¿ıÃäªº¶¶§Ç 
+    //side_sizeç´€éŒ„ç”±å°åˆ°å¤§çš„é‚Š, 
+    //side_turnç´€éŒ„é‚Šçš„é †åº 
     long double side_size[4],side_turn[4];
     
     while(cin>>side_turn[0]>>side_turn[1]>>side_turn[2]>>side_turn[3])
@@ -24,14 +24,14 @@ int main()
     	for(int i=0;i<4;i++)
     		side_size[i]=side_turn[i];
     	
-		//±Æ§Ç¤j¤p
+		//æ’åºå¤§å°
         sort(side_size,side_size+4);
         
-        //¥X²{­t¼Æ©Î¬O¥|­Ó¬Ò¬°0¡A¤£¦Xªk
+        //å‡ºç¾è² æ•¸æˆ–æ˜¯å››å€‹çš†ç‚º0ï¼Œä¸åˆæ³•
         if(side_size[0]<0||side_size[3]==0)
             cout<<"Illegal Polygon -1"<<'\n';
             
-        //¤T­ÓÃä¬°¹s¡A­pºâ¶ê­±¿n
+        //ä¸‰å€‹é‚Šç‚ºé›¶ï¼Œè¨ˆç®—åœ“é¢ç©
         else if(side_size[2]==0)
         {
             long double radius=side_size[3]/PI/2,area=radius*radius*PI;
@@ -39,7 +39,7 @@ int main()
             cout<<"Circle "<<area<<'\n';
         }
         
-        //¨â­ÓÃä¬°¹s¡A­pºâ®°§Î­±¿n
+        //å…©å€‹é‚Šç‚ºé›¶ï¼Œè¨ˆç®—æ‰‡å½¢é¢ç©
         else if(side_size[1]==0)
         {
             long double radius=side_size[2],Arc=side_size[3],
@@ -48,7 +48,7 @@ int main()
             cout<<"Sector "<<area<<'\n';        
         }
         
-        //¤@­ÓÃä¬°¹s¡A§PÂ_¤T¨¤§Î¨Ã­pºâ­±¿n
+        //ä¸€å€‹é‚Šç‚ºé›¶ï¼Œåˆ¤æ–·ä¸‰è§’å½¢ä¸¦è¨ˆç®—é¢ç©
         else if(side_size[0]==0)
         {
 			long double a=side_size[1],b=side_size[2],c=side_size[3],
@@ -64,29 +64,29 @@ int main()
                 cout<<"Obtuse Triangle "<<area<<'\n';
         }
         
-        //¥ş³¡Ãä¤£¬°¹s¡A§PÂ_¬O¦óºØ¥|Ãä§Î
+        //å…¨éƒ¨é‚Šä¸ç‚ºé›¶ï¼Œåˆ¤æ–·æ˜¯ä½•ç¨®å››é‚Šå½¢
         else
         {
             long double a=side_turn[0],b=side_turn[1],c=side_turn[2],d=side_turn[3],
 			s=(a+b+c+d)/2,areas=sqrt((s-a)*(s-b)*(s-c)*(s-d));
             
-            //¤£¦Xªk(­±¿n¥X²{µê¼Æ©Î¬O­±¿n¬°¹s)
+            //ä¸åˆæ³•(é¢ç©å‡ºç¾è™›æ•¸æˆ–æ˜¯é¢ç©ç‚ºé›¶)
             if(isnan(areas)||areas==0)
                 cout<<"Illegal Quadrilateral -1"<<'\n';
                 
-            //¥|Ãäªøµ¥ªø 
+            //å››é‚Šé•·ç­‰é•· 
             else if(side_size[0]==side_size[3])
                 cout<<"Rhombus "<<areas<<'\n';
                 
-            //¹ïÃä¬Ûµ¥ 
+            //å°é‚Šç›¸ç­‰ 
             else if(a==c&&b==d)
                 cout<<"Parallelogram "<<areas<<'\n';
                 
-            //¾FÃä¬Ûµ¥ 
+            //é„°é‚Šç›¸ç­‰ 
             else if((a==b&&c==d)||(b==c&&a==d))
                 cout<<"Kite "<<areas<<'\n';
             
-            //¨ä¥L¥|Ãä§Î 
+            //å…¶ä»–å››é‚Šå½¢ 
             else
                 cout<<"Other Quadrilateral "<<areas<<'\n';
         }

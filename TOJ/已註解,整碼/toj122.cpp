@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-	//¤À§O§PÂ_¨C­Óªø«×¡A¦n¹³¤£¥Î¶}¨ìlong long 
+	//åˆ†åˆ¥åˆ¤æ–·æ¯å€‹é•·åº¦ï¼Œå¥½åƒä¸ç”¨é–‹åˆ°long long 
     int pm;
     cin>>pm;
     if(pm<10)cout<<"Y"<<endl;

@@ -7,22 +7,22 @@ using namespace std;
 
 struct link
 {
-    //³s±µÂIaÂIbªº¦¨¥»¬°w 
+    //é€£æ¥é»aé»bçš„æˆæœ¬ç‚ºw 
     int a,b,W;
 }Link[maxM];
 
-//¨Ì·Ó¦¨¥»¥Ñ¤p±Æ¨ì¤j 
+//ä¾ç…§æˆæœ¬ç”±å°æ’åˆ°å¤§ 
 bool cmp(link x,link y){return x.W<y.W;}
 
-int division[maxk];//¨C­ÓÂIªº¤À²Õ 
+int division[maxk];//æ¯å€‹é»çš„åˆ†çµ„ 
 
-//ªì©l¤Æ¡A¨C­ÓÂI¦Û¤v¤@²Õ 
+//åˆå§‹åŒ–ï¼Œæ¯å€‹é»è‡ªå·±ä¸€çµ„ 
 void Init(int k){for(int i=1;i<=k;i++)division[i]=i;} 
-//´M§äÂIaªº²Õ§O 
+//å°‹æ‰¾é»açš„çµ„åˆ¥ 
 int find(int a){return division[a]==a ? a : division[a]=find(division[a]);}
-//±Na,b¨âÂIªº²Õ§O¦X¨Ö¬°b²Õ§O 
+//å°‡a,bå…©é»çš„çµ„åˆ¥åˆä½µç‚ºbçµ„åˆ¥ 
 void Union(int a,int b){division[find(a)]=find(b);}
-//§PÂ_¨â­ÓÂIªº²Õ§O¬O§_¤@¼Ë 
+//åˆ¤æ–·å…©å€‹é»çš„çµ„åˆ¥æ˜¯å¦ä¸€æ¨£ 
 bool same(int a,int b){return find(a)==find(b);}
 
 int main()
@@ -45,14 +45,14 @@ int main()
         sort(Link,Link+M,cmp);
         for(int i=0;i<M;i++)
         {
-            //¦³Àô®É¤£¬ö¿ı 
-			//°£«D¥L«Ø³y«á¯àÁÈ¨ì¿ú´N«Ø³y¡A¤Ï¥¿«Ø¶V¦h¦¨¥»¶V¤p 
+            //æœ‰ç’°æ™‚ä¸ç´€éŒ„ 
+			//é™¤éä»–å»ºé€ å¾Œèƒ½è³ºåˆ°éŒ¢å°±å»ºé€ ï¼Œåæ­£å»ºè¶Šå¤šæˆæœ¬è¶Šå° 
             if(same(Link[i].a,Link[i].b)&&Link[i].W>0)continue;
             
-            //«Ø³y¾ô¼Ù:¦X¨Ö¸Ó³sµ²¨âÂI 
+            //å»ºé€ æ©‹æ¨‘:åˆä½µè©²é€£çµå…©é» 
             Union(Link[i].a,Link[i].b);
             
-            //±N¸ÓÃä¦¨¥»¥[¶i¥h 
+            //å°‡è©²é‚Šæˆæœ¬åŠ é€²å» 
             ans+=Link[i].W;
         }
         cout<<ans<<'\n';

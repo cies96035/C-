@@ -6,17 +6,17 @@ int main() {
     cin>>T;
     while(T--)
     {
-        /*¤U­±b*b+c*c³Ì¤j¬°(46340^2)*2
-        ¶W¹Lint½d³ò¡A¤£¯à¥Îint*/ 
+        /*ä¸‹é¢b*b+c*cæœ€å¤§ç‚º(46340^2)*2
+        è¶…éŽintç¯„åœï¼Œä¸èƒ½ç”¨int*/ 
         long long a,b,c;
-        //¿é¤Ja,b,c 
+        //è¼¸å…¥a,b,c 
         cin>>a>>b>>c;
-        //Åýa¬°³Ì¤j­È 
+        //è®“aç‚ºæœ€å¤§å€¼ 
         if(a<b)swap(a,b);
         if(a<c)swap(a,c);
-        //¤TÃä±`¬Ûµ¥ 
+        //ä¸‰é‚Šå¸¸ç›¸ç­‰ 
         if(a==b&&a==c)cout<<"Equilateral_triangle"<<endl;
-        //²¦¤ó©w²z§PÂ_¤T¨¤§ÎÃþ«¬ 
+        //ç•¢æ°å®šç†åˆ¤æ–·ä¸‰è§’å½¢é¡žåž‹ 
         else if(a*a==b*b+c*c)cout<<"Right_triangle"<<endl;
         else if(a*a>b*b+c*c)cout<<"Obtuse_triangle"<<endl;
         else if(a*a<b*b+c*c)cout<<"Acute_triangle"<<endl;

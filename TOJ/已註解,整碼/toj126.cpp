@@ -16,16 +16,16 @@ int main() {
         maxscore+=score[i];
     }
     
-    bool canbescore[(maxscore*2)+1][N+1];//¥¿­t¼Æ+¹s 
-    const int Zero=maxscore;//°}¦Cªº¤¤¶¡¥Nªí¹s 
+    bool canbescore[(maxscore*2)+1][N+1];//æ­£è² æ•¸+é›¶ 
+    const int Zero=maxscore;//é™£åˆ—çš„ä¸­é–“ä»£è¡¨é›¶ 
     
     memset(canbescore,0,sizeof(canbescore));
     canbescore[Zero][0]=1; 
     
-    for(int i=0;i<N;i++)//³B²z¨ì²Äiµ§¸ê®Æ 
+    for(int i=0;i<N;i++)//è™•ç†åˆ°ç¬¬iç­†è³‡æ–™ 
     {
-    	//¨Cµ§¸ê®Æ±½¹L¤@¦¸ 
-    	//¤ñ°_±qÀY±½¨ì§À¡A¤£¦p¥u±½¦³¥i¯à¥X²{1ªº½d³ò´N¦n 
+    	//æ¯ç­†è³‡æ–™æŽƒéŽä¸€æ¬¡ 
+    	//æ¯”èµ·å¾žé ­æŽƒåˆ°å°¾ï¼Œä¸å¦‚åªæŽƒæœ‰å¯èƒ½å‡ºç¾1çš„ç¯„åœå°±å¥½ 
         for(int j=Zero-upscore,end=Zero+upscore;j<=end;j++)
         {
             if(canbescore[j][i])
@@ -38,7 +38,7 @@ int main() {
     {
         int T;
         cin>>T;
-        //§ä¨ì²Ä¤@­Ó>=Tªº1 
+        //æ‰¾åˆ°ç¬¬ä¸€å€‹>=Tçš„1 
         while(!canbescore[T+Zero][N])
             T++;
         cout<<T<<endl;

@@ -7,7 +7,7 @@ int main()
     
     int N,Q;
     cin>>N;
-    long long k[N],kSum[N+1]={0};//«eºó©M 
+    long long k[N],kSum[N+1]={0};//å‰ç¶´å’Œ 
     for(int i=0;i<N;i++)
         cin>>k[i];
     
