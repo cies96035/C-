@@ -1,10 +1,10 @@
 #include<iostream>
-#include<cstdlib>//rand¥Î¨ì 
-#include<ctime>//clock¥Î¨ì 
+#include<cstdlib>//randç”¨åˆ° 
+#include<ctime>//clockç”¨åˆ° 
 using namespace std;
 
 int main() {
-	//°ò¥»¤W¤]«Ü¤Ö¦³¨ä¥L¾÷·|¥Î¨ìrand¤F 
+	//åŸºæœ¬ä¸Šä¹Ÿå¾ˆå°‘æœ‰å…¶ä»–æ©Ÿæœƒç”¨åˆ°randäº† 
     int a;
     srand(clock());
     a=rand()%2;

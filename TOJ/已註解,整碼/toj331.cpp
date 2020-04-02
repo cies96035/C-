@@ -6,7 +6,7 @@ int main()
 	string F,S;
 	cin>>F>>S;
 	long long Fs=F.size(),Ss=S.size(),
-	Fnot0=Fs,Snot0=Ss;//¬ö¿ý«D¹s(¤£¥Î­pºâ)ªº¦ì¼Æ¦³´X­Ó 
+	Fnot0=Fs,Snot0=Ss;//ç´€éŒ„éžé›¶(ä¸ç”¨è¨ˆç®—)çš„ä½æ•¸æœ‰å¹¾å€‹ 
 	for(int i=0;i<Fs;i++)if(F[i]=='0')Fnot0--;
 	for(int i=0;i<Ss;i++)if(S[i]=='0')Snot0--;
 	cout<<Fnot0*Snot0<<endl;

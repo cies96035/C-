@@ -8,10 +8,10 @@ const int maxNM=1050;
 const int m[4][2]={{1,0},{0,1},{-1,0},{0,-1}};
 
 char table[maxNM][maxNM]; 
-pii CF[maxNM][maxNM];//comefrom[i][j]¡A¬ö¿ıÂI(i)(j)¨Ó¦Û­ş¸Ì 
+pii CF[maxNM][maxNM];//comefrom[i][j]ï¼Œç´€éŒ„é»(i)(j)ä¾†è‡ªå“ªè£¡ 
 int N,M,cnt,DP[maxNM][maxNM];
 
-stack<pii> nine;//¬ö¿ı9ªº¦ì¸m 
+stack<pii> nine;//ç´€éŒ„9çš„ä½ç½® 
 
 int main()
 {
@@ -42,15 +42,15 @@ int main()
 			DP[tg.first][tg.second]=1;
 		if(DP[tg.first][tg.second])
 		{
-			Ori=CF[tg.first][tg.second];//¤÷ÂI 
+			Ori=CF[tg.first][tg.second];//çˆ¶é» 
 			while(tgv!='9')
 			{
 				DP[Ori.first][Ori.second]+=DP[tg.first][tg.second];
-				Ori=CF[Ori.first][Ori.second];//¤÷ÂI 
-				tgv+=1;//§ó·s¨ì9¬°¤î 
+				Ori=CF[Ori.first][Ori.second];//çˆ¶é» 
+				tgv+=1;//æ›´æ–°åˆ°9ç‚ºæ­¢ 
 			}
 			
-			//¬ö¿ı©Ò¦³¥Ñ9¥Xµoªºµ²ªG 
+			//ç´€éŒ„æ‰€æœ‰ç”±9å‡ºç™¼çš„çµæœ 
 			cnt+=DP[tg.first][tg.second];
 			continue;
 		}
@@ -58,10 +58,10 @@ int main()
 		for(int i=0;i<4;i++)//DFS
 		{
 			nxg=pii(tg.first+m[i][0],tg.second+m[i][1]);
-			if(0<=nxg.first&&nxg.first<N&&0<=nxg.second&&nxg.second<M)//¦pªG¦bÃä¬É¤º 
-				if(table[nxg.first][nxg.second]==tgv-1)//§ä´M¤U´å 
+			if(0<=nxg.first&&nxg.first<N&&0<=nxg.second&&nxg.second<M)//å¦‚æœåœ¨é‚Šç•Œå…§ 
+				if(table[nxg.first][nxg.second]==tgv-1)//æ‰¾å°‹ä¸‹æ¸¸ 
 				{ 
-					CF[nxg.first][nxg.second]=pii(tg.first,tg.second);//¬ö¿ıcomefrom 
+					CF[nxg.first][nxg.second]=pii(tg.first,tg.second);//ç´€éŒ„comefrom 
 					nine.push(nxg);
 				}
 		}

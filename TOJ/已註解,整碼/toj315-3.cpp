@@ -5,13 +5,13 @@ using namespace std;
 
 const long long Carry=100,LEN=2;
 
-//bignum ¡AÀx¦s¨C¤G­Ó¦ì¼Æªº­È¦@16­Ó(³Ì¦h32¦ì)¡A©M¬ö¿ı¥Î¨ìnªº¦ì¸m 
+//bignum ï¼Œå„²å­˜æ¯äºŒå€‹ä½æ•¸çš„å€¼å…±16å€‹(æœ€å¤š32ä½)ï¼Œå’Œç´€éŒ„ç”¨åˆ°nçš„ä½ç½® 
 struct bignum
 {
-    long long n[30],len;//¨C®æn¦s¤G­Ó¦ì¼Æ  len¼Æ¦rªø«×
+    long long n[30],len;//æ¯æ ¼nå­˜äºŒå€‹ä½æ•¸  lenæ•¸å­—é•·åº¦
 };
 
-//±NstrÂà´«¦¨bignum
+//å°‡strè½‰æ›æˆbignum
 void strtobignum (string a,bignum &b)
 {
     int u=0,k;
@@ -47,18 +47,18 @@ void longtobignum (long long a,bignum &b)
     b.len=i;
 }
 
-//¨â­Ó¤j¼Æ¬Û­¼ 
+//å…©å€‹å¤§æ•¸ç›¸ä¹˜ 
 bignum bignummul(bignum a,bignum b)
 {
     bignum c;
     memset(c.n,0,sizeof(c.n));
-    c.len=a.len+b.len;//a*b=c¡Acªº¦ì¼Æ³Ì¦h¬°aªº¦ì¼Æ+bªº¦ì¼Æ 
-    for(int i=0;i<a.len;i++)//¦ì¼Æ¬Û­¼
+    c.len=a.len+b.len;//a*b=cï¼Œcçš„ä½æ•¸æœ€å¤šç‚ºaçš„ä½æ•¸+bçš„ä½æ•¸ 
+    for(int i=0;i<a.len;i++)//ä½æ•¸ç›¸ä¹˜
         for(int j=0;j<b.len;j++)
         {
             c.n[i+j]+=a.n[i]*b.n[j];
 		}
-    for(int i=0;i<c.len;i++)//¶W¹L10^2ªº¶i¦ì,¯d¤U³Ñ¤Uªº
+    for(int i=0;i<c.len;i++)//è¶…é10^2çš„é€²ä½,ç•™ä¸‹å‰©ä¸‹çš„
     {
         if(c.n[i]>=Carry)
         {
@@ -66,13 +66,13 @@ bignum bignummul(bignum a,bignum b)
             c.n[i]%=Carry;
         }
     }
-    //¦pªG¦³«e¾É¹s¡A«h´î¤Ö¨ì¨S¦³«e¾É¹sªºªø«× 
+    //å¦‚æœæœ‰å‰å°é›¶ï¼Œå‰‡æ¸›å°‘åˆ°æ²’æœ‰å‰å°é›¶çš„é•·åº¦ 
     while(!c.n[c.len]&&c.len>0)c.len--;
     c.len+=1; 
     return c;
 }
 
-//*ª`·N* ¤£³B²za<bªºª¬ªp 
+//*æ³¨æ„* ä¸è™•ç†a<bçš„ç‹€æ³ 
 bignum bignumminus (bignum a,bignum b)
 {
     for(int i=0;i<a.len;i++)
@@ -88,7 +88,7 @@ bignum bignumminus (bignum a,bignum b)
     return a;
 }
 
-//¤j¼Æ%longlong 
+//å¤§æ•¸%longlong 
 bignum bignummod (bignum a,long long M)
 {
     bignum b,m;
@@ -97,7 +97,7 @@ bignum bignummod (bignum a,long long M)
     unsigned long long r=0;
     for(int i=a.len-1;i>=0;i--)
     {
-        r=r*Carry+a.n[i];//Carry¤Ó¤j®É¡Ar¥i¯à·|·¸¦ì¡A¨Ì·ÓÃD¥Ø¡A 
+        r=r*Carry+a.n[i];//Carryå¤ªå¤§æ™‚ï¼Œrå¯èƒ½æœƒæº¢ä½ï¼Œä¾ç…§é¡Œç›®ï¼Œ 
         b.n[i]=r/M;
         r%=M;
     }
@@ -107,12 +107,12 @@ bignum bignummod (bignum a,long long M)
     return b;
 }
 
-//¿é¥Xbignum
+//è¼¸å‡ºbignum
 void coutbignum (bignum a)
 {
-    cout<<a.n[a.len-1];//¦b¬Û­¼®É§â«e¾É¹s²¾°£¤F¡Aª½±µ¿é¥X²Ä¤@­Ó´N¦n
+    cout<<a.n[a.len-1];//åœ¨ç›¸ä¹˜æ™‚æŠŠå‰å°é›¶ç§»é™¤äº†ï¼Œç›´æ¥è¼¸å‡ºç¬¬ä¸€å€‹å°±å¥½
     for(int i=a.len-2;i>=0;i--)
-        cout<<setfill('0')<<setw(LEN)<<a.n[i];//¦pªG¸Ón¤£¨ì9¦ì¼Æ¡A«h­n¸É0¨ì9­Ó¼Æ¦r 
+        cout<<setfill('0')<<setw(LEN)<<a.n[i];//å¦‚æœè©²nä¸åˆ°9ä½æ•¸ï¼Œå‰‡è¦è£œ0åˆ°9å€‹æ•¸å­— 
     cout<<endl;
     return ;
 }

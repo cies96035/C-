@@ -13,19 +13,19 @@ int main() {
 	ios_base::sync_with_stdio(0);
 	
     char k;
-    //³æ¤@¤À¤l,³æ¤@¤À¥À,¤À¤l¿n,¤À¥À¿n 
+    //å–®ä¸€åˆ†å­,å–®ä¸€åˆ†æ¯,åˆ†å­ç©,åˆ†æ¯ç© 
     int kid=0,mom=0,kidsum=1,momsum=1;
     bool flag=1,flag2=0;
-	//flag¥´¶}¥Nªí¬ö¿ý¤À¤l¡AÃö°_¨Ó«h°O¿ý¤À¥À 
-	//flag2§PÂ_¬O§_­n§â¤À¤l­¼¶iÁ`¿n¸Ì¡AÁ×§K¦h­ÓªÅ®æªºª¬ªp¥X¿ù 
+	//flagæ‰“é–‹ä»£è¡¨ç´€éŒ„åˆ†å­ï¼Œé—œèµ·ä¾†å‰‡è¨˜éŒ„åˆ†æ¯ 
+	//flag2åˆ¤æ–·æ˜¯å¦è¦æŠŠåˆ†å­ä¹˜é€²ç¸½ç©è£¡ï¼Œé¿å…å¤šå€‹ç©ºæ ¼çš„ç‹€æ³å‡ºéŒ¯ 
     while(cin.get(k))
     {
-        if(k>='0'&&k<='9'&&flag)//¤À¤l 
+        if(k>='0'&&k<='9'&&flag)//åˆ†å­ 
         {
             kid=kid*10+k-'0';
             flag2=1;
         }
-        else if(k>='0'&&k<='9')//¤À¥À 
+        else if(k>='0'&&k<='9')//åˆ†æ¯ 
         {
             mom=mom*10+k-'0';
             flag2=1;
@@ -37,23 +37,23 @@ int main() {
         if((k==' '||k=='\n')&&flag2)
         {
             kidsum*=kid;
-            if(mom!=0)//¦pªGmom¨S°O¿ý¨ì(¤]´N¬O«D¤À¼Æ¡A«h¤£¥Î¬ö¿ý 
+            if(mom!=0)//å¦‚æžœmomæ²’è¨˜éŒ„åˆ°(ä¹Ÿå°±æ˜¯éžåˆ†æ•¸ï¼Œå‰‡ä¸ç”¨ç´€éŒ„ 
                 momsum*=mom;
-            kid=mom=0;//Âk¹s 
+            kid=mom=0;//æ­¸é›¶ 
             flag2=0;
             flag=1;
         }
         if(k=='\n')
         {
-        	//¬ù¤À 
+        	//ç´„åˆ† 
             int GCD=gcd(kidsum,momsum);
             kidsum=kidsum/GCD;
             momsum=momsum/GCD;
-            if(momsum!=1)//¦pªG¤À¥À¬°1«h¤£¥Î¿é¥X¤À¥À 
+            if(momsum!=1)//å¦‚æžœåˆ†æ¯ç‚º1å‰‡ä¸ç”¨è¼¸å‡ºåˆ†æ¯ 
                 cout<<kidsum<<'/'<<momsum<<endl;
             else
                 cout<<kidsum<<endl;
-            kidsum=momsum=1;//ÁÙ­ì 
+            kidsum=momsum=1;//é‚„åŽŸ 
         }
     }
     return 0;

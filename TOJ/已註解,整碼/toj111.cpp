@@ -5,9 +5,9 @@ int main()
 {
     int X,Y,count=1,num=1;
     cin>>X>>Y;
-    while(num%X!=0)//ª½¨ìnum­È¬°Xªº­¿¼Æ 
+    while(num%X!=0)//ç›´åˆ°numå€¼ç‚ºXçš„å€æ•¸ 
     {
-    	//¥[­¼½ü´À 
+    	//åŠ ä¹˜è¼ªæ›¿ 
         if(count%2)num++;
         else num*=2;
         count++;

@@ -5,15 +5,15 @@
 using namespace std;
 
 
-//¨S¿ìªk¤F¡A³Ñ¤U¼É¤O¸Ñ 
-//«ØVector¹Ï¬ö¿ı¦UÂI¤w¿Ä¦Xªºid 
-//«Øid¹Ï¡A¬ö¿ıid 
-//¦pªG0->ª½±µ¥á
-//¦pªG«D¹s
-//->§PÂ_¬O§_vector¹Ïªºid¸Ì­±¦³¡A¨S¦³->
-//->§PÂ_¬O§_¦P²`«× 
-//¥á¶i¥h¡A§PÂ_id
-//¦pªG¨â­Óidªºchild¹Ï¬O0¡A·s¼Wid
+//æ²’è¾¦æ³•äº†ï¼Œå‰©ä¸‹æš´åŠ›è§£ 
+//å»ºVectoråœ–ç´€éŒ„å„é»å·²èåˆçš„id 
+//å»ºidåœ–ï¼Œç´€éŒ„id 
+//å¦‚æœ0->ç›´æ¥ä¸Ÿ
+//å¦‚æœéé›¶
+//->åˆ¤æ–·æ˜¯å¦vectoråœ–çš„idè£¡é¢æœ‰ï¼Œæ²’æœ‰->
+//->åˆ¤æ–·æ˜¯å¦åŒæ·±åº¦ 
+//ä¸Ÿé€²å»ï¼Œåˆ¤æ–·id
+//å¦‚æœå…©å€‹idçš„childåœ–æ˜¯0ï¼Œæ–°å¢id
  
 
 const int mxmn=100;
@@ -61,7 +61,7 @@ int main()
 		for(int i=0;i<4;i++)
 		{
 			pii nxg=pii(tg[0]+m[i][0],tg[1]+m[i][1]);
-			if(nxg.first<0||nxg.first==N||nxg.second<0||nxg.second==M)//¬É­­§PÂ_ 
+			if(nxg.first<0||nxg.first==N||nxg.second<0||nxg.second==M)//ç•Œé™åˆ¤æ–· 
 				continue;
 			if(deep[nxg.first][nxg.second]==0)
 			{
@@ -69,7 +69,7 @@ int main()
 				deep[nxg.first][nxg.second]=deep[tg[0]][tg[1]]+1;
 				togo.push(nxg);
 			} 
-			else if(deep[tg[0]][tg[1]]+1==deep[nxg.first][nxg.second])//¿Ä¦X 
+			else if(deep[tg[0]][tg[1]]+1==deep[nxg.first][nxg.second])//èåˆ 
 				Co(tg[0],tg[1],nxg.first,nxg.second);
 		}
 	}

@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     char a;
     cin>>a;
-    //Aªº¤W¤@­Ó¦r¤¸­è¦n¬O@¡A¤£¥Î¯S¦a¥Îif§P 
+    //Açš„ä¸Šä¸€å€‹å­—å…ƒå‰›å¥½æ˜¯@ï¼Œä¸ç”¨ç‰¹åœ°ç”¨ifåˆ¤ 
     cout<<(char)(a-1)<<endl;
     return 0;
 }

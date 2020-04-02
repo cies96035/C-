@@ -3,7 +3,7 @@ using namespace std;
 
 int gcd(int a,int b)
 {
-	//¦pªG¨ä¤¤¤@­Ó¬°0¡AÁ×§KRE©Ò¥H¶Ç¦^1 
+	//å¦‚æžœå…¶ä¸­ä¸€å€‹ç‚º0ï¼Œé¿å…REæ‰€ä»¥å‚³å›ž1 
 	if(!a||!b)return 1;
 	while((a%=b)&&(b%=a));
     return a+b;
@@ -19,7 +19,7 @@ int main() {
     cin.tie(0);
     ios_base::sync_with_stdio(0);
     
-    //x,y:Àx¦sx,yªºÅÜ¤Æ¶q 
+    //x,y:å„²å­˜x,yçš„è®ŠåŒ–é‡ 
     int x,y,x1,y1,x2,y2;
     while(cin>>x1>>y1>>x2>>y2)
     {

@@ -2,20 +2,20 @@
 #include<algorithm>
 using namespace std;
 
-struct meow//¨C°¦¿ß«}ªº¸ê®Æ 
+struct meow//æ¯éš»è²“å’ªçš„è³‡æ–™ 
 {
     string name;
     int old,work;
 };
 
-//§PÂ_¶¶§Ç 
+//åˆ¤æ–·é †åº 
 bool cmp(const meow &a, const meow &b)
 {
-    //¤ñÂ¾¦ì 
+    //æ¯”è·ä½ 
     if(a.work>b.work)return 0;
     else if(a.work<b.work)return 1;
     
-    //Â¾¦ì¬Û¦P¤ñ¦~ÄÖ 
+    //è·ä½ç›¸åŒæ¯”å¹´é½¡ 
     if(a.work==5)
     {
         if(a.old<b.old)return 1;
@@ -27,7 +27,7 @@ bool cmp(const meow &a, const meow &b)
         else if(a.old>b.old)return 1;
     }
     
-    //Â¾¦ì¦~ÄÖ¬Û¦P¤ñ¦W¤l¦r¨å§Ç 
+    //è·ä½å¹´é½¡ç›¸åŒæ¯”åå­å­—å…¸åº 
     if(a.name>b.name)return 0;
     if(a.name<b.name)return 1;
 }
@@ -36,7 +36,7 @@ int main()
     cin.tie(0);
     ios_base::sync_with_stdio(0);
     
-    //¦hµ§´ú¸ê 
+    //å¤šç­†æ¸¬è³‡ 
     int N,M;
     while(cin>>N>>M)
     {
@@ -46,7 +46,7 @@ int main()
             string work;
             cin>>cat[i].name>>work>>cat[i].old;
             
-            //§âÂ¾¦ìÂà´«¦¨¼Æ¦r¤ñ¸û¦n§PÂ_ 
+            //æŠŠè·ä½è½‰æ›æˆæ•¸å­—æ¯”è¼ƒå¥½åˆ¤æ–· 
             if(work[0]=='e')cat[i].work=1;
             else if(work[0]=='n')cat[i].work=2;
             else if(work[0]=='k')cat[i].work=3;
@@ -57,10 +57,10 @@ int main()
             else if(work[0]=='l')cat[i].work=8;
         }
         
-        //±Æ§Ç 
+        //æ’åº 
         sort(cat,cat+N,cmp);
         
-        //¿é¥X 
+        //è¼¸å‡º 
         for(int i=0;i<M&&i<N;i++)
             cout<<cat[i].name<<endl;
     }

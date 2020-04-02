@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-	//©Î¬O§A­nª½±µ¿é¥Xleft¤]¬O¥i¥H... 
+	//æˆ–æ˜¯ä½ è¦ç›´æ¥è¼¸å‡ºleftä¹Ÿæ˜¯å¯ä»¥... 
 	int num=2,count=1;
 	while(num%71)
 	{

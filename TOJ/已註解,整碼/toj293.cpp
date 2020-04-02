@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-//Ёл╓j╓╫╕]╪ф 
+//Ф°─Е╓╖Е┘╛Е⌡═Ф∙╦ 
 int gcd(int x,int y)
 {
     while((x%=y)&&(y%=x));
@@ -13,10 +13,10 @@ int main()
     cin.tie(0);
     ios_base::sync_with_stdio(0);
     
-    unsigned long long a,b,x,y,t;//╘х╥╦╕Л╤}╓jбI 
+    unsigned long long a,b,x,y,t;//Ф─∙Ф╨╒Д╫█И√▀Е╓╖И╩· 
     while(cin>>a>>b>>x>>y)
     {
-    	//╠Nx,y╛Ы╓ю║Aав╖Kx,y>a,b╬и╜P╣╡╙G╔X©Ы╙╨╙╛╙p 
+    	//Е╟┤x,yГ╢└Е┬├О╪▄И│©Е┘█x,y>a,bЕ╟▌Х┤╢Г╣░Ф·°Е┤╨И▄╞Г └Г▀─ФЁ│ 
         t=gcd(x,y);
         x/=t;
         y/=t;

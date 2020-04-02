@@ -11,13 +11,13 @@ int main()
     { 
         double a,b,c,d;
         cin>>a>>b>>c>>d;
-		//¥Îdefine¥i¥H¤£¥Î¦Y°O¾ĞÅéªÅ¶¡¤S­İÅU¥iÅª©Ê
-		//¤£µMRank¦n«á­±... 
+		//ç”¨defineå¯ä»¥ä¸ç”¨åƒè¨˜æ†¶é«”ç©ºé–“åˆå…¼é¡§å¯è®€æ€§
+		//ä¸ç„¶Rankå¥½å¾Œé¢... 
         #define a2 pow(a,2)
         #define a3 pow(a,3)
         #define b2 pow(b,2)
         #define b3 pow(b,3)
-		//§â¤@¨Ç­«½Æ¨Ï¥Îªº¦¡¤l©w¸q¡A¤£¥Î­«½Æ¼g¤Ó¦h¦¸... 
+		//æŠŠä¸€äº›é‡è¤‡ä½¿ç”¨çš„å¼å­å®šç¾©ï¼Œä¸ç”¨é‡è¤‡å¯«å¤ªå¤šæ¬¡... 
 		#define m1 ((b*c)/(6*a2)-(b3/(27*a3))-(d)/(2*a))
 		#define m2 ((c)/(3*a)-(b2)/(9*a2))
         cout<<fixed<<setprecision(3)<<

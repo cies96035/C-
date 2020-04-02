@@ -2,27 +2,27 @@
 using namespace std;
 
 int main(){
-    //╔[Ёt 
+    //Е┼═И─÷ 
     ios::sync_with_stdio(0);
     cin.tie(0); 
     
-    //╔нlong longав╖K╥╦╕Л 
+    //Г■╗long longИ│©Е┘█Ф╨╒Д╫█ 
     long long A,B,C,ans=1,k;
     
     cin>>A>>B>>C;
     k=A;
     
-    //╖жЁt╬╜ 
+    //Е©╚И─÷Е├╙ 
     while(B)
     {
         if(B%2==1)
             ans*=k; 
         B/=2;
         k*=k;
-        ans%=C;//ав╖K╥╦╕Л 
-        k%=C;//ав╖K╥╦╕Л 
+        ans%=C;//И│©Е┘█Ф╨╒Д╫█ 
+        k%=C;//И│©Е┘█Ф╨╒Д╫█ 
     }
-    //©И╔X╣╙╝в 
+    //Х╪╦Е┤╨Г╜■Ф║┬ 
     cout<<ans<<endl;
     return 0;
 }

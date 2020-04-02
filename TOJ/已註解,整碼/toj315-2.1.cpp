@@ -1,23 +1,23 @@
 #include<iostream>
 using namespace std;
 
-const long long ERR = 9e18;//ull¤W­­¬ù¬° 1.8e19 ¡A·í¶W¹L¤W­­¤@¥b®É­nmodÁ×§K¥X¿ù 
+const long long ERR = 9e18;//ullä¸Šé™ç´„ç‚º 1.8e19 ï¼Œç•¶è¶…éŽä¸Šé™ä¸€åŠæ™‚è¦modé¿å…å‡ºéŒ¯ 
 
-//±N§Ö³t¾­¦h­Ó­¼ªk¥[³tªº­ì²z®M¥Î¨ì¥[ªk¡A¥Î¨ÓÁ×§K·¸¦ì 
+//å°‡å¿«é€Ÿå†ªå¤šå€‹ä¹˜æ³•åŠ é€Ÿçš„åŽŸç†å¥—ç”¨åˆ°åŠ æ³•ï¼Œç”¨ä¾†é¿å…æº¢ä½ 
 inline unsigned long long mul(unsigned long long A,unsigned long long B,unsigned long long M)
 {
     unsigned long long ans=0;
-    if(B>A)swap(B,A);//Àu¤Æ 
+    if(B>A)swap(B,A);//å„ªåŒ– 
     while(B)
     {
         if(B%2==1)
         {
             ans=ans+A;
-            if(ans>ERR)//Àu¤Æ¥[³t 
+            if(ans>ERR)//å„ªåŒ–åŠ é€Ÿ 
                 ans%=M;
         }
         A*=2;
-        if(A>ERR)//Àu¤Æ¥[³t 
+        if(A>ERR)//å„ªåŒ–åŠ é€Ÿ 
             A%=M;
         B/=2;
     }
@@ -39,7 +39,7 @@ int main(){
             if(B%2==1)
                 ans=mul(ans,A,M); 
             A=mul(A,A,M);
-            if(!A)//Àu¤Æ 
+            if(!A)//å„ªåŒ– 
             {
                 ans=0;
                 break;

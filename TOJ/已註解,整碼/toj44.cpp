@@ -8,12 +8,12 @@ int main() {
     ios_base::sync_with_stdio(0);
     
     int N,M,x,y; 
-    queue<int> togox,togoy;//«İ«e©¹ªºx,y¦î¦C 
+    queue<int> togox,togoy;//å¾…å‰å¾€çš„x,yä½‡åˆ— 
     
-    cin>>N>>M;//°g®c¤j¤p 
+    cin>>N>>M;//è¿·å®®å¤§å° 
     
-    bool migon[N][M];//¬ö¿ı°g®c¬O§_¥i¨« 
-    int ans[N][M];//¬ö¿ı¨ì¹F°g®cªº¬Y­Ó¦ì¸m®É¡A¥LÂ÷­ìÂIªº³Ìªñ¶ZÂ÷ 
+    bool migon[N][M];//ç´€éŒ„è¿·å®®æ˜¯å¦å¯èµ° 
+    int ans[N][M];//ç´€éŒ„åˆ°é”è¿·å®®çš„æŸå€‹ä½ç½®æ™‚ï¼Œä»–é›¢åŸé»çš„æœ€è¿‘è·é›¢ 
     memset(ans,0,sizeof(ans)); 
     
     for(int i=0;i<N;i++)
@@ -21,44 +21,44 @@ int main() {
             cin>>migon[i][j];
 
     cin>>x>>y;
-    togox.push(x);//§â°_ÂI¥á¶i­n«e©¹ªº¦î¦C 
+    togox.push(x);//æŠŠèµ·é»ä¸Ÿé€²è¦å‰å¾€çš„ä½‡åˆ— 
     togoy.push(y);
-    cin>>x>>y;//¬ö¿ı²×ÂI¦ì¸m 
-    while(!togox.empty())//ª½¨ì¨S¦³¦a¤è¯à¥h¬°¤î 
+    cin>>x>>y;//ç´€éŒ„çµ‚é»ä½ç½® 
+    while(!togox.empty())//ç›´åˆ°æ²’æœ‰åœ°æ–¹èƒ½å»ç‚ºæ­¢ 
     {
-        //²{¦bªºÂI x,y®y¼Ğ 
+        //ç¾åœ¨çš„é» x,yåº§æ¨™ 
         int wx=togox.front(),wy=togoy.front();
         togox.pop();
         togoy.pop();
-        if(wx==x&&wy==y)//¦pªG¨ì¹F²×ÂI¡A¿é¥X²×ÂIªº³Ì¨Î¸ô®| 
+        if(wx==x&&wy==y)//å¦‚æœåˆ°é”çµ‚é»ï¼Œè¼¸å‡ºçµ‚é»çš„æœ€ä½³è·¯å¾‘ 
         {
             cout<<ans[wx][wy]<<"\n";
-            return 0;//µ²§ôµ{¦¡ 
+            return 0;//çµæŸç¨‹å¼ 
         }
         
-        //¦pªG©¹¤UªºÂI¨S¶W¥X°g®c½d³ò¡A¨Ã¥B¥i¥H¨« 
-        if(wx+1<N&&migon[wx+1][wy]==0)//¤U 
+        //å¦‚æœå¾€ä¸‹çš„é»æ²’è¶…å‡ºè¿·å®®ç¯„åœï¼Œä¸¦ä¸”å¯ä»¥èµ° 
+        if(wx+1<N&&migon[wx+1][wy]==0)//ä¸‹ 
         {
-            togox.push(wx+1);//§â³o­Ó¦ì¸m¥á¶i¥h­n¥hªº¦î¦C 
+            togox.push(wx+1);//æŠŠé€™å€‹ä½ç½®ä¸Ÿé€²å»è¦å»çš„ä½‡åˆ— 
             togoy.push(wy);
-            migon[wx+1][wy]=1;//§â³o­ÓÂI¼Ğ°O¬°1(¤]´N¬O¤£·|¦A¶i¨Ó¤F) 
-            ans[wx+1][wy]=ans[wx][wy]+1;//¦¹ÂI³Ì¨Î¸ô®|¬°¤WÂI³Ì¨Î¸ô®|+1 
+            migon[wx+1][wy]=1;//æŠŠé€™å€‹é»æ¨™è¨˜ç‚º1(ä¹Ÿå°±æ˜¯ä¸æœƒå†é€²ä¾†äº†) 
+            ans[wx+1][wy]=ans[wx][wy]+1;//æ­¤é»æœ€ä½³è·¯å¾‘ç‚ºä¸Šé»æœ€ä½³è·¯å¾‘+1 
         } 
-        if(wx-1>-1&&migon[wx-1][wy]==0)//¤W 
+        if(wx-1>-1&&migon[wx-1][wy]==0)//ä¸Š 
         {
             togox.push(wx-1);
             togoy.push(wy);
             migon[wx-1][wy]=1;
             ans[wx-1][wy]=ans[wx][wy]+1;
         } 
-        if(wy-1>-1&&migon[wx][wy-1]==0)//¥ª 
+        if(wy-1>-1&&migon[wx][wy-1]==0)//å·¦ 
         {
             togox.push(wx);
             togoy.push(wy-1);
             migon[wx][wy-1]=1;
             ans[wx][wy-1]=ans[wx][wy]+1;
         } 
-        if(wy+1<M&&migon[wx][wy+1]==0)//¥k 
+        if(wy+1<M&&migon[wx][wy+1]==0)//å³ 
         {
             togox.push(wx);
             togoy.push(wy+1);
@@ -66,6 +66,6 @@ int main() {
             ans[wx][wy+1]=ans[wx][wy]+1;
         }
     }
-    cout<<"-1\n";//µLªk¨ì¹F²×ÂI 
+    cout<<"-1\n";//ç„¡æ³•åˆ°é”çµ‚é» 
     return 0;
 }

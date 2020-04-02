@@ -1,15 +1,15 @@
 #include<iostream>
 using namespace std;
 
-//¦³ÂIÂ²³æ¡A¨S¤°»ò¦nµù¸Ñªº 
+//æœ‰é»žç°¡å–®ï¼Œæ²’ä»€éº¼å¥½è¨»è§£çš„ 
 
 typedef unsigned long long ull;
 
 const int mxN=300010;
 int N;
-int F[2][mxN],O[2][mxN];//¤Á±Æ,Origin
-bool fg=0,flg,Ofg=0,Oflg;//ºu°Ê 
-ull K;//ª`·N½d³ò 
+int F[2][mxN],O[2][mxN];//åˆ‡æŽ’,Origin
+bool fg=0,flg,Ofg=0,Oflg;//æ»¾å‹• 
+ull K;//æ³¨æ„ç¯„åœ 
 
 void FtimesF()
 {
@@ -42,7 +42,7 @@ int main()
 		cin>>F[fg][i];
 	cin>>K;
 	
-	while(K)//§Ö³t¾­ 
+	while(K)//å¿«é€Ÿå†ª 
 	{
 		if(K%2)
 			OtimesF();
@@ -50,7 +50,7 @@ int main()
 		K/=2;
 	}
 	
-	//¿é¥X 
+	//è¼¸å‡º 
 	for(int i=1;i<N;i++)
 		cout<<O[Ofg][i]<<' ';
 	cout<<O[Ofg][N]<<'\n';

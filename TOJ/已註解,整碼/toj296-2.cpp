@@ -3,20 +3,20 @@ using namespace std;
 
 #define TenMillion 10000000
 
-//¬ö¿ı1~¤d¸U¬O§_¬°½è¼Æ¡A¤Î¸Ó½è¼Æ¦ì¸m 
+//ç´€éŒ„1~åƒè¬æ˜¯å¦ç‚ºè³ªæ•¸ï¼ŒåŠè©²è³ªæ•¸ä½ç½® 
 int prime[TenMillion+1]={0,0},m=1;
 
-void Eratosthenes()//®J¦¡¿zªk 
+void Eratosthenes()//åŸƒå¼ç¯©æ³• 
 {
-	for(int h=2;h<=TenMillion;h++)//2¥H¤W¥ş³¡¹w³]¬°½è¼Æ 
+	for(int h=2;h<=TenMillion;h++)//2ä»¥ä¸Šå…¨éƒ¨é è¨­ç‚ºè³ªæ•¸ 
     	prime[h]=1;
 
     for(int i=2;i<=TenMillion;i++)
     {
-        if(prime[i])//±N©Ò¦³½è¼Æªº­¿¼Æ§@¬°«D½è¼Æ 
+        if(prime[i])//å°‡æ‰€æœ‰è³ªæ•¸çš„å€æ•¸ä½œç‚ºéè³ªæ•¸ 
         {
-        	prime[i]=m;//¬O½è¼Æªº¸Ü¡A°O¿ı¤U¨Ó¬O²Ä´X­Ó½è¼Æ 
-        	m++;//½è¼Æ¼Æ¶q¼W¥[ 
+        	prime[i]=m;//æ˜¯è³ªæ•¸çš„è©±ï¼Œè¨˜éŒ„ä¸‹ä¾†æ˜¯ç¬¬å¹¾å€‹è³ªæ•¸ 
+        	m++;//è³ªæ•¸æ•¸é‡å¢åŠ  
             for(int j=i,k=2;j*k<=TenMillion;k++)
             {
             	if(prime[j*k])
@@ -37,7 +37,7 @@ int main() {
     while(cin>>T)
     {
 		if(!prime[T])
-			cout<<"NO"<<endl;//¦pªG§ä¤£¨ìT­È¡A«h¿é¥XNO
+			cout<<"NO"<<endl;//å¦‚æœæ‰¾ä¸åˆ°Tå€¼ï¼Œå‰‡è¼¸å‡ºNO
 		else
 			cout<<prime[T]<<endl;
     }

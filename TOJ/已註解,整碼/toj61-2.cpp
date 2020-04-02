@@ -16,26 +16,26 @@ int main()
 		memset(ans,0,sizeof(ans));
 		for(int i=0;i<N;i++)
 		{
-			ans[i][i]=1;//ans¶¶«Kªì©l¤Æ¬°°ò¥»¤¸¯À 
+			ans[i][i]=1;//ansé †ä¾¿åˆå§‹åŒ–ç‚ºåŸºæœ¬å…ƒç´  
 			for(int j=0;j<N;j++)
 				cin>>a[i][j];
 		}
 		
-		//¯x°}§Ö³t¾­ 
+		//çŸ©é™£å¿«é€Ÿå†ª 
 		while(K)
 		{
 			if(K%2)
 			{
-				//ªì©l¤Æ 
+				//åˆå§‹åŒ– 
 				memset(temp,0,sizeof(temp));
 				
-				//¯x°}¬Û­¼¡A¬Û­¼µ²ªG©ñ¨ìtemp 
+				//çŸ©é™£ç›¸ä¹˜ï¼Œç›¸ä¹˜çµæœæ”¾åˆ°temp 
 				for(int i=0;i<N;i++)
 					for(int j=0;j<N;j++)
 						for(int k=0;k<N;k++)
 							temp[i][j]+=a[i][k]*ans[k][j];
 							
-				//§âtemp©ñ¨ìans¡A¦pªG¦³¶W¹Lmod­È´N¼Ò 
+				//æŠŠtempæ”¾åˆ°ansï¼Œå¦‚æœæœ‰è¶…émodå€¼å°±æ¨¡ 
 				for(int i=0;i<N;i++)
 					for(int j=0;j<N;j++)
 						ans[i][j]=(temp[i][j]>=mod?temp[i][j]%mod:temp[i][j]);

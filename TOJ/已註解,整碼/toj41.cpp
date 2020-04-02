@@ -7,22 +7,22 @@ using namespace std;
 
 struct link
 {
-	//i¨ìjªº¦¨¥»¬°w 
+	//iåˆ°jçš„æˆæœ¬ç‚ºw 
 	int a,b,W;
 }Link[maxM];
 
-//¨Ì·Ó¦¨¥»¥Ñ¤p±Æ¨ì¤j 
+//ä¾ç…§æˆæœ¬ç”±å°æ’åˆ°å¤§ 
 bool cmp(link x,link y){return x.W<y.W;}
 
-int division[maxk];//¨C­ÓÂIªº¤À²Õ 
+int division[maxk];//æ¯å€‹é»çš„åˆ†çµ„ 
 
-//ªì©l¤Æ¡A¨C­ÓÂI¦Û¤v¤@²Õ 
+//åˆå§‹åŒ–ï¼Œæ¯å€‹é»è‡ªå·±ä¸€çµ„ 
 inline void Init(int k){for(int i=0;i<k;i++)division[i]=i;} 
-//´M§äaªº²Õ§O 
+//å°‹æ‰¾açš„çµ„åˆ¥ 
 inline int find(int a){return division[a]==a ? a : division[a]=find(division[a]);}
-//±Na,b¨âÂIªº²Õ§O¦X¨Ö¬°b²Õ§O 
+//å°‡a,bå…©é»çš„çµ„åˆ¥åˆä½µç‚ºbçµ„åˆ¥ 
 inline void Union(int a,int b){division[find(a)]=find(b);}
-//§PÂ_¨â­Ó¤Hªº²Õ§O¬O§_¤@¼Ë 
+//åˆ¤æ–·å…©å€‹äººçš„çµ„åˆ¥æ˜¯å¦ä¸€æ¨£ 
 inline bool same(int a,int b){return find(a)==find(b);}
 
 int main()
@@ -41,11 +41,11 @@ int main()
 	sort(Link,Link+R,cmp);
     for(int i=0;i<R;i++)
     {
-    	//¦³Àô®É¤£¬ö¿ı 
+    	//æœ‰ç’°æ™‚ä¸ç´€éŒ„ 
     	if(same(Link[i].a,Link[i].b))continue;
-    	//µLÀô®É¨Ö¤@²Õ 
+    	//ç„¡ç’°æ™‚ä½µä¸€çµ„ 
     	Union(Link[i].a,Link[i].b);
-    	//±N¸ÓÃäÅé¤O¥[¶i¥h 
+    	//å°‡è©²é‚Šé«”åŠ›åŠ é€²å» 
     	ans+=Link[i].W;
     }
     

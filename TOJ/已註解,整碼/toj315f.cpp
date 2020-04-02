@@ -1,4 +1,4 @@
-//¥¢±Ñ 
+//å¤±æ•— 
 
 #include<iostream>
 using namespace std;
@@ -20,14 +20,14 @@ int main(){
             if(B%2==1)
             {
             	/*
-				±Na­¼b(¥»¨Ó·|·¸¦ì) 
-				©î¦¨a*c+a*c+a*c.....T­Ó  +a*d
-				ÅÜ¦¨a*c(modM)*T+a*d
+				å°‡aä¹˜b(æœ¬ä¾†æœƒæº¢ä½) 
+				æ‹†æˆa*c+a*c+a*c.....Tå€‹  +a*d
+				è®Šæˆa*c(modM)*T+a*d
 				
-				c:a*c¤§«ámodM¥i¥H­è¦nÅÜ«Ü¤pªº¼Æ 
+				c:a*cä¹‹å¾ŒmodMå¯ä»¥å‰›å¥½è®Šå¾ˆå°çš„æ•¸ 
 				d:c*T+d=b
 				*/ 
-				//a*c(modM)*TÁÙ¬O·|Ãz±¼ 
+				//a*c(modM)*Té‚„æ˜¯æœƒçˆ†æ‰ 
 				long long c=(M/ans+1),T=(A/c),d=(A-c*T);
             	ans=ans*c%M*T%M+ans*d;
             	ans%=M;

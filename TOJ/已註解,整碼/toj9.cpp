@@ -11,32 +11,32 @@ int main()
     cin>>T;
     for(int Case=1;Case<=T;Case++)
     {
-    	//��J�X���I�A�X�ӳs���A�_�I 
+    	//輸入幾個點，幾個連結，起點 
         cin>>N>>M>>S;
         
         /*
-        //�ܼƥγ~ 
-        High:�U�I����
-		far:�������I��U�I�̪񪺶Z��(DP��X�̧C�I�̪�Z��
-		walk:���I��̧C�I�̪�Z��(�L�k��F�h�S����
-		down:�U�Y���Z��
-		end:�����̧C�I����(���ήy�ЬO�]���i�঳�h�ӳ̧C�I 
-		graph:���V��
-		isgo:BFS�����w�q�L���I�A�קK���^�Y��
-		f1,f2:���O�P�_�����M�U�Y���ण���F 
+        //變數用途 
+        High:各點高度
+		far:紀錄原點到各點最近的距離(DP找出最低點最近距離
+		walk:原點到最低點最近距離(無法到達則沒有值
+		down:下坡車距離
+		end:紀錄最低點高度(不用座標是因為可能有多個最低點 
+		graph:雙向圖
+		isgo:BFS紀錄已通過的點，避免走回頭路
+		f1,f2:分別判斷走路和下坡車能不能到達 
 		*/
-		queue<int> togo;//BFS�Ψ�
+		queue<int> togo;//BFS用到
         int High[N],far[N],walk,down=0,end=2e9;
         bool graph[N][N],isgo[N],f1=0,f2=1;
-        //�M�Ű}�C 
+        //清空陣列 
         memset(graph,0,sizeof(graph));
         memset(isgo,0,sizeof(isgo));
         
-        //��J�C�Ӯy�а��סB���V�� 
+        //輸入每個座標高度、雙向圖 
         for(int i=0;i<N;i++)
         {
             cin>>High[i];
-            //�����̧C�I���� 
+            //紀錄最低點高度 
             if(end>High[i])
             {
                 end=High[i];
@@ -49,46 +49,46 @@ int main()
             graph[x][y]=graph[y][x]=1;
         }
         
-        togo.push(S);//��_�I��J�j�M��C 
-        isgo[S]=1;//��_�I��J�w�����W�� 
-        far[S]=0;//�q�_�I��_�I���Z����0 
-        while(!togo.empty())//����j�M��C�ŪŬ��� 
+        togo.push(S);//把起點放入搜尋佇列 
+        isgo[S]=1;//把起點放入已探索名單 
+        far[S]=0;//從起點到起點的距離為0 
+        while(!togo.empty())//直到搜尋佇列空空為止 
         {
             int t=togo.front();
             togo.pop();
-            //�N�j�M��C���Ĥ@�Ӯ��X�ӡA�}�l�j�M�۾F���I 
+            //將搜尋佇列的第一個拿出來，開始搜尋相鄰的點 
             if(High[t]==end) 
             {
-                //�p�G�X�{�F�Ĥ@�ӥѰ_�I�s��̧C�I�����|
-                //�hf1��1(�����i��F)�A�B�Z�������̧C�I��far 
+                //如果出現了第一個由起點連到最低點的路徑
+                //則f1為1(走路可到達)，且距離為此最低點的far 
                 f1=1;
                 walk=far[t]*6;
                 break;
             }
             for(int i=0;i<N;i++)
             {
-                //��Ҧ��S�����L�åB�۾F���I�A��i�j�M��C
+                //把所有沒有走過並且相鄰的點，丟進搜尋佇列
                 if(graph[t][i]&&!isgo[i])
                 {
                     togo.push(i);
                     isgo[i]=1;
-                    far[i]=far[t]+1;//�����_�I��C���I���̵u�Z�� 
+                    far[i]=far[t]+1;//紀錄起點到每個點的最短距離 
                     
                 }
             }
         }
         
-        //�U�Y���A��while���찪�ר�̧C�I�~����
-        //�z�פW�n��BFS(�p�G�P�ɦ���ӥH�W�̧C�I�A���{���u�|��䤤�@��) 
+        //下坡車，用while直到高度到最低點才停止
+        //理論上要用BFS(如果同時有兩個以上最低點，此程式只會到其中一個) 
         while(High[S]!=end)
         {
             /*
-            min:�����̧C�I����
-            minid:�O���̧C�Iid(�U���q�o�̥X�o)�A��l�Ȭ�-1(�䤣���X�o�I�۳s�B��X�o�I�C���I 
+            min:紀錄最低點高度
+            minid:記錄最低點id(下次從這裡出發)，初始值為-1(找不到跟出發點相連且比出發點低的點 
             */ 
             int min=High[S],minid=-1;
             
-            //���L�C�@���I�A��X��X�o�I�C�̦h�������I�A�O���U�� 
+            //掃過每一個點，找出比出發點低最多的那個點，記錄下來 
             for(int i=0;i<N;i++)
             {
                 if(graph[i][S]&&min>High[i])
@@ -98,21 +98,21 @@ int main()
                 }
             }
             
-            //�p�G�P�X�o�I�۳s���I��������A�h���}�j��A�ðO���U�Y���L�k��F 
+            //如果與出發點相連的點都比較高，則跳開迴圈，並記錄下坡車無法到達 
             if(minid==-1)
             {
                 f2=0;
                 break;
             }
             
-            //�U�����X�o�I���o�����̧C�I 
+            //下次的出發點為這次的最低點 
             S=minid;
-            //�C�U�Y���@���Adown�N�W�[�@�� 
+            //每下坡車一次，down就增加一次 
             down++;
         }
         
         
-        //��X���� 
+        //輸出部分 
         if(f1&&f2)
             cout<<"Case #"<<Case<<": "<<walk-down<<'\n';
         else if(f1)

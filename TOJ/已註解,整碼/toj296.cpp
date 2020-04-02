@@ -3,22 +3,22 @@ using namespace std;
 
 #define TenMillion 10000000
 
-//¬ö¿ı1~¤d¸U¬O§_¬°½è¼Æ 
+//ç´€éŒ„1~åƒè¬æ˜¯å¦ç‚ºè³ªæ•¸ 
 bool prime[TenMillion+1]={0,0};
-//m¬ö¿ı¦@¦³¦h¤Ö­Ó½è¼Æ¡APRIME·Ó¶¶§Ç±Mªù¦s©ñ½è¼Æ
+//mç´€éŒ„å…±æœ‰å¤šå°‘å€‹è³ªæ•¸ï¼ŒPRIMEç…§é †åºå°ˆé–€å­˜æ”¾è³ªæ•¸
 int PRIME[700000],m=0;
 
-void Eratosthenes()//®J¦¡¿zªk 
+void Eratosthenes()//åŸƒå¼ç¯©æ³• 
 {
-	for(int h=2;h<=TenMillion;h++)//2¥H¤W¥ş³¡¹w³]¬°½è¼Æ 
+	for(int h=2;h<=TenMillion;h++)//2ä»¥ä¸Šå…¨éƒ¨é è¨­ç‚ºè³ªæ•¸ 
     	prime[h]=1;
 
     for(int i=2;i<=TenMillion;i++)
     {
-        if(prime[i])//±N©Ò¦³½è¼Æªº­¿¼Æ§@¬°«D½è¼Æ 
+        if(prime[i])//å°‡æ‰€æœ‰è³ªæ•¸çš„å€æ•¸ä½œç‚ºéè³ªæ•¸ 
         {
-        	PRIME[m]=i;//¬O½è¼Æªº¸Ü¡A°O¿ı¤U¨Ó 
-        	m++;//½è¼Æ¼Æ¶q¼W¥[ 
+        	PRIME[m]=i;//æ˜¯è³ªæ•¸çš„è©±ï¼Œè¨˜éŒ„ä¸‹ä¾† 
+        	m++;//è³ªæ•¸æ•¸é‡å¢åŠ  
             for(int j=i,k=2;j*k<=TenMillion;k++)
             {
             	if(prime[j*k])
@@ -39,8 +39,8 @@ int main() {
     while(cin>>T)
     {
         /*
-        //¥Î¤G¤À·j´MªkÁ×§KTLE
-		//©Î¥Îlowerbound¤]¥i¥H¡A³t«×®t¤£¦h 
+        //ç”¨äºŒåˆ†æœå°‹æ³•é¿å…TLE
+		//æˆ–ç”¨lowerboundä¹Ÿå¯ä»¥ï¼Œé€Ÿåº¦å·®ä¸å¤š 
 		bool flag=1;
         int min=0,max=m;
         while(max>=min)                 
@@ -59,7 +59,7 @@ int main() {
         if(flag)cout<<"NO"<<endl;
 		*/
 		if(*lower_bound(PRIME,PRIME+m,T)!=T)
-			cout<<"NO"<<endl;//¦pªG§ä¤£¨ìT­È¡A«h¿é¥XNO
+			cout<<"NO"<<endl;//å¦‚æœæ‰¾ä¸åˆ°Tå€¼ï¼Œå‰‡è¼¸å‡ºNO
 		else
 			cout<<lower_bound(PRIME,PRIME+m,T)-PRIME+1<<endl;
     }

@@ -3,21 +3,21 @@
 using namespace std;
 
 /*
-b1¥k¤è¡Ab2¥ª¤è¡Ab3¤W¤è¡Ab4¤U¤è 
+b1å³æ–¹ï¼Œb2å·¦æ–¹ï¼Œb3ä¸Šæ–¹ï¼Œb4ä¸‹æ–¹ 
 */ 
 #define b1 (sx>x1&&sx>x2)
 #define b2 (sx<x1&&sx<x2)
 #define b3 (sy>y1&&sy>y2)
 #define b4 (sy<y1&&sy<y2)
 
-int Abs(int x)//µ´¹ï­È 
+int Abs(int x)//çµ•å°å€¼ 
 {
     if(x<0)return -x;
     return x;
 }
 int main()
 {
-	//¨ú¤p¼Æ¤@¦ì 
+	//å–å°æ•¸ä¸€ä½ 
     cout<<fixed<<setprecision(1);
     
     float x1,x2,y1,y2,sx,sy;
@@ -25,12 +25,12 @@ int main()
     float x=Abs(x1-x2),y=Abs(y1-y2),
     hx=max(x1,x2),hy=max(y1,y2),
     lx=min(x1,x2),ly=min(y1,y2);
-    //x,yÃäªø,higher x,y©M lower x,y
+    //x,yé‚Šé•·,higher x,yå’Œ lower x,y
     
-    //¤EºØª¬ªp 
+    //ä¹ç¨®ç‹€æ³ 
     if(b3) 
     {
-        //S¦b¤W¥ª¤è 
+        //Såœ¨ä¸Šå·¦æ–¹ 
         if(b2)
             cout<<x*y+((sy-hy)*x+(lx-sx)*y)/2<<endl;
         else if(b1)

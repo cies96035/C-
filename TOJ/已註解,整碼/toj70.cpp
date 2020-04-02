@@ -3,15 +3,15 @@
 using namespace std;
 
 int main() {
-	cout<<fixed<<setprecision(2);//计翴 
+	cout<<fixed<<setprecision(2);
     long double R1,I1,R2,I2;
     char Oper;
     cin>>R1>>I1>>Oper>>R2>>I2;
     if(Oper=='+')
     {
-        cout<<R1+R2;//龟计 
-        if(I1-I2>=0)cout<<'+';//タ计干+ 
-        cout<<I1+I2<<'i'<<endl;//店计 
+        cout<<R1+R2;
+        if(I1-I2>=0)cout<<'+';
+        cout<<I1+I2<<'i'<<endl;
 	} 
     else if(Oper=='-')
     {

@@ -2,10 +2,10 @@
 #include<queue>
 using namespace std;
 
-//§PÂ_x,y¦³¨S¦³¶W¹L¤j¤pm,nªº°}¦C 
+//åˆ¤æ–·x,yæœ‰æ²’æœ‰è¶…éå¤§å°m,nçš„é™£åˆ— 
 #define isnt_out_of_range(x,y,m,n) (0<x&&x<=m&&0<y&&y<=n)
 
-//Àx¦s¦ì¸mªºstruct 
+//å„²å­˜ä½ç½®çš„struct 
 struct Point
 {
 	int x,y;
@@ -24,21 +24,21 @@ int main()
 	int N,M,F,X,Y;
 	cin>>N>>M>>me.x>>me.y>>door.x>>door.y>>F;
 	
-	//¬ö¿ı¨º¨Ç®æ¤l¤£¯à«e©¹ # 1~N,1~M 
+	//ç´€éŒ„é‚£äº›æ ¼å­ä¸èƒ½å‰å¾€ # 1~N,1~M 
 	bool cant_go[N+1][M+1]={0};
 	
-	//¬ö¿ıµÛ¤õÂI¡A¼Ğ¥Ü¸Ó®æ¤£¯à¨«
+	//ç´€éŒ„è‘—ç«é»ï¼Œæ¨™ç¤ºè©²æ ¼ä¸èƒ½èµ°
 	while(F--)
 	{
 		cin>>X>>Y;
 		cant_go[X][Y]=1;
 	}
 	
-	//¤W¥k¤U¥ª 
+	//ä¸Šå³ä¸‹å·¦ 
 	Point move[4]={{0,1},{1,0},{0,-1},{-1,0}};
 	queue<Point> BFS;
-	BFS.push(me);//«e©¹°_ÂI 
-	cant_go[me.x][me.y]=1;//°_ÂI¼Ğ¥Ü¨«¹L¡A§O¦A©¹¦^¨«Á×§KµL­­°j°é
+	BFS.push(me);//å‰å¾€èµ·é» 
+	cant_go[me.x][me.y]=1;//èµ·é»æ¨™ç¤ºèµ°éï¼Œåˆ¥å†å¾€å›èµ°é¿å…ç„¡é™è¿´åœˆ
 	
 	while(!BFS.empty()) 
 	{
@@ -53,11 +53,11 @@ int main()
 		{
 			X=togo.x+move[i].x;
 			Y=togo.y+move[i].y;
-			//¦pªG«e©¹½d³ò¨S¦³¶W¥XÃä¬É¡A¥Bcantgo¨S¦³¼Ğ°O 
+			//å¦‚æœå‰å¾€ç¯„åœæ²’æœ‰è¶…å‡ºé‚Šç•Œï¼Œä¸”cantgoæ²’æœ‰æ¨™è¨˜ 
 			if(isnt_out_of_range(X,Y,N,M)&&!cant_go[X][Y])
 			{
 				BFS.emplace(X,Y);
-				cant_go[X][Y]=1;//¼Ğ°O¨«¹L¡AÁ×§KµL­­°j°é 
+				cant_go[X][Y]=1;//æ¨™è¨˜èµ°éï¼Œé¿å…ç„¡é™è¿´åœˆ 
 			}
 		}
 	}

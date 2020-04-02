@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-//§PÂ_¬O¤£¬O­^¤å¦r¥À 
+//åˆ¤æ–·æ˜¯ä¸æ˜¯è‹±æ–‡å­—æ¯ 
 bool isletter(char achartojudge)
 {
 	return (achartojudge>='A'&&achartojudge<='Z')||(achartojudge>='a'&&achartojudge<='z');
@@ -9,39 +9,39 @@ bool isletter(char achartojudge)
 
 int main()
 {
-    string Spell,ToJudge;//Àx¦s©G¤å¤Î§PÂ_¥Îªº¦r¦ê 
+    string Spell,ToJudge;//å„²å­˜å’’æ–‡åŠåˆ¤æ–·ç”¨çš„å­—ä¸² 
     while(getline(cin,Spell))
     {    
         long long Ssize=Spell.size();
         
-        //±N©G¤å»s§@¦¨§PÂ_¥Îªº(¥u¨ú­^¤å+¤p¼g,¥H§Q§PÂ_ 
+        //å°‡å’’æ–‡è£½ä½œæˆåˆ¤æ–·ç”¨çš„(åªå–è‹±æ–‡+å°å¯«,ä»¥åˆ©åˆ¤æ–· 
         for(int i=0;i<Ssize;i++)
         {
-            //§PÂ_¬O§_¬°­^¤å(¥u¨ú­^¤å)
+            //åˆ¤æ–·æ˜¯å¦ç‚ºè‹±æ–‡(åªå–è‹±æ–‡)
             if(isletter(Spell[i]))
             {
-            	//¬O­^¤åªº¸Ü¥u¨ú¤p¼g 
+            	//æ˜¯è‹±æ–‡çš„è©±åªå–å°å¯« 
                 ToJudge+=(char)tolower(Spell[i]);
             }
         }
         
 		bool notpalindrome=0;
-        for(long long a=0,TJsize=ToJudge.size()-1;a<TJsize;TJsize--,a++)//§PÂ_¬O§_¬°¦^¤å,¦A¨Ì·Ó§PÂ_µ²ªG¿é¥X 
+        for(long long a=0,TJsize=ToJudge.size()-1;a<TJsize;TJsize--,a++)//åˆ¤æ–·æ˜¯å¦ç‚ºå›žæ–‡,å†ä¾ç…§åˆ¤æ–·çµæžœè¼¸å‡º 
         {
             if(ToJudge[TJsize]!=ToJudge[a])
             {
-                //¦pªG¥X²{ÀY§À¤£¤@¼Ëªºª¬ªp
-                //¸õ²æ°j°é¡A¨Ã¥B¼Ð°Oout
+                //å¦‚æžœå‡ºç¾é ­å°¾ä¸ä¸€æ¨£çš„ç‹€æ³
+                //è·³è„«è¿´åœˆï¼Œä¸¦ä¸”æ¨™è¨˜out
                 notpalindrome=1;
                 break;
             }
         }
         
-        //¦pªGout¦³¼Ð°O¨ì¡A¥Nªí¥X²{ÀY§À¤£¤@¼Ëªºª¬ªp 
-        //¤Ï¤§¡A¥Nªí°j°éÀË¬ToJudge«á³£¤@¼Ë¡A§PÂ_µ²ªG¿é¥X 
+        //å¦‚æžœoutæœ‰æ¨™è¨˜åˆ°ï¼Œä»£è¡¨å‡ºç¾é ­å°¾ä¸ä¸€æ¨£çš„ç‹€æ³ 
+        //åä¹‹ï¼Œä»£è¡¨è¿´åœˆæª¢æ›·oJudgeå¾Œéƒ½ä¸€æ¨£ï¼Œåˆ¤æ–·çµæžœè¼¸å‡º 
         if(notpalindrome)cout<<Spell<<endl;
         else cout<<"SETUP! "<<Spell<<endl;
-        //­«¸mToJudge 
+        //é‡ç½®ToJudge 
         ToJudge="";
     }
     return 0;

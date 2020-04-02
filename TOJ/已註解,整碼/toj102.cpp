@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
 	cout<<fixed<<setprecision(4);
-	//ÃD¥Ø¨Sµ¹½d³ò,¹ê´ú¨S¥Î¨ìlong double·|WA 
+	//é¡Œç›®æ²’çµ¦ç¯„åœ,å¯¦æ¸¬æ²’ç”¨åˆ°long doubleæœƒWA 
     long double a,b;
     char x;
     cin>>a>>x>>b; 

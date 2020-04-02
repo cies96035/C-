@@ -10,9 +10,9 @@ int main()
     ios_base::sync_with_stdio(0);
     
     /*
-	numÀx¦s¨C­Ó¼Æ¦rªº¥X²{¦¸¼Æ¡A
-	¦]¬°°}¦C¤£¯à¥Î­t¼Æ¡A©Ò¥H©w¸qnum[N]¬°0 
-	min«h¬O+65565,max¬O-65565 
+	å› ç‚ºé™£åˆ—çš„å¼•æ•¸ä¸å¯å°æ–¼é›¶
+	å°‡num[N]è¦–ç‚ºnum[0]
+	num[0]è¦–ç‚ºnum[-N]
 	*/
     int T,t,x,num[2*N+1],min=N*2,max=0;
     memset(num,0,sizeof(num));
@@ -28,9 +28,9 @@ int main()
             if(x+N<min)min=N+x;
         }
         cout<<max-min<<'\n';          
-        num[max]--;
-        num[min]--;
-        //·í³Ì¤j©Î³Ì¤p­È¥Î§¹«á¡A§ä¨ì¤U¤@­Ó³Ì¤j³Ì¤p­È 
+        num[max]--;//ç”¨æ‰ä¸€æ¬¡
+        num[min]--;//ç”¨æ‰ä¸€æ¬¡
+		//æš´åŠ›æ›´æ–°æœ€å¤§åŠæœ€å°å€¼
         while(!num[max])max--; 
         while(!num[min])min++;
     }

@@ -9,9 +9,9 @@ int main()
 	ios_base::sync_with_stdio(0);
 	char k;
 	int sum=0,num=0;
-	//sum¬ö¿ıÁ`©M¡Anum¬ö¿ı¨C­Ó¼Æ¦r 
-	bool foo=0;//°O±o§PÂ_­t¼Æ 
-	//¥Î¦r¤¸§PÂ_¸òª½±µgetline¨ä¹ê³£¥i¥H 
+	//sumç´€éŒ„ç¸½å’Œï¼Œnumç´€éŒ„æ¯å€‹æ•¸å­— 
+	bool foo=0;//è¨˜å¾—åˆ¤æ–·è² æ•¸ 
+	//ç”¨å­—å…ƒåˆ¤æ–·è·Ÿç›´æ¥getlineå…¶å¯¦éƒ½å¯ä»¥ 
 	while(cin.get(k))
 	{
 		if(k=='-')foo=1;

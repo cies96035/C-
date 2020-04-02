@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-//£{£¡ÃD¥Ø 
+//ã„Œã„é¡Œç›® 
 int n=0;
 string M;
 

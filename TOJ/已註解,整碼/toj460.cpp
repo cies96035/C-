@@ -4,13 +4,13 @@ using namespace std;
 const int s=3,N=s*s;//size
 typedef pair<int,int> pii;
 
-pii PL[N],NP;//¬ö¿ı²ÄNÂIªºPlace 
-int  Cp[N],tb[s][s],cnt=0;//Camp°O¿ı¦U½s¸¹ª¬ºA(-1,0,1)¡ATable¬ö¿ıª©­± 
-int m[4][2]={{-1,0},{0,-1},{0,1},{1,0}};//²¾¦Ü¹j¾ÀÂI 
-int NPid;//¬ö¿ı¹j¾ÀÂInextpointªº¦ì¸m¡A¥H¤Î¥Lªº½s¸¹ 
-bool Cpid=0; //°}Àçid 
-string P[N]; //¬ö¿ı¤W¤U¥ª¥k¯à¤O Power 
-string inputmp;//¿é¤J¼È¦s 
+pii PL[N],NP;//ç´€éŒ„ç¬¬Né»çš„Place 
+int  Cp[N],tb[s][s],cnt=0;//Campè¨˜éŒ„å„ç·¨è™Ÿç‹€æ…‹(-1,0,1)ï¼ŒTableç´€éŒ„ç‰ˆé¢ 
+int m[4][2]={{-1,0},{0,-1},{0,1},{1,0}};//ç§»è‡³éš”å£é» 
+int NPid;//ç´€éŒ„éš”å£é»nextpointçš„ä½ç½®ï¼Œä»¥åŠä»–çš„ç·¨è™Ÿ 
+bool Cpid=0; //é™£ç‡Ÿid 
+string P[N]; //ç´€éŒ„ä¸Šä¸‹å·¦å³èƒ½åŠ› Power 
+string inputmp;//è¼¸å…¥æš«å­˜ 
 
 int main()
 {
@@ -29,7 +29,7 @@ int main()
 	for(int i=0;i<N;i++) 
 		cin>>P[i];
 	for(int i=0;i<N;i++)
-		Cp[i]=-1;//ªì©l¤Æ
+		Cp[i]=-1;//åˆå§‹åŒ–
 		
 	for(int i=0;i<N;i++)
 	{
@@ -38,7 +38,7 @@ int main()
 		{
 			NP=pii(PL[i].first+m[j][0],PL[i].second+m[j][1]);
 			NPid=tb[NP.first][NP.second];
-			//¦pªG¦P°}Àç©Î¨S°}Àçor¥X¬É 
+			//å¦‚æœåŒé™£ç‡Ÿæˆ–æ²’é™£ç‡Ÿorå‡ºç•Œ 
 			if(NP.first<0||NP.first==s||NP.second<0||NP.second==s||Cp[NPid]!=!Cpid)
 				continue;
 			if(P[i][j]>=P[NPid][jj])

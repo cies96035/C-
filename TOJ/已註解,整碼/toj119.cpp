@@ -11,20 +11,20 @@ int main()
 	cin>>N;
 	int id[N+1];
 	
-	//¿é¤J 
+	//è¼¸å…¥ 
 	for(int i=1;i<=N;i++)
 		cin>>id[i];
 	cin>>T;
 	while(T--)
 	{
 		cin>>a>>b;
-		if(a-b>8||b-a>8)//ÃD¥Ø±Ô­z¦³ÂI°İÃD¡A¹ê»Ú¤W¬O¹j¶W¹L8­ÓÀÉ®×(¶ZÂ÷¶W¹L9 
+		if(a-b>8||b-a>8)//é¡Œç›®æ•˜è¿°æœ‰é»å•é¡Œï¼Œå¯¦éš›ä¸Šæ˜¯éš”è¶…é8å€‹æª”æ¡ˆ(è·é›¢è¶…é9 
 			quit=1;
 		if(!quit)
 			swap(id[a],id[b]);
 	}
 	
-	//¿é¥X 
+	//è¼¸å‡º 
 	if(quit)
 		cout<<"I QUIT!"<<endl;
 	else

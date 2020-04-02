@@ -3,8 +3,8 @@
 #include<cstring>
 #include<bitset> 
 
-//bitset:Àx¦s1,0¡A.to_ulong()¥i¥HÂà´«¦¨ull; 
-//¼É¤O¸Õ¬İ¬İ 
+//bitset:å„²å­˜1,0ï¼Œ.to_ulong()å¯ä»¥è½‰æ›æˆull; 
+//æš´åŠ›è©¦çœ‹çœ‹ 
 using namespace std;
 
 typedef unsigned long long ull;
@@ -12,7 +12,7 @@ typedef unsigned long long ull;
 int T,N,L,MinAns;
 ull two_pow[63]={1};//return pow(2,i);
 
-void two_pow_Init()//«Øªí 
+void two_pow_Init()//å»ºè¡¨ 
 {
     for(int i=0;i<62;i++)
         two_pow[i+1]=two_pow[i]*2;
@@ -29,9 +29,9 @@ void c(ull x[],ull device[],int i,int a)
     ull plug[N];
     memcpy(plug,x,sizeof(plug));
     
-    int pos=L-i-1;//²{¦bªº¦ì¸m 
+    int pos=L-i-1;//ç¾åœ¨çš„ä½ç½® 
     
-    //¦pªG¨ì³Ì«á¤@­Ó¦ì¤¸¡A¦AÀË¬d¤@¦¸¡A¦pªGÁÙ¬O¤@¼Ë¡A§ó·sµª®× 
+    //å¦‚æœåˆ°æœ€å¾Œä¸€å€‹ä½å…ƒï¼Œå†æª¢æŸ¥ä¸€æ¬¡ï¼Œå¦‚æœé‚„æ˜¯ä¸€æ¨£ï¼Œæ›´æ–°ç­”æ¡ˆ 
     if(i==L)
     {
         for(int j=0;j<N;j++)
@@ -40,7 +40,7 @@ void c(ull x[],ull device[],int i,int a)
         return;
     }
     
-    //²{¦b¦ì¸mªºplug§t0/1¡A¥H¤Îdevice§t0ªº¼Æ¶q 
+    //ç¾åœ¨ä½ç½®çš„plugå«0/1ï¼Œä»¥åŠdeviceå«0çš„æ•¸é‡ 
     int p_zero=0,d_zero=0,p_one;
     for(int j=0;j<N;j++)
     {
@@ -49,8 +49,8 @@ void c(ull x[],ull device[],int i,int a)
     }
     p_one=N-p_zero;
     
-    //¦pªGdevice¹sªº¼Æ¶qµ¥¦Pplug¹sªº¼Æ¶q->ÀË¬d¦¹¦ì¤¸¥H«eªº¦ì¸m¬O§_³£¬Ûµ¥
-	//¬O->¶i¤J¤U¤@­Ó¦ì¤¸¡A¤£¶i¦æ¤ÏÂà°Ê§@ 
+    //å¦‚æœdeviceé›¶çš„æ•¸é‡ç­‰åŒplugé›¶çš„æ•¸é‡->æª¢æŸ¥æ­¤ä½å…ƒä»¥å‰çš„ä½ç½®æ˜¯å¦éƒ½ç›¸ç­‰
+    //æ˜¯->é€²å…¥ä¸‹ä¸€å€‹ä½å…ƒï¼Œä¸é€²è¡Œåè½‰å‹•ä½œ 
     if(d_zero==p_zero)
     {
         int j=-1;
@@ -60,15 +60,15 @@ void c(ull x[],ull device[],int i,int a)
             c(plug,device,i+1,a);
     }
     
-    //¦pªGdevice¹sªº¼Æ¶qµ¥¦Pplug¤@ªº¼Æ¶q->¶i¦æ¤ÏÂà«á¦AÀË¬d¦¹¦ì¤¸«eªº¦ì¸m¬O§_³£¬Ûµ¥
-	//¦pªG¬Ûµ¥¡A«h¤ÏÂà°Ê§@¥[¤@ ¡A¶i¤J¤U¤@­Ó¦ì¤¸ 
+    //å¦‚æœdeviceé›¶çš„æ•¸é‡ç­‰åŒplugä¸€çš„æ•¸é‡->é€²è¡Œåè½‰å¾Œå†æª¢æŸ¥æ­¤ä½å…ƒå‰çš„ä½ç½®æ˜¯å¦éƒ½ç›¸ç­‰
+    //å¦‚æœç›¸ç­‰ï¼Œå‰‡åè½‰å‹•ä½œåŠ ä¸€ ï¼Œé€²å…¥ä¸‹ä¸€å€‹ä½å…ƒ 
     if(d_zero==p_one)
     {
-    	//1.¤ÏÂà 
+        //1.åè½‰ 
         for(int j=0;j<N;j++)((plug[j]/two_pow[pos])%2==0 ? plug[j]+=two_pow[pos] : plug[j]-=two_pow[pos] );
-        //2.±Æ§Ç 
-		sort(plug,plug+N);
-		//3.ÀË¬d 
+        //2.æ’åº 
+        sort(plug,plug+N);
+        //3.æª¢æŸ¥ 
         for(int j=0;j<N;j++)
             if(cmp(plug[j],device[j],pos))return;
         c(plug,device,i+1,a+1);
@@ -87,7 +87,7 @@ int main()
     
     for(int Case=0;Case<T;)
     {
-        MinAns=100;//¬ö¿ı³Ì¤p­È¡A¦pªG¥¼³Q§ó·s->Impossible 
+        MinAns=100;//ç´€éŒ„æœ€å°å€¼ï¼Œå¦‚æœæœªè¢«æ›´æ–°->Impossible 
         cin>>N>>L;
         bitset<64> input;
         ull plug[N],device[N];
@@ -104,7 +104,7 @@ int main()
             device[i]=input.to_ulong();
         }
         
-		//±Æ§Ç¥H§QÀË¬d 
+        //æ’åºä»¥åˆ©æª¢æŸ¥ 
         sort(plug,plug+N);
         sort(device,device+N);
         c(plug,device,0,0);

@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-	//¨ÌÃD¥Ø»Ý¨D§PÂ_... 
+	//ä¾é¡Œç›®éœ€æ±‚åˆ¤æ–·... 
 	int a,b;
 	cin>>a>>b;
 	if(a==1&&b>=8||a==2&&b>=9||a==3&&b>=10)

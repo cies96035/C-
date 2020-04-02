@@ -5,11 +5,11 @@ int main() {
     
     int N;
     cin>>N;
-    for(int i=1;i<=N;i++)//°õ¦æ´X±Æ(°ª«×) 
+    for(int i=1;i<=N;i++)//åŸ·è¡Œå¹¾æŽ’(é«˜åº¦) 
     {
-    	for(int j=i;j<N;j++)//¸ÉªÅ®æ¡A²Än±Æ¸ÉN-n­ÓªÅ®æ 
+    	for(int j=i;j<N;j++)//è£œç©ºæ ¼ï¼Œç¬¬næŽ’è£œN-nå€‹ç©ºæ ¼ 
 			cout<<' ';
-		for(int j=0;j<2*i-1;j++)//²Än±Æ¿é¥X2n-1Áû¬P¬P 
+		for(int j=0;j<2*i-1;j++)//ç¬¬næŽ’è¼¸å‡º2n-1é¡†æ˜Ÿæ˜Ÿ 
 			cout<<'*';
 		cout<<endl;
     }

@@ -3,6 +3,6 @@ using namespace std;
 int main(){
     unsigned long long K,N;
     cin>>K>>N;
-    //cout<<K*N-1<<endl;//·|¦³·¸¦ì°İÃD¡A¦³¾÷²vWA
-	cout<<K*(N-1)-1+K<<endl;//¥¿¸Ñ 
+    //cout<<K*N-1<<endl;//æœƒæœ‰æº¢ä½å•é¡Œï¼Œæœ‰æ©Ÿç‡WA
+	cout<<K*(N-1)-1+K<<endl;//æ­£è§£ 
 }

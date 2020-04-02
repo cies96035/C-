@@ -1,19 +1,19 @@
 #include<iostream>
 using namespace std;
 
-//¿é¥X¸Ó¦æA...A¡A¨Ã²¾¦ì 
+//è¼¸å‡ºè©²è¡ŒA...Aï¼Œä¸¦ç§»ä½ 
 void out(int N,int shift)
 {
 	while(shift--)cout<<' ';
-    //¹w³]­n¿é¥XN*2+1­Ó­È 
+    //é è¨­è¦è¼¸å‡ºN*2+1å€‹å€¼ 
     int n=0;
-    //±qA¿é¥X¨ìA+n(³æ¦æ¥ª¥b³¡)(¦@N­Ó­È) 
+    //å¾Aè¼¸å‡ºåˆ°A+n(å–®è¡Œå·¦åŠéƒ¨)(å…±Nå€‹å€¼) 
     while(n<N)
     {
         cout<<(char)('A'+n);
         n++;
     }
-    //±qA+n¿é¥X¨ìA(³æ¦æ¥k¥b³¡)(¦@N+1­Ó­È) 
+    //å¾A+nè¼¸å‡ºåˆ°A(å–®è¡Œå³åŠéƒ¨)(å…±N+1å€‹å€¼) 
     while(n>=0)
     {
         cout<<(char)('A'+n);
@@ -30,11 +30,11 @@ int main()
     int N;
     while(cin>>N)
     {
-        for(int n=0,shift=N-1;n<N;n++,shift--)//¤W¥b³¡ (¥]§t¤¤¶¡ (¦@N¦æ 
+        for(int n=0,shift=N-1;n<N;n++,shift--)//ä¸ŠåŠéƒ¨ (åŒ…å«ä¸­é–“ (å…±Nè¡Œ 
         {
             out(n,shift);
         }
-        for(int n=N-1,shift=1;n>0;n--,shift++)//¤U¥b³¡ (¦@N-1¦æ 
+        for(int n=N-1,shift=1;n>0;n--,shift++)//ä¸‹åŠéƒ¨ (å…±N-1è¡Œ 
         {
             out(n-1,shift);
         }

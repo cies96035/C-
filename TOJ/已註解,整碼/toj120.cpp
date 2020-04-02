@@ -6,10 +6,10 @@ int main()
 	cin.tie(0);
 	ios_base::sync_with_stdio(0);
 	
-	//«eºó©MÆ[©Àµy·L¦³´N¤£·|TLE
+	//å‰ç¶´å’Œè§€å¿µç¨å¾®æœ‰å°±ä¸æœƒTLE
 	int N,num,Q;
 	cin>>N;
-	long long Snum[N+1]={0};//Àx¦sa0~anªºÁ`©M(ÃD¥Ø¼Æ¦rµy¤j­n¶}long long 
+	long long Snum[N+1]={0};//å„²å­˜a0~ançš„ç¸½å’Œ(é¡Œç›®æ•¸å­—ç¨å¤§è¦é–‹long long 
 	
 	for(int i=1;i<=N;i++)
 	{
@@ -17,13 +17,13 @@ int main()
 		Snum[i]=Snum[i-1]+num;
 	}
 	
-	//¿é¥X 
+	//è¼¸å‡º 
 	cin>>Q;
 	while(Q--)
 	{
 		int a,b;
 		cin>>a>>b;
-		if(a>b)swap(a,b);//¨Da,b°Ï¶¡©M¡A¨Ã¨S»¡a¥²¤p©ób
+		if(a>b)swap(a,b);//æ±‚a,bå€é–“å’Œï¼Œä¸¦æ²’èªªaå¿…å°æ–¼b
 		cout<<Snum[b]-Snum[a-1]<<endl;
 	}
 	return 0;

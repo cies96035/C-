@@ -4,7 +4,7 @@ using namespace std;
 const int maxN=510;
 int A[maxN],B[maxN];
 int N,cnt,inp;
-bool op;//¬ö¿ýª¬ºA 
+bool op;//ç´€éŒ„ç‹€æ…‹ 
 
 int main()
 {
@@ -13,7 +13,7 @@ int main()
 	
 	while(cin>>N)
 	{
-		cnt=0;//­p¼Æ 
+		cnt=0;//è¨ˆæ•¸ 
 		for(int i=0;i<N;i++)
 		{
 			cin>>inp;
@@ -25,22 +25,22 @@ int main()
 		op=1;
 		for(int i=0;i<N;i++)
 		{
-			if(op)//ª½ªºª¬ºA 
+			if(op)//ç›´çš„ç‹€æ…‹ 
 			{
-				if(i>B[A[i]])//Â½Âà 
+				if(i>B[A[i]])//ç¿»è½‰ 
 				{
 					op=!op;
 					cnt++;
 				}
 			}
-			//¾îªºª¬ºA 
-			else if(i<B[A[i]])//Â½Âà 
+			//æ©«çš„ç‹€æ…‹ 
+			else if(i<B[A[i]])//ç¿»è½‰ 
 			{
 				op=!op;
 				cnt++;
 			}
 		}
-		cout<<cnt<<'\n';//¿é¥XÂ½Âà¦¸¼Æ 
+		cout<<cnt<<'\n';//è¼¸å‡ºç¿»è½‰æ¬¡æ•¸ 
 	}
 	return 0;
 }

@@ -1,6 +1,6 @@
 /*
-code1,╓C╜с╓К╚e╪g╙╨║A╕Ё╟В╤ц 
-╕э╓ж╣╧╖з╕n╕nаY╠ф╙Э 
+code1,Д╦┐Е─▀Ф°┬Е┴█Е╞╚Г └О╪▄Ф°┴Е╓═Д╨┌ 
+Х┤ЁЕ╟▒Г╣╕Ф┬▒Е╔╫Е╔╫Г╦╝Ф▌▓И≤© 
 #include<iostream>
 #include<cstring>
 #include<cmath>
@@ -43,7 +43,7 @@ int main()
 	
     char a;
     unsigned long long sum=1,num=0;
-    bool f=0;//ав╖K╕h╙е╝Ф║Asum╜╚╫ф╜╪╙╨╙╛╙p 
+    bool f=0;//И│©Е┘█Е╓ Г╘╨Ф═╪О╪▄sumИ┤█Х╓┤Д╧≤Г └Г▀─ФЁ│ 
     while(cin.get(a))
     {
         if(a=='%')

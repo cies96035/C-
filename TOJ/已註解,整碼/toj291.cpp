@@ -3,9 +3,9 @@ using namespace std;
 int main()
 {
     string a;
-    char states='A';//ªì©lª¬ºA¬°A
+    char states='A';//åˆå§‹ç‹€æ…‹ç‚ºA
     cin>>a;
-    //³Ì¦h°õ¦æ10000¦¸´N°±¾÷,ªì©l¦ì¸m¬°0
+    //æœ€å¤šåŸ·è¡Œ10000æ¬¡å°±åœæ©Ÿ,åˆå§‹ä½ç½®ç‚º0
     for(int h=0,place=0;h<10000;h++)
     {
         if(states=='A')
@@ -79,6 +79,6 @@ int main()
             }
         }
     }
-    cout<<a<<endl;//°±¾÷®É¿é¥X
+    cout<<a<<endl;//åœæ©Ÿæ™‚è¼¸å‡º
     return 0;
 }

@@ -17,15 +17,15 @@ int main()
         cin>>h;
         h-=3;
         
-        for(int i=0,shift=h+2;i<h;i++,shift--)//¤W¤è³¡¤À 
+        for(int i=0,shift=h+2;i<h;i++,shift--)//ä¸Šæ–¹éƒ¨åˆ† 
             coutline(i,shift);
         
-        //¤¤¶¡³¡¤À
+        //ä¸­é–“éƒ¨åˆ†
 		coutline(h+2,0);
 		coutline(h+1,1);
 		coutline(h+2,0);
         
-        for(int i=h-1,shift=3;i>=0;i--,shift++)//¤U¤è³¡¤À 
+        for(int i=h-1,shift=3;i>=0;i--,shift++)//ä¸‹æ–¹éƒ¨åˆ† 
             coutline(i,shift);
     }
     return 0;

@@ -11,10 +11,10 @@ struct Node
 } node[40000000];
 long long X[10000000];
 
-//«Ø¾ð 
+//å»ºæ¨¹ 
 void build(int root,int L,int R)
 {
-	if(L==R)//«Ø¨ì³Ì©³¼h 
+	if(L==R)//å»ºåˆ°æœ€åº•å±¤ 
 	{
 		node[root].max=X[L];
 	}
@@ -29,9 +29,9 @@ void build(int root,int L,int R)
 int sL,sR;
 long long search(int root,int L,int R)
 {
-	//¨S¦³¥æ¶° 
+	//æ²’æœ‰äº¤é›† 
 	if(sL>R||sR<L)return -2e18;
-	//§¹¥þ¥]§t 
+	//å®Œå…¨åŒ…å« 
 	if(sL<=L&&sR>=R)return node[root].max;
 	return max(search(LC,L,M),search(RC,M+1,R));
 }
@@ -48,7 +48,7 @@ int main()
 	while(Q--)
 	{
 		cin>>sL>>sR;
-		if(sL>sR)swap(sL,sR);//¤Ö³o¦æ®`§Ú¾÷ÙT¤Ö¤F16¤À 
+		if(sL>sR)swap(sL,sR);//å°‘é€™è¡Œå®³æˆ‘æ©ŸæŽ°å°‘äº†16åˆ† 
 		sL--;
 		sR--;
 		cout<<search(1,0,N-1)<<'\n';

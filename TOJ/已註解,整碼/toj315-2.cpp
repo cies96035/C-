@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-//±N§Ö³t¾­¦h­Ó­¼ªk¥[³tªº­ì²z®M¥Î¨ì¥[ªk¡A¥Î¨ÓÁ×§K·¸¦ì 
+//å°‡å¿«é€Ÿå†ªå¤šå€‹ä¹˜æ³•åŠ é€Ÿçš„åŽŸç†å¥—ç”¨åˆ°åŠ æ³•ï¼Œç”¨ä¾†é¿å…æº¢ä½ 
 long long mul(long long A,long long B,long long M)
 {
     long long ans=0;
@@ -10,11 +10,11 @@ long long mul(long long A,long long B,long long M)
         if(B%2==1)
         {
             ans=ans+A;
-	        if(ans>=M)//Àu¤Æ 
+	        if(ans>=M)//å„ªåŒ– 
 	        	ans%=M;
 		}
         A*=2;
-        if(A>=M)//Àu¤Æ 
+        if(A>=M)//å„ªåŒ– 
 	        A%=M;
         B/=2;
     }

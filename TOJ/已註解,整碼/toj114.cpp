@@ -7,7 +7,7 @@ int main() {
         for(int j=0;j<6;j++)
             cin>>disk[i][j];
             
-    for(int j=0;j<5;j++)//§PÂ_ª½¦æ 
+    for(int j=0;j<5;j++)//åˆ¤æ–·ç›´è¡Œ 
         for(int i=0;i<3;i++)
             if(disk[i][j]==disk[i+1][j]&&disk[i][j]==disk[i+2][j])
             {
@@ -16,7 +16,7 @@ int main() {
 			}
                 
                 
-    for(int i=0;i<5;i++)//§PÂ_¾î¦æ 
+    for(int i=0;i<5;i++)//åˆ¤æ–·æ©«è¡Œ 
         for(int j=0;j<4;j++)
             if(disk[i][j]==disk[i][j+1]&&disk[i][j]==disk[i][j+2])
             {

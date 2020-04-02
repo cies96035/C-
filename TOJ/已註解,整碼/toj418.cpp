@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    //·F¡A§Ú·íªì³o¤ôÃD®³¤£¨ìº¡¤À§Ú¯u¬O´¼»Ù 
+    //å¹¹ï¼Œæˆ‘ç•¶åˆé€™æ°´é¡Œæ‹¿ä¸åˆ°æ»¿åˆ†æˆ‘çœŸæ˜¯æ™ºéšœ 
     long long N,M,P,sum;
     cin>>N>>M>>P;
     cout<<(((N-M)%P*(N%P))%P*(M%P))%P<<endl;

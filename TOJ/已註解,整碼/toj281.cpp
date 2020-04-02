@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
 
-int Abs(int x)//µ´¹ï­È 
+int Abs(int x)//çµ•å°å€¼ 
 {
    if(x<0)return -x;
    return x;
 }
 
-int gcd(int x,int y)//³Ì¤j¤½¦]¼Æ 
+int gcd(int x,int y)//æœ€å¤§å…¬å› æ•¸ 
 {
     while((x%=y)&&(y%=x));
     return x+y;
 }
 
-struct point//®y¼Ğ 
+struct point//åº§æ¨™ 
 {
    int x,y; 
 };
@@ -26,17 +26,17 @@ int main() {
     cin>>T;
     while(T--)
     {
-        float A=0,b=0;//­±¿n¡BÃä¤W®æ¤lÂI¼Æ 
+        float A=0,b=0;//é¢ç©ã€é‚Šä¸Šæ ¼å­é»æ•¸ 
         point p[3];
         
-        for(int i=0;i<3;i++)//¿é¤J 
+        for(int i=0;i<3;i++)//è¼¸å…¥ 
             cin>>p[i].x>>p[i].y;
             
-        for(int i=0;i<3;i++)//¾c±a¤½¦¡ºâ­±¿n 
+        for(int i=0;i<3;i++)//é‹å¸¶å…¬å¼ç®—é¢ç© 
             A+=p[i].x*p[(i+1)%3].y-p[(i+1)%3].x*p[i].y;
         A=Abs(A)*0.5;
         
-        for(int i=0;i<3;i++)//¤À§O¨ú±o¨â¨â®y¼ĞÃä¤Wªº®æ¤lÂIÁ`©M 
+        for(int i=0;i<3;i++)//åˆ†åˆ¥å–å¾—å…©å…©åº§æ¨™é‚Šä¸Šçš„æ ¼å­é»ç¸½å’Œ 
         {
             int x1=p[i].x,
 			x2=p[(i+1)%3].x,
@@ -50,9 +50,9 @@ int main() {
             else
                b+=gcd(Abs(x1-x2),Abs(y1-y2));
         }
-		//¤£ª¾¹D¬°¬Æ»ò¨S¦³Âà´«¦¨int´N·|WA...
-		//²z½×¤WA+b/2+1³o­Ó­È¤@©w¬O¾ã¼Æªü... 
-		//¥i¯à§Ú­şÃä·d¿ù¦h¤F0.5... 
+		//ä¸çŸ¥é“ç‚ºç”šéº¼æ²’æœ‰è½‰æ›æˆintå°±æœƒWA...
+		//ç†è«–ä¸ŠA+b/2+1é€™å€‹å€¼ä¸€å®šæ˜¯æ•´æ•¸é˜¿... 
+		//å¯èƒ½æˆ‘å“ªé‚ŠæéŒ¯å¤šäº†0.5... 
         cout<<(int)(A+b/2+1)<<endl; 
     }
     return 0;

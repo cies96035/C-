@@ -1,28 +1,28 @@
-//����������AC�A�x�s���覡�ק�ˬO�����|AC 
+//此版本不能AC，儲存的方式修改倒是有機會AC 
 #include<iostream>
 using namespace std;
 
 const int mod =1000000009;
 
-//�����O��ƦC���}�C�A�w�]��0(�S�����L)
-//�D�n�ت��O�Ψӥ[�ֻ��j�t�סA�p�G�w�g�o����i�����ȡA���j�i�H���έ��ư� 
-//���M���j�|�ܱo�A�W�źC!!!! 
-long long f[100000000];//�D�حn�D2^63-1�A�S�`�N��...�S��k�}����j.... 
+//紀錄費氏數列的陣列，預設為0(沒紀錄過)
+//主要目的是用來加快遞迴速度，如果已經得知第i項的值，遞迴可以不用重複做 
+//不然遞迴會變得，超級慢!!!! 
+long long f[100000000];//題目要求2^63-1，沒注意到...沒辦法開那麼大.... 
 
-//�D�o�ĴX���O���ƦC�����j�禡
+//求得第幾項費式數列的遞迴函式
 long long F(long long n)
 {
-    //�w�]1,2����1 
+    //預設1,2項為1 
     if(n<=2)
         return f[n]=1;
 
-    //�p�G�w�g�������A�����^�ǸӬ���
+    //如果已經有紀錄，直接回傳該紀錄
     if (f[n])
         return f[n];
         
     long long k = (n%2+n)/2;
 
-    //�N...�Ӱ��a�A�аѾ\����ʬ�>�O��ƦC>�x�}...
+    //就...照做吧，請參閱維基百科>費氏數列>矩陣...
     f[n]=(n%2)?(F(k)*F(k)+F(k-1)*F(k-1)):(2*F(k-1)+F(k))*F(k);
     if(f[n]>=mod)f[n]%=mod;
     return f[n];

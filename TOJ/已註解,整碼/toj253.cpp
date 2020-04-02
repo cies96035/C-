@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-bool isdecorate[26];//¥Î¨Ó¬ö¿ý¬O§_¸Ë¹¢ 
+bool isdecorate[26];//ç”¨ä¾†ç´€éŒ„æ˜¯å¦è£é£¾ 
 
 void coutline(int n,int shift,bool decorate)
 {
@@ -30,15 +30,15 @@ int main()
 {
 	int n,m,d;
 	cin>>n>>m;
-	while(m--)//¬ö¿ý¬O§_¸Ë¹¢ 
+	while(m--)//ç´€éŒ„æ˜¯å¦è£é£¾ 
 	{
 		cin>>d;
 		isdecorate[--d]=!isdecorate[d];
 	} 
-	n-=2000;//¤è«K­pºâ... 
-	for(int i=0;i<n;i++)//¿é¥X¾ð¸­ 
+	n-=2000;//æ–¹ä¾¿è¨ˆç®—... 
+	for(int i=0;i<n;i++)//è¼¸å‡ºæ¨¹è‘‰ 
 		coutline(i,n-i-1,isdecorate[i]);
-	coutstalk(n);//¿é¥X²ô 
+	coutstalk(n);//è¼¸å‡ºèŽ– 
 	return 0;
 }
 

@@ -26,10 +26,10 @@ int main()
         {    
             if(check[j][i%2]==1)
             {
-            	if(j+num[i]<=sum/2)//Á×§KRE 
+            	if(j+num[i]<=sum/2)//é¿å…RE 
             	{
                 	check[j+num[i]][(i+1)%2]=1;
-                	if(j+num[i]==sum/2)//¹F¦¨±ø¥óµ²§ô¡A¥[§Ö³t«× 
+                	if(j+num[i]==sum/2)//é”æˆæ¢ä»¶çµæŸï¼ŒåŠ å¿«é€Ÿåº¦ 
 					{
 						cout<<sum/2<<" "<<sum/2+sum%2<<endl;
 						return 0;

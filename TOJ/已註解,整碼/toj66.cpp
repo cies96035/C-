@@ -9,9 +9,9 @@ int main()
 	ios_base::sync_with_stdio(0);
 	 
     char k;
-    //num:°O¿ý¨C¤@­Ó¼Æ¦r,sum:¬ö¿ý¨C­Ó¼Æ¦rÁ`©M 
+    //num:è¨˜éŒ„æ¯ä¸€å€‹æ•¸å­—,sum:ç´€éŒ„æ¯å€‹æ•¸å­—ç¸½å’Œ 
     int num=0,sum=0;
-    bool add=0,minus=0;//§PÂ_¬O§_­n¥[¶isum¸Ì­± 
+    bool add=0,minus=0;//åˆ¤æ–·æ˜¯å¦è¦åŠ é€²sumè£¡é¢ 
     while(cin.get(k))
     {
     	if(k>='0'&&k<='9')
@@ -37,10 +37,10 @@ int main()
 			cout<<sum%N<<endl;
 			sum=num=0;
 		}
-		else// °£¸¹ 
+		else// é™¤è™Ÿ 
 		{
-			num=0;//¤À¤lÂk¹s 
-			minus=1;//´î±¼¤À¥À 
+			num=0;//åˆ†å­æ­¸é›¶ 
+			minus=1;//æ¸›æŽ‰åˆ†æ¯ 
 		}
     }
     return 0;

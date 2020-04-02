@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm>//sort­n¥Î¨ì 
+#include<algorithm>//sortè¦ç”¨åˆ° 
 using namespace std;
 int main()
 {
@@ -11,17 +11,17 @@ int main()
     int X[n];
     for(int i=0;i<n;i++)cin>>X[i];
     
-    sort(X,X+n);//±Æ§Ç¹L¤~¯à¥Îlowerbound
+    sort(X,X+n);//æ’åºéæ‰èƒ½ç”¨lowerbound
     
     cin>>t;
     while(t--)
     {
         cin>>K;
-        if(K<X[0])cout<<"no "<<X[0]<<endl;//¦pªG¤ñ³Ì¤p­È¤p 
-        else if(K>X[n-1])cout<<X[n-1]<<" no"<<endl;//¦pªG¤ñ³Ì¤j­È¤j 
-        else if(*lower_bound(X,X+n,K)==K)cout<<K<<endl;//¦pªG­è¦n¦³³o­Ó­È 
+        if(K<X[0])cout<<"no "<<X[0]<<endl;//å¦‚æœæ¯”æœ€å°å€¼å° 
+        else if(K>X[n-1])cout<<X[n-1]<<" no"<<endl;//å¦‚æœæ¯”æœ€å¤§å€¼å¤§ 
+        else if(*lower_bound(X,X+n,K)==K)cout<<K<<endl;//å¦‚æœå‰›å¥½æœ‰é€™å€‹å€¼ 
         else cout<<*(lower_bound(X,X+n,K)-1)<<" "<<*lower_bound(X,X+n,K)<<endl;
-        //¿é¥X²Ä¤@­Ó¤j©ó³o­Ó­Èªº«e¤@­Ó¡A¤]´N¬O<³o­Ó­Èªº³Ì¤j­È¡A©M²Ä¤@­Ó¤j©ó³o­Ó­Èªº 
+        //è¼¸å‡ºç¬¬ä¸€å€‹å¤§æ–¼é€™å€‹å€¼çš„å‰ä¸€å€‹ï¼Œä¹Ÿå°±æ˜¯<é€™å€‹å€¼çš„æœ€å¤§å€¼ï¼Œå’Œç¬¬ä¸€å€‹å¤§æ–¼é€™å€‹å€¼çš„ 
     }
     return 0;
 }

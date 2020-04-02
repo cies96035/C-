@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-	//end:�̫ᵲ�G�A>0���l�ӡA<0���D�ӡA=0���� 
+	//end:最後結果，>0王子勝，<0公主勝，=0平手 
     int a,b,n,end=0;
     cin>>n;
     while(n--)

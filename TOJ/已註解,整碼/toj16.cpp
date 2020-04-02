@@ -3,11 +3,11 @@
 using namespace std;
 int main()
 {
-    //cin¥[³t 
+    //cinåŠ é€Ÿ 
     cin.tie(0);
     ios_base::sync_with_stdio(0);
     
-    //Tµ§´ú¸ê 
+    //Tç­†æ¸¬è³‡ 
     int T;
     cin>>T;
     while(T--)
@@ -16,18 +16,18 @@ int main()
 		bool cantake[30000];
         memset(cantake,0,sizeof(cantake));
         
-        //¿é¤J¤ß±¡«ü¼Æ 
+        //è¼¸å…¥å¿ƒæƒ…æŒ‡æ•¸ 
         cin>>S;
         int emotion[S];
         for(int i=0;i<S;i++)cin>>emotion[i];
         
-        //³B²z¤ß±¡«ü¼Æ
+        //è™•ç†å¿ƒæƒ…æŒ‡æ•¸
         for(int a=0;a<S;a++)
             for(int b=a+1;b<S;b++)
                 if(emotion[a]&&emotion[b]&&!(cantake[emotion[a]+emotion[b]]))
                     cantake[emotion[a]+emotion[b]]=1;
           
-        //§PÂ_¨Ã¿é¥X 
+        //åˆ¤æ–·ä¸¦è¼¸å‡º 
         cin>>Q;
         while(Q--)
         {

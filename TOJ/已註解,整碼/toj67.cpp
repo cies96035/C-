@@ -5,45 +5,45 @@ using namespace std;
 
 int main()
 {
-	cin.tie(0);
-	ios_base::sync_with_stdio(0);
-	
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
+    
     char k;
-    //num:°O¿ý¨C¤@­Ó¼Æ¦r,sum:¬ö¿ý¨C­Ó¼Æ¦rÁ`©M 
-    int num=0,sum=0,son;//son:¬ö¿ý¤À¤l 
-    bool flag=0;//§PÂ_¬O¤£¬O¤À¼Æ 
+    //num:è¨˜éŒ„æ¯ä¸€å€‹æ•¸å­—,sum:ç´€éŒ„æ¯å€‹æ•¸å­—ç¸½å’Œ 
+    int num=0,sum=0,son;//son:ç´€éŒ„åˆ†å­ 
+    bool flag=0;//åˆ¤æ–·æ˜¯ä¸æ˜¯åˆ†æ•¸ 
     while(cin.get(k))
     {
-    	if(k>='0'&&k<='9')
-		{
-			num=num*10+k-'0';
-		}
-		else if(k==' ')
-		{
-			if(!flag)//¦pªG¤£¬O¤À¼Æ 
-				sum+=num;
-			else if(num&&son%num==0)//¦pªG¬O¤À¼Æ¥B¬°¾ã¼Æ 
-				sum+=son/num,flag=0,son=0;
-			num=0;
-			sum%=N;
-			flag=0;
-		} 
-		else if(k=='\n')
-		{
-			if(!flag)//¦pªG¤£¬O¤À¼Æ 
-				sum+=num;
-			else if(num&&son%num==0)//¦pªG¬O¤À¼Æ¥B¬°¾ã¼Æ 
-				sum+=son/num,son=0;
-			cout<<sum%N<<endl;
-			sum=num=0;
-			flag=0;
-		}
-		else// °£¸¹ 
-		{
-			son=num;//¤À¤l 
-			num=0;//¼Æ¦rÂk¹s 
-			flag=1;//¥Nªí¦³¤À¼Æ 
-		}
+        if(k>='0'&&k<='9')
+        {
+            num=num*10+k-'0';
+        }
+        else if(k==' ')
+        {
+            if(!flag)//å¦‚æžœä¸æ˜¯åˆ†æ•¸ 
+                sum+=num;
+            else if(num&&son%num==0)//å¦‚æžœæ˜¯åˆ†æ•¸ä¸”ç‚ºæ•´æ•¸ 
+                sum+=son/num,flag=0,son=0;
+            num=0;
+            sum%=N;
+            flag=0;
+        } 
+        else if(k=='\n')
+        {
+            if(!flag)//å¦‚æžœä¸æ˜¯åˆ†æ•¸ 
+                sum+=num;
+            else if(num&&son%num==0)//å¦‚æžœæ˜¯åˆ†æ•¸ä¸”ç‚ºæ•´æ•¸ 
+                sum+=son/num,son=0;
+            cout<<sum%N<<endl;
+            sum=num=0;
+            flag=0;
+        }
+        else// é™¤è™Ÿ 
+        {
+            son=num;//åˆ†å­ 
+            num=0;//æ•¸å­—æ­¸é›¶ 
+            flag=1;//ä»£è¡¨æœ‰åˆ†æ•¸ 
+        }
     }
     return 0;
 }

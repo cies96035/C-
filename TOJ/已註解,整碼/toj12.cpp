@@ -1,43 +1,43 @@
 #include<iostream>
 using namespace std;
 
-#define LUC(i) (i*4-2)//¥ª¤W 
-#define RUC(i) (i*4-1)//¥k¤W 
-#define LDC(i) (i*4)  //¥ª¤U 
-#define RDC(i) (i*4+1)//¥k¤U 
-#define midx (lx+rx)/2//¤ô¥­ªº¤¤¶¡­È 
-#define midy (uy+dy)/2//««ª½ªº¤¤¶¡­È 
+#define LUC(i) (i*4-2)//å·¦ä¸Š 
+#define RUC(i) (i*4-1)//å³ä¸Š 
+#define LDC(i) (i*4)  //å·¦ä¸‹ 
+#define RDC(i) (i*4+1)//å³ä¸‹ 
+#define midx (lx+rx)/2//æ°´å¹³çš„ä¸­é–“å€¼ 
+#define midy (uy+dy)/2//å‚ç›´çš„ä¸­é–“å€¼ 
 
 int n,m,q,num[3100][3100];
 int x1,x2,y1,y2;
 long long Ans;
 int xx,yy,k;
 
-//Àx¦s©M¡AªÅ¶¡:(log2Ãäªø)^4 
+//å„²å­˜å’Œï¼Œç©ºé–“:(log2é‚Šé•·)^4 
 unsigned int sum[223696213];
 
-//«Øªí:(²{¦b®y¼Ğ,¥ªÃä¬É,¥kÃä¬É,¤WÃä¬É,¤UÃä¬É) 
+//å»ºè¡¨:(ç¾åœ¨åº§æ¨™,å·¦é‚Šç•Œ,å³é‚Šç•Œ,ä¸Šé‚Šç•Œ,ä¸‹é‚Šç•Œ) 
 void build(int ID,int lx,int rx,int uy,int dy)
 {
-	//¦pªG¤W¤UÃä¬É¡A¥ª¥kÃä¬É¬Ûµ¥¡A³Ñ¤U¤@®æ¡A¬ö¿ı¤U¨Ó¡A¤£¦A»¼°j 
+	//å¦‚æœä¸Šä¸‹é‚Šç•Œï¼Œå·¦å³é‚Šç•Œç›¸ç­‰ï¼Œå‰©ä¸‹ä¸€æ ¼ï¼Œç´€éŒ„ä¸‹ä¾†ï¼Œä¸å†éè¿´ 
     if(lx==rx&&uy==dy)
     {
         sum[ID]=num[lx][uy];
         return; 
     }
-    //¦pªG¥ª¥kÃä¬É¬Ûµ¥(««ª½ªø±øª¬)->»¼°j±q¤¤¶¡¤Á¦¨¨â±ø 
+    //å¦‚æœå·¦å³é‚Šç•Œç›¸ç­‰(å‚ç›´é•·æ¢ç‹€)->éè¿´å¾ä¸­é–“åˆ‡æˆå…©æ¢ 
     else if(lx==rx)
     {
         build(LUC(ID),lx,rx,uy,midy);
         build(LDC(ID),lx,rx,midy+1,dy);
     }
-    //¦pªG¤W¤UÃä¬É¬Ûµ¥(¤ô¥­ªø±øª¬)->»¼°j±q¤¤¶¡¤Á¦¨¨â¥b 
+    //å¦‚æœä¸Šä¸‹é‚Šç•Œç›¸ç­‰(æ°´å¹³é•·æ¢ç‹€)->éè¿´å¾ä¸­é–“åˆ‡æˆå…©åŠ 
     else if(uy==dy)
     {
         build(LUC(ID),lx,midx,uy,dy);
         build(RUC(ID),midx+1,rx,uy,dy);
     }
-    //¦pªG³£¤£¬Ûµ¥¡A¤Á¦¨¥|¶ô©¹¤U»¼°j 
+    //å¦‚æœéƒ½ä¸ç›¸ç­‰ï¼Œåˆ‡æˆå››å¡Šå¾€ä¸‹éè¿´ 
     else
     {
         build(LUC(ID),lx,midx,uy,midy);
@@ -45,34 +45,34 @@ void build(int ID,int lx,int rx,int uy,int dy)
         build(RUC(ID),midx+1,rx,uy,midy);
         build(RDC(ID),midx+1,rx,midy+1,dy);
     }
-    //µ²§ô»¼°j«á¡A±o¨ì¥|­Ó¨¤¸¨ªºÁ`©M¡A¦A¬Û¥[´N¬°¦¹½d³òªºÁ`©M 
+    //çµæŸéè¿´å¾Œï¼Œå¾—åˆ°å››å€‹è§’è½çš„ç¸½å’Œï¼Œå†ç›¸åŠ å°±ç‚ºæ­¤ç¯„åœçš„ç¸½å’Œ 
     sum[ID]=sum[LUC(ID)]+sum[LDC(ID)]+sum[RUC(ID)]+sum[RDC(ID)];
 }
 
-//²{¦b¦ì¸m,¥ªÃä¬É,¥kÃä¬É,¤WÃä¬É,¤UÃä¬É 
+//ç¾åœ¨ä½ç½®,å·¦é‚Šç•Œ,å³é‚Šç•Œ,ä¸Šé‚Šç•Œ,ä¸‹é‚Šç•Œ 
 void query(int ID,int lx,int rx,int uy,int dy)
 {
-	//¦¹ID»P·j¯Á½d³ò¨S¦³¥æ¶°¡AÂ÷¶}·j¯Á 
+	//æ­¤IDèˆ‡æœç´¢ç¯„åœæ²’æœ‰äº¤é›†ï¼Œé›¢é–‹æœç´¢ 
     if(x2<lx||rx<x1||y2<uy||dy<y1)return;
-    if((x1<=lx&&rx<=x2)&&(y1<=uy&&dy<=y2))//¦¹ID§¹¥ş¦b·j¯Á½d³ò¤º¡A¶i¦æ¥[Á` 
+    if((x1<=lx&&rx<=x2)&&(y1<=uy&&dy<=y2))//æ­¤IDå®Œå…¨åœ¨æœç´¢ç¯„åœå…§ï¼Œé€²è¡ŒåŠ ç¸½ 
     {
         Ans+=sum[ID];
         return;
     }
-    //¦pªG¦³¥æ¶°¡A¤Á¦¨¥|¶ô©¹¤U»¼°j¡Aª½¨ì->§¹¥ş¨S¥æ¶°or§¹¥ş¥]§t 
+    //å¦‚æœæœ‰äº¤é›†ï¼Œåˆ‡æˆå››å¡Šå¾€ä¸‹éè¿´ï¼Œç›´åˆ°->å®Œå…¨æ²’äº¤é›†orå®Œå…¨åŒ…å« 
     query(LUC(ID),lx,midx,uy,midy);
     query(RUC(ID),midx+1,rx,uy,midy);
     query(LDC(ID),lx,midx,midy+1,dy);
     query(RDC(ID),midx+1,rx,midy+1,dy);
 }
 
-//±N©Ò¦³¥]§t­n§ïÅÜ¦ì¸mªºID°µ­×§ï¡A¨Ã©¹¤U»¼°j 
+//å°‡æ‰€æœ‰åŒ…å«è¦æ”¹è®Šä½ç½®çš„IDåšä¿®æ”¹ï¼Œä¸¦å¾€ä¸‹éè¿´ 
 void change(int ID,int lx,int rx,int uy,int dy)
 {
-	//§ó·s­È 
+	//æ›´æ–°å€¼ 
 	sum[ID]+=k-num[xx][yy];
 	
-    if(lx==rx&&uy==dy)//¨ì©³³¡¤F¡Aµ²§ô»¼°j 
+    if(lx==rx&&uy==dy)//åˆ°åº•éƒ¨äº†ï¼ŒçµæŸéè¿´ 
         return;
         
     else if(xx<=midx&&yy<=midy)
@@ -92,12 +92,12 @@ int main()
     ios_base::sync_with_stdio(0);
     
     cin>>n>>m;
-    for(int i=0;i<n;i++)
-        for(int j=0;j<m;j++)
+    for(int i=1;i<=n;i++)
+        for(int j=1;j<=m;j++)
             cin>>num[i][j];
     
-    //«Øªí 
-    build(1,0,n-1,0,m-1);
+    //å»ºè¡¨ 
+    build(1,1,n,1,m);
     
     cin>>q;
     while(q--)
@@ -107,15 +107,14 @@ int main()
         if(ask=='Q')
         {
             cin>>x1>>y1>>x2>>y2;
-            x1--,x2--,y1--,y2--,Ans=0;//¨C¦¸¦^µª³£­nªì©l¤ÆAns 
-            query(1,0,n-1,0,m-1);
+            Ans=0;//æ¯æ¬¡å›ç­”éƒ½è¦åˆå§‹åŒ–Ans 
+            query(1,1,n,1,m);
             cout<<Ans<<'\n';
         }
         else if(ask=='C')
         {
             cin>>xx>>yy>>k;
-            xx--,yy--;
-            change(1,0,n-1,0,m-1);
+            change(1,1,n,1,m);
             num[xx][yy]=k;
         }
     }

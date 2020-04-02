@@ -15,30 +15,30 @@ int main() {
 		bool findcombo=1;
         memset(table,0,sizeof(table));
         
-        for(int i=0;i<5;i++)//¿é¤Jª©­± 
+        for(int i=0;i<5;i++)//è¼¸å…¥ç‰ˆé¢ 
             for(int j=0;j<6;j++)
                 cin>>disk[i][j];
         
-        while(findcombo)//ª½¨ì¨S§ä¨ìcombo¡A¤]´N¬O½L­±¨S¦³¤T³s¯]ªº®É­Ô 
+        while(findcombo)//ç›´åˆ°æ²’æ‰¾åˆ°comboï¼Œä¹Ÿå°±æ˜¯ç›¤é¢æ²’æœ‰ä¸‰é€£ç çš„æ™‚å€™ 
         {
             findcombo=0;
-            for(int i=0;i<5;i++)//§ä¤T³s¯]¡A¨Ã§â¬Û³sªºÄİ©Ê¬ö¿ı¦Atable 
+            for(int i=0;i<5;i++)//æ‰¾ä¸‰é€£ç ï¼Œä¸¦æŠŠç›¸é€£çš„å±¬æ€§ç´€éŒ„å†table 
                 for(int j=0;j<6;j++)
                 {
-                    if(i<3&&disk[i][j]==disk[i+1][j]&&disk[i][j]==disk[i+2][j]&&disk[i][j]>0)//ª½±Æ¤T³s 
+                    if(i<3&&disk[i][j]==disk[i+1][j]&&disk[i][j]==disk[i+2][j]&&disk[i][j]>0)//ç›´æ’ä¸‰é€£ 
                     {
                         table[i][j]=table[i+1][j]=table[i+2][j]=disk[i][j];
                         findcombo=1;
                     }
-                    if(j<4&&disk[i][j]==disk[i][j+1]&&disk[i][j]==disk[i][j+2]&&disk[i][j]>0)//¾î±Æ3³s 
+                    if(j<4&&disk[i][j]==disk[i][j+1]&&disk[i][j]==disk[i][j+2]&&disk[i][j]>0)//æ©«æ’3é€£ 
                     {
                         table[i][j]=table[i][j+1]=table[i][j+2]=disk[i][j];
                         findcombo=1;
                     }
                 }
             
-            //¦pªG³o­Ó¦a¤è¦³®ø¨ì¡A«h§â®ø¨ìªº¦a¤èÅÜ¦¨0(¤£¥i¥Î)
-            //¥B§â0²¾¦Ü½L­±³Ì¤W¼h(¬Û¹ï¨Ó»¡¥i¥Îªº·|¶]¨ì¤U¼h 
+            //å¦‚æœé€™å€‹åœ°æ–¹æœ‰æ¶ˆåˆ°ï¼Œå‰‡æŠŠæ¶ˆåˆ°çš„åœ°æ–¹è®Šæˆ0(ä¸å¯ç”¨)
+            //ä¸”æŠŠ0ç§»è‡³ç›¤é¢æœ€ä¸Šå±¤(ç›¸å°ä¾†èªªå¯ç”¨çš„æœƒè·‘åˆ°ä¸‹å±¤ 
             for(int i=0;i<5;i++)
                 for(int j=0;j<6;j++)
                     if(table[i][j]>0)
@@ -49,17 +49,17 @@ int main() {
             
             for(int i=0;i<5;i++)
                 for(int j=0;j<6;j++)
-                    if(table[i][j]>0)//¥Nªí¦³combo 
+                    if(table[i][j]>0)//ä»£è¡¨æœ‰combo 
                     {
                         queue<int> togox,togoy;
                         togox.push(i);
                         togoy.push(j);
-                        int p=table[i][j];//³o­ÓcomboªºÄİ©Ê 
-						//¥ÎBFS§â¸ò³o­Ócombo¬Û¦PÄİ«¬ªº³£²¾°£¡AÁ×§K¦hºâ 
+                        int p=table[i][j];//é€™å€‹comboçš„å±¬æ€§ 
+						//ç”¨BFSæŠŠè·Ÿé€™å€‹comboç›¸åŒå±¬å‹çš„éƒ½ç§»é™¤ï¼Œé¿å…å¤šç®— 
                         while(!togox.empty())
                         {
                             int wx=togox.front(),wy=togoy.front();
-                            table[wx][wy]=0;//Äİ©ÊÂk0(¤£¥i¥Î 
+                            table[wx][wy]=0;//å±¬æ€§æ­¸0(ä¸å¯ç”¨ 
                             togox.pop();
                             togoy.pop();
                             if(wx<4&&table[wx+1][wy]==p)
@@ -85,7 +85,7 @@ int main() {
                         }
                         combo++;
                     }
-            memset(table,0,sizeof(table));//°O¿ı½L­«¸m 
+            memset(table,0,sizeof(table));//è¨˜éŒ„ç›¤é‡ç½® 
         }
         cout<<combo<<endl;
     }

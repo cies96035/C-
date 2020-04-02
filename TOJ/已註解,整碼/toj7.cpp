@@ -13,7 +13,7 @@ int main()
         long long a[N+1];
         for(z=0;z<=N;z++)cin>>a[z];
         
-        //¬Û´î 
+        //ç›¸æ¸› 
         for(z=0,k=N;z<N;z++,k--)
             for(y=0;y<k;y++)
                 a[y]=a[y+1]-a[y];

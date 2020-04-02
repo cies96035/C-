@@ -15,13 +15,13 @@ long long strtolong(string a)
 int main() {
 	string Number;
 	cin>>Number;
-	if(Number[0]<='9')//¬O¼Æ¦rªº¸Ü¡AÂà´«¦¨­^¤å³æ¦r 
+	if(Number[0]<='9')//æ˜¯æ•¸å­—çš„è©±ï¼Œè½‰æ›æˆè‹±æ–‡å–®å­— 
 	{
-		//¥ı§â¦r¦êÂà´«¦¨long long¥H§Q­pºâ 
+		//å…ˆæŠŠå­—ä¸²è½‰æ›æˆlong longä»¥åˆ©è¨ˆç®— 
 		long long num=strtolong(Number),digits=51;
-		bool isget[52];//Àx¦sªí¥Ü­ş­Ó¦r¥À­n¥X²{ 
+		bool isget[52];//å„²å­˜è¡¨ç¤ºå“ªå€‹å­—æ¯è¦å‡ºç¾ 
 		memset(isget,0,sizeof(isget));
-		while(num)//ª½¨ìnumÂk¹s¬°¤î¡A±q³Ì°ª¦ì±½¨ì³Ì§C¦ì¡A§PÂ_¬O§_¥X²{¸Ó¦r¥À 
+		while(num)//ç›´åˆ°numæ­¸é›¶ç‚ºæ­¢ï¼Œå¾æœ€é«˜ä½æƒåˆ°æœ€ä½ä½ï¼Œåˆ¤æ–·æ˜¯å¦å‡ºç¾è©²å­—æ¯ 
 		{
 			if(pow(2,digits)<=num)
 			{
@@ -30,7 +30,7 @@ int main() {
 			} 
 			digits--;
 		}
-		//¿é¥X 
+		//è¼¸å‡º 
 		for(int i=0;i<26;i++)
 			if(isget[i])
 				cout<<char('A'+i);
@@ -39,9 +39,9 @@ int main() {
 				cout<<char('a'+i-26);
 		cout<<endl;
 	}
-	else//±N¦r¥ÀÂà¦¨¼Æ¦r 
+	else//å°‡å­—æ¯è½‰æˆæ•¸å­— 
 	{
-		//A¥Nªí2^0,B¥Nªí2^1...a¥Nªí2^26¡A´N¼É¤O¸Ñ´N¦n 
+		//Aä»£è¡¨2^0,Bä»£è¡¨2^1...aä»£è¡¨2^26ï¼Œå°±æš´åŠ›è§£å°±å¥½ 
 		long long sum=0;
 		for(int i=0;i<Number.size();i++)
 		{

@@ -2,23 +2,23 @@
 #include<queue>
 using namespace std;
 
-//22ºØ¥i¯à³£¥á¥á¬İ¡A§ä³Ì¤j­È 
+//22ç¨®å¯èƒ½éƒ½ä¸Ÿä¸Ÿçœ‹ï¼Œæ‰¾æœ€å¤§å€¼ 
 
 typedef pair<int,int> pii;
 
-#define in_range nxg[0]>=0&&nxg[0]<Lh&&nxg[1]>=0&&nxg[1]<Lw //¬É­­§P©w 
+#define in_range nxg[0]>=0&&nxg[0]<Lh&&nxg[1]>=0&&nxg[1]<Lw //ç•Œé™åˆ¤å®š 
 
 const int Lh=14,Lw=6,m[4][2]={{0,1},{1,0},{-1,0},{0,-1}};
 
-char a,b,SC;//a¦â¡Ab¦â¡ASameColor 
+char a,b,SC;//aè‰²ï¼Œbè‰²ï¼ŒSameColor 
 string R_puyo[Lh],C_puyo[Lh];//Real/Copy
 int vis[Lh][Lw],visid=0,Cvisid=0,maxCmb=0,ComboCnt;
 bool haveclear;
 
-bool FindFour(int x,int y)//§ä¯S©wÂI¬O§_¦³¥|¬Û³s 
+bool FindFour(int x,int y)//æ‰¾ç‰¹å®šé»æ˜¯å¦æœ‰å››ç›¸é€£ 
 {
     queue<pii> tg;
-    tg.push(pii(x,y));//°_ÂI 
+    tg.push(pii(x,y));//èµ·é» 
     SC=C_puyo[x][y];
     vis[x][y]=visid;
     
@@ -27,16 +27,16 @@ bool FindFour(int x,int y)//§ä¯S©wÂI¬O§_¦³¥|¬Û³s
     while(!tg.empty())
     {
         cnt--;
-        if(!cnt)return true;//²Å¦X®ø°£±ø¥ó¡A¦^¶Ç 
+        if(!cnt)return true;//ç¬¦åˆæ¶ˆé™¤æ¢ä»¶ï¼Œå›å‚³ 
         for(int i=0;i<4;i++)
         {
             int nxg[2]={tg.front().first+m[i][0],tg.front().second+m[i][1]};
             if(in_range)
             {
-                if(C_puyo[nxg[0]][nxg[1]]==SC&&vis[nxg[0]][nxg[1]]<visid)//¦pªG»P­ìÂI¦P¦â¡A¦Ó¥B¦¹¼h¨S¶i¹L¼h 
+                if(C_puyo[nxg[0]][nxg[1]]==SC&&vis[nxg[0]][nxg[1]]<visid)//å¦‚æœèˆ‡åŸé»åŒè‰²ï¼Œè€Œä¸”æ­¤å±¤æ²’é€²éå±¤ 
                 {
                     tg.push(pii(nxg[0],nxg[1]));
-                    vis[nxg[0]][nxg[1]]=visid;//¼Ğ°O¶i¹L¦¹¼h 
+                    vis[nxg[0]][nxg[1]]=visid;//æ¨™è¨˜é€²éæ­¤å±¤ 
                 }
             }
         }
@@ -45,24 +45,24 @@ bool FindFour(int x,int y)//§ä¯S©wÂI¬O§_¦³¥|¬Û³s
     return false;
 }
 
-void clear_puyo(int x,int y)//®ø°£»P¯S©wÂI¦P¦âªºª©­± 
+void clear_puyo(int x,int y)//æ¶ˆé™¤èˆ‡ç‰¹å®šé»åŒè‰²çš„ç‰ˆé¢ 
 {
     queue<pii> tg;
-    tg.push(pii(x,y));//°_ÂI 
-    vis[x][y]=Cvisid;//¨«¹Lªº¼Ğ°O
+    tg.push(pii(x,y));//èµ·é» 
+    vis[x][y]=Cvisid;//èµ°éçš„æ¨™è¨˜
     
     while(!tg.empty())
     {
-        C_puyo[tg.front().first][tg.front().second]='0';//®ø°£
+        C_puyo[tg.front().first][tg.front().second]='0';//æ¶ˆé™¤
         for(int i=0;i<4;i++)
         {
             int nxg[2]={tg.front().first+m[i][0],tg.front().second+m[i][1]};
             if(in_range)
             {
-                if(C_puyo[nxg[0]][nxg[1]]==SC&&vis[nxg[0]][nxg[1]]!=Cvisid)//¦pªG¦P¦â¡A¥á¤J«İ®ø°£¦W³æ 
+                if(C_puyo[nxg[0]][nxg[1]]==SC&&vis[nxg[0]][nxg[1]]!=Cvisid)//å¦‚æœåŒè‰²ï¼Œä¸Ÿå…¥å¾…æ¶ˆé™¤åå–® 
                 {
                     tg.push(pii(nxg[0],nxg[1]));
-                    vis[nxg[0]][nxg[1]]=Cvisid;//Á×§K¨«¦^ÀY¸ô 
+                    vis[nxg[0]][nxg[1]]=Cvisid;//é¿å…èµ°å›é ­è·¯ 
                 }
             }
         }
@@ -70,46 +70,46 @@ void clear_puyo(int x,int y)//®ø°£»P¯S©wÂI¦P¦âªºª©­±
     }
 }
 
-void Cmb(int ay,int ax,int by,int bx)//±N¨â­ÓPuyo©ñ¨ì½Æ»s«áªºª©­±¡A¨Ã¥B¹B¦æ¬İµ²ªG¦³´Xcombo 
+void Cmb(int ay,int ax,int by,int bx)//å°‡å…©å€‹Puyoæ”¾åˆ°è¤‡è£½å¾Œçš„ç‰ˆé¢ï¼Œä¸¦ä¸”é‹è¡Œçœ‹çµæœæœ‰å¹¾combo 
 {
-    for(int i=0;i<Lh;i++)//±NR½Æ»s¨ìC¡A¨Ã¥B¥[¤J¨ì«ü©w¦ì¸m 
+    for(int i=0;i<Lh;i++)//å°‡Rè¤‡è£½åˆ°Cï¼Œä¸¦ä¸”åŠ å…¥åˆ°æŒ‡å®šä½ç½® 
         C_puyo[i]=R_puyo[i];
     C_puyo[ay][ax]=a;
     C_puyo[by][bx]=b;
     
-    ComboCnt=0;//­pºâ¦¹¹Á¸ÕªºCombo¼Æ 
-    haveclear=true;//§PÂ_ÁÙ¦³¨S¦³¥i¥H®ø°£ªº
+    ComboCnt=0;//è¨ˆç®—æ­¤å˜—è©¦çš„Comboæ•¸ 
+    haveclear=true;//åˆ¤æ–·é‚„æœ‰æ²’æœ‰å¯ä»¥æ¶ˆé™¤çš„
     while(haveclear)
     { 
         visid++;
         Cvisid--;
-        haveclear=false;//¥ı°²³]¦¹¼h¨S¦³®ø°£¹L 
+        haveclear=false;//å…ˆå‡è¨­æ­¤å±¤æ²’æœ‰æ¶ˆé™¤é 
         
-        //1.¥ı§â©Ò¦³¯B¦bªÅ¤¤ªº¡A²¾¦Ü³Ì©³
+        //1.å…ˆæŠŠæ‰€æœ‰æµ®åœ¨ç©ºä¸­çš„ï¼Œç§»è‡³æœ€åº•
         for(int i=0;i<Lw;i++)
             for(int j=Lh-1,k=j-1;k>=0;j--,k--)
-                if(C_puyo[j][i]=='0')//¦pªG¬OªÅªº¡A§â³Ì¤U­±¦¹¦C³Ì¤U­±ªºpuyo§ì¤U¨Ó 
+                if(C_puyo[j][i]=='0')//å¦‚æœæ˜¯ç©ºçš„ï¼ŒæŠŠæœ€ä¸‹é¢æ­¤åˆ—æœ€ä¸‹é¢çš„puyoæŠ“ä¸‹ä¾† 
                 {
                     while(C_puyo[k][i]=='0'&&k>0)k--;
                     swap(C_puyo[k][i],C_puyo[j][i]);
                 }
                 
         
-        //2.·j´M¬O§_¦³¥|³s¯]¡A¦³->flg=1(Ä~Äò°j°é),¨Ã¥Bbfs²Ä¤G¦¸->®ø°£¡A¥ş³¡ÅÜ0 
+        //2.æœå°‹æ˜¯å¦æœ‰å››é€£ç ï¼Œæœ‰->flg=1(ç¹¼çºŒè¿´åœˆ),ä¸¦ä¸”bfsç¬¬äºŒæ¬¡->æ¶ˆé™¤ï¼Œå…¨éƒ¨è®Š0 
         for(int i=Lh-1;i>0;i--)
             for(int j=0;j<Lw;j++)
-                if(C_puyo[i][j]!='0'&&vis[i][j]<visid)//¦pªG³o®æ¦³puyo¡A¦Ó¥B¦b³o¼h¨S¦³³QBFS¹L 
+                if(C_puyo[i][j]!='0'&&vis[i][j]<visid)//å¦‚æœé€™æ ¼æœ‰puyoï¼Œè€Œä¸”åœ¨é€™å±¤æ²’æœ‰è¢«BFSé 
                 {
                     if(FindFour(i,j))
                     {
                         haveclear=true;
-                        clear_puyo(i,j);//¹F¨ì4¬Û³s¡A®ø°£¸Ó²Õpuyo 
+                        clear_puyo(i,j);//é”åˆ°4ç›¸é€£ï¼Œæ¶ˆé™¤è©²çµ„puyo 
                     }
                 }
         if(haveclear)                
-            ComboCnt++;//¦pªG¦¹¼h¦³®ø°£ 
+            ComboCnt++;//å¦‚æœæ­¤å±¤æœ‰æ¶ˆé™¤ 
     } 
-    maxCmb=max(maxCmb,ComboCnt);//§ó·s³Ì¤jcombo¼Æ 
+    maxCmb=max(maxCmb,ComboCnt);//æ›´æ–°æœ€å¤§comboæ•¸ 
     return;
 }
 
@@ -119,11 +119,11 @@ int main()
     ios_base::sync_with_stdio(0);
     
     cin>>a>>b;
-    R_puyo[0]=R_puyo[1]="000000";//¹w¯d¨â¦æ 
+    R_puyo[0]=R_puyo[1]="000000";//é ç•™å…©è¡Œ 
     for(int i=2;i<Lh;i++)
         cin>>R_puyo[i];
     
-    //¨C­Ó¦ì¸mªºpuyo³£´ú¸Õ¬İ¬İ
+    //æ¯å€‹ä½ç½®çš„puyoéƒ½æ¸¬è©¦çœ‹çœ‹
     for(int i=0;i<5;i++) 
     {
         Cmb(0,i,0,i+1);

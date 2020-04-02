@@ -15,7 +15,7 @@ int main()
         long long a[N][N],dp[K+1][N];
         memset(dp,0,sizeof(dp));
         
-        dp[0][S]=1;//°_ÂI³]¬°1
+        dp[0][S]=1;//èµ·é»žè¨­ç‚º1
         for(int i=0;i<N;i++)
             for(int j=0;j<N;j++)
                 cin>>a[i][j];

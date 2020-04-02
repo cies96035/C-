@@ -11,16 +11,16 @@ int main()
     {
         int w[n],p[n],maxvalue[V+1];
         
-        //maxvalue¬ö¿ýÅé¿n¬°iªº®É­Ô¡A³Ì¤j»ù­È¬°¦h¤Ö¡A¹w³]¬°0 
+        //maxvalueç´€éŒ„é«”ç©ç‚ºiçš„æ™‚å€™ï¼Œæœ€å¤§åƒ¹å€¼ç‚ºå¤šå°‘ï¼Œé è¨­ç‚º0 
         memset(maxvalue,0,sizeof(maxvalue));
         
-        //¿é¤J¨C­Óª««~ªºÅé¿n»ù­È 
+        //è¼¸å…¥æ¯å€‹ç‰©å“çš„é«”ç©åƒ¹å€¼ 
         for(int h=0;h<n;h++)
 			cin>>w[h]>>p[h];
         
-		for(int i=0;i<n;i++)//¨C­Óª««~¶]¤@¦¸ 
-            for(int j=w[i];j<=V;j++)//¤p©ó¸Óª«ÅéÅé¿nªº³£¤£§ó·s 
-            	if(maxvalue[j-w[i]]+p[i]>maxvalue[j])//¦pªG§ó·s«á¤ñ¸û°ª»ù­È¡A§ó·s 
+		for(int i=0;i<n;i++)//æ¯å€‹ç‰©å“è·‘ä¸€æ¬¡ 
+            for(int j=w[i];j<=V;j++)//å°æ–¼è©²ç‰©é«”é«”ç©çš„éƒ½ä¸æ›´æ–° 
+            	if(maxvalue[j-w[i]]+p[i]>maxvalue[j])//å¦‚æžœæ›´æ–°å¾Œæ¯”è¼ƒé«˜åƒ¹å€¼ï¼Œæ›´æ–° 
             		maxvalue[j]=maxvalue[j-w[i]]+p[i];
             		
         cout<<maxvalue[V]<<'\n';

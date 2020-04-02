@@ -7,7 +7,7 @@ int main()
     
     string a;
     cin>>a;
-    //¦r­ºÂà¤j¼g 
+    //å­—é¦–è½‰å¤§å¯« 
     if(a[0]<='z'&&a[0]>='a')a[0]+='A'-'a';
     cout<<" Nice to see you, "<<a<<"!"<<endl;
     return 0;

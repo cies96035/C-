@@ -9,7 +9,7 @@ int main()
     for(int i=0;i<N;i++)
     {
         cin>>K[i];
-        if(K[i]=='P')P=i;//¬ö¿ýª±®a¦ì¸m 
+        if(K[i]=='P')P=i;//ç´€éŒ„çŽ©å®¶ä½ç½® 
     }
     
     cin>>LorR;

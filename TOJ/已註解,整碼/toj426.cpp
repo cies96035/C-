@@ -7,44 +7,44 @@ int main()
 	cin.tie(0);
 	ios_base::sync_with_stdio(0);
 	
-	int Case=1,N;//°O¿ı²Ä´Xµ§case 
+	int Case=1,N;//è¨˜éŒ„ç¬¬å¹¾ç­†case 
 	while(cin>>N)
 	{
-		//¬°¹s®Éµ²§ôµ{¦¡
+		//ç‚ºé›¶æ™‚çµæŸç¨‹å¼
 		if(!N)return 0; 
 		
-		const int end=N-1;//ÃäÃä±`¼Æ 
-		int hole[N][N],x=0,y=0,num=1;//N*N­Ó¬},(x,y)¤À§O°O¿ı²{¦b«õ¨ìªº¦aÂI,num¬ö¿ı¸Ó¦aÂIªº¼Æ­È 
+		const int end=N-1;//é‚Šé‚Šå¸¸æ•¸ 
+		int hole[N][N],x=0,y=0,num=1;//N*Nå€‹æ´,(x,y)åˆ†åˆ¥è¨˜éŒ„ç¾åœ¨æŒ–åˆ°çš„åœ°é»,numç´€éŒ„è©²åœ°é»çš„æ•¸å€¼ 
 		
-		//»s³y¯x°} 
-		hole[x][y]=num;//¥ª¤W¨¤¬°²Ä¤@­Ó
+		//è£½é€ çŸ©é™£ 
+		hole[x][y]=num;//å·¦ä¸Šè§’ç‚ºç¬¬ä¸€å€‹
 		for(int step=1;num<N*N;step++)
 		{
-			//©¹¥k¤@®æ¡A©¹¥ª¤U¨ì©³¡A©¹¤U¤@®æ¡A©¹¥k¤W¨ì©³
-			//¦pªG1,3¨B¥X²{°İÃD¡A§ï¦¨©¹¤U©M©¹¥k 
+			//å¾€å³ä¸€æ ¼ï¼Œå¾€å·¦ä¸‹åˆ°åº•ï¼Œå¾€ä¸‹ä¸€æ ¼ï¼Œå¾€å³ä¸Šåˆ°åº•
+			//å¦‚æœ1,3æ­¥å‡ºç¾å•é¡Œï¼Œæ”¹æˆå¾€ä¸‹å’Œå¾€å³ 
 			switch(step%4)
 			{
-				case 1://²Ä¤@¨B 
-					//¦pªG¨S¿ìªk¥k²¾¤@®æ¡A©¹¤U²¾ 
+				case 1://ç¬¬ä¸€æ­¥ 
+					//å¦‚æœæ²’è¾¦æ³•å³ç§»ä¸€æ ¼ï¼Œå¾€ä¸‹ç§» 
 					if(x==end)hole[x][++y]=++num;
 					else hole[++x][y]=++num;
 					break;
-				case 2://¥ª¤U¨ì©³
-					while(x>0&&y<end)//ª½¨ì¸I¨ìÃäÃä¬°¤î
+				case 2://å·¦ä¸‹åˆ°åº•
+					while(x>0&&y<end)//ç›´åˆ°ç¢°åˆ°é‚Šé‚Šç‚ºæ­¢
 						hole[--x][++y]=++num;
 					break;
-				case 3://©¹¤U¡A¦pªG¥X°İÃD©¹¥k 
+				case 3://å¾€ä¸‹ï¼Œå¦‚æœå‡ºå•é¡Œå¾€å³ 
 					if(y==end)hole[++x][y]=++num;
 					else hole[x][++y]=++num;
 					break;
-				case 0://¥k¤W¨ì©³
-					while(x<end&&y>0)//ª½¨ì¸I¨ìÃäÃä¬°¤î
+				case 0://å³ä¸Šåˆ°åº•
+					while(x<end&&y>0)//ç›´åˆ°ç¢°åˆ°é‚Šé‚Šç‚ºæ­¢
 						hole[++x][--y]=++num;
 					break;
 			}
 		} 
 		
-		//¿é¥X
+		//è¼¸å‡º
 		cout<<"Case "<<Case++<<':'<<endl; 
 		for(y=0;y<N;y++)
 		{

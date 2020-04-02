@@ -1,4 +1,4 @@
-//±o¥Î¨ä¥Lºtºâªk¡A¤£µM«ÜÃø¦A§Ö¤F 
+//å¾—ç”¨å…¶ä»–æ¼”ç®—æ³•ï¼Œä¸ç„¶å¾ˆé›£å†å¿«äº† 
 
 
 #include<iostream>
@@ -6,16 +6,16 @@
 #include<cstring>
 using namespace std;
 
-//TM=Thousand Million=¤d¸U=10^9,ERR=±µªñull·¸¦ìªº­È(10^19) 
+//TM=Thousand Million=åƒè¬=10^9,ERR=æ¥è¿‘ullæº¢ä½çš„å€¼(10^19) 
 const unsigned long long TM=1000000000,TM2=TM*TM,ERR=TM2*10,LEN=9;
 
-//bignum ¡AÀx¦s¨C¤E­Ó¦ì¼Æªº­È¦@22223­Ó(200000¦ì)¡A©M¬ö¿ı¥Î¨ìnªº¦ì¸m 
+//bignum ï¼Œå„²å­˜æ¯ä¹å€‹ä½æ•¸çš„å€¼å…±22223å€‹(200000ä½)ï¼Œå’Œç´€éŒ„ç”¨åˆ°nçš„ä½ç½® 
 struct bignum
 {
-    unsigned long long n[23000],len;//¨C®æn¦s¤E­Ó¦ì¼Æ  len¼Æ¦rªø«×
+    unsigned long long n[23000],len;//æ¯æ ¼nå­˜ä¹å€‹ä½æ•¸  lenæ•¸å­—é•·åº¦
 };
 
-//±NstrÂà´«¦¨bignum
+//å°‡strè½‰æ›æˆbignum
 void strtobignum (string a,bignum &b)
 {
     int u=0,k;
@@ -39,23 +39,23 @@ void strtobignum (string a,bignum &b)
     return ;
 }
 
-//¨â­Ó¤j¼Æ¬Û­¼ 
+//å…©å€‹å¤§æ•¸ç›¸ä¹˜ 
 bignum bignummul(bignum a,bignum b)
 {
     bignum c;
     memset(c.n,0,sizeof(c.n));
-    c.len=a.len+b.len;//a*b=c¡Acªº¦ì¼Æ³Ì¦h¬°aªº¦ì¼Æ+bªº¦ì¼Æ 
-    for(int i=0;i<a.len;i++)//¦ì¼Æ¬Û­¼
+    c.len=a.len+b.len;//a*b=cï¼Œcçš„ä½æ•¸æœ€å¤šç‚ºaçš„ä½æ•¸+bçš„ä½æ•¸ 
+    for(int i=0;i<a.len;i++)//ä½æ•¸ç›¸ä¹˜
         for(int j=0;j<b.len;j++)
         {
             c.n[i+j]+=a.n[i]*b.n[j];
-            if(c.n[i+j]>=ERR)//**ª`·N**¨S¦³¦¹³B²z¬Y­Óc.n[i+j]³Ì«á·|¥[¨ì·¸¦ì 
+            if(c.n[i+j]>=ERR)//**æ³¨æ„**æ²’æœ‰æ­¤è™•ç†æŸå€‹c.n[i+j]æœ€å¾ŒæœƒåŠ åˆ°æº¢ä½ 
             {
                 c.n[i+j+2]+=c.n[i+j]/TM2;
                 c.n[i+j]%=TM2;
             }
         }
-    for(int i=0;i<c.len;i++)//¶W¹L10^9ªº¶i¦ì,¯d¤U³Ñ¤Uªº
+    for(int i=0;i<c.len;i++)//è¶…é10^9çš„é€²ä½,ç•™ä¸‹å‰©ä¸‹çš„
     {
         if(c.n[i]>=TM)
         {
@@ -63,18 +63,18 @@ bignum bignummul(bignum a,bignum b)
             c.n[i]%=TM;
         }
     }
-    //¦pªG¦³«e¾É¹s¡A«h´î¤Ö¨ì¨S¦³«e¾É¹sªºªø«× 
+    //å¦‚æœæœ‰å‰å°é›¶ï¼Œå‰‡æ¸›å°‘åˆ°æ²’æœ‰å‰å°é›¶çš„é•·åº¦ 
     while(!c.n[c.len]&&c.len>0)c.len--;
     c.len+=1; 
     return c;
 }
 
-//¿é¥Xbignum
+//è¼¸å‡ºbignum
 void coutbignum (bignum a)
 {
-    cout<<a.n[a.len-1];//¦b¬Û­¼®É§â«e¾É¹s²¾°£¤F¡Aª½±µ¿é¥X²Ä¤@­Ó´N¦n
+    cout<<a.n[a.len-1];//åœ¨ç›¸ä¹˜æ™‚æŠŠå‰å°é›¶ç§»é™¤äº†ï¼Œç›´æ¥è¼¸å‡ºç¬¬ä¸€å€‹å°±å¥½
     for(int i=a.len-2;i>=0;i--)
-        cout<<setfill('0')<<setw(9)<<a.n[i];//¦pªG¸Ón¤£¨ì9¦ì¼Æ¡A«h­n¸É0¨ì9­Ó¼Æ¦r 
+        cout<<setfill('0')<<setw(9)<<a.n[i];//å¦‚æœè©²nä¸åˆ°9ä½æ•¸ï¼Œå‰‡è¦è£œ0åˆ°9å€‹æ•¸å­— 
     cout<<endl;
     return ;
 }
@@ -85,31 +85,31 @@ int main()
     ios_base::sync_with_stdio(0);
     
     string ka;
-    cin>>ka;//mul¬°¬Û­¼,pow¬°¾­
-    if(ka[2]=='l')//a,b¬Û­¼
+    cin>>ka;//mulç‚ºç›¸ä¹˜,powç‚ºå†ª
+    if(ka[2]=='l')//a,bç›¸ä¹˜
     {
         string kb;
         bignum a,b;
         cin>>ka>>kb;
-        strtobignum(ka,a);//±N¦r¦êÂà­¼bignum
+        strtobignum(ka,a);//å°‡å­—ä¸²è½‰ä¹˜bignum
         strtobignum(kb,b);
-        coutbignum(bignummul(a,b));//¨â­Óbignum¬Û­¼«á¿é¥X
+        coutbignum(bignummul(a,b));//å…©å€‹bignumç›¸ä¹˜å¾Œè¼¸å‡º
     }
     else //a^b
     {
         bignum a,ans;
-        int b;//b<=4000¡Ab¥Îint¥i¥H¤£¥Î°µ¤j¼Æ°£ªk
-        ans.len=ans.n[0]=1;//ansªì©l­È¬°1
+        int b;//b<=4000ï¼Œbç”¨intå¯ä»¥ä¸ç”¨åšå¤§æ•¸é™¤æ³•
+        ans.len=ans.n[0]=1;//ansåˆå§‹å€¼ç‚º1
         cin>>ka>>b;
         strtobignum(ka,a);
-        while(b)//§Ö³t¾­
+        while(b)//å¿«é€Ÿå†ª
         {
             if(b%2==1)
                 ans=bignummul(a,ans);
             a=bignummul(a,a);
             b/=2;
         }
-        coutbignum(ans);//¿é¥Xµª®×
+        coutbignum(ans);//è¼¸å‡ºç­”æ¡ˆ
     }
     return 0;
 }

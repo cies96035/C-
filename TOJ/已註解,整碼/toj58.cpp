@@ -10,25 +10,25 @@ int main()
     for(int t=0;t<T;t++)
     { 
         int S,M,N,goout=0; 
-        cin>>S;//¿é¤J´XºØÄÝ©Ê 
+        cin>>S;//è¼¸å…¥å¹¾ç¨®å±¬æ€§ 
         char Attributes[S];
-        for(int s=0;s<S;s++)cin>>Attributes[s];//¿é¤J¦UºØÄÝ©Ê 
+        for(int s=0;s<S;s++)cin>>Attributes[s];//è¼¸å…¥å„ç¨®å±¬æ€§ 
         
-        cin>>M>>N;//¾î±ÆM­Ó,ª½¦CN­Ó 
+        cin>>M>>N;//æ©«æŽ’Må€‹,ç›´åˆ—Nå€‹ 
         char k[M][N];
-        for(int m=0;m<M;m++)//¿é¤J½L­± 
+        for(int m=0;m<M;m++)//è¼¸å…¥ç›¤é¢ 
         {
             for(int n=0;n<N;n++)cin>>k[m][n];
         }
         
-        //ÀË¬d¾î±Æ 
-        for(int m=0;m<M&&!goout;m++)//¥Ñ²Ä¤@±ÆÀË¬d¨ì³Ì«á¤@±Æ 
+        //æª¢æŸ¥æ©«æŽ’ 
+        for(int m=0;m<M&&!goout;m++)//ç”±ç¬¬ä¸€æŽ’æª¢æŸ¥åˆ°æœ€å¾Œä¸€æŽ’ 
         {
-            for(int n=0;n<N-2&!goout;n++)//²Ä0¦CÀË¬d¨ìn¦C 
+            for(int n=0;n<N-2&!goout;n++)//ç¬¬0åˆ—æª¢æŸ¥åˆ°nåˆ— 
             {
                 for(int s=0;s<S&&!goout;s++)
                 {
-                	//¤TÁû¾îªº¬Û³s¥B¬°¿é¥XªºÄÝ©Ê¡A§ðÀ» 
+                	//ä¸‰é¡†æ©«çš„ç›¸é€£ä¸”ç‚ºè¼¸å‡ºçš„å±¬æ€§ï¼Œæ”»æ“Š 
                     if(k[m][n]==k[m][n+1]&&k[m][n]==k[m][n+2]&&k[m][n]==Attributes[s])
                     {
                     cout<<"Attack!"<<endl;
@@ -37,7 +37,7 @@ int main()
                 }
             }
         }
-        //ÀË¬dª½±Æ
+        //æª¢æŸ¥ç›´æŽ’
         for(int n=0;n<N&&!goout;n++)
         {
             for(int m=0;m<M-2&!goout;m++)
@@ -52,7 +52,7 @@ int main()
                 }
             }
         }
-        //¦pªG¨S§ðÀ»¹L¡ALoser 
+        //å¦‚æžœæ²’æ”»æ“ŠéŽï¼ŒLoser 
         if(!goout)cout<<"Loser!"<<endl;
     } 
 return 0;
