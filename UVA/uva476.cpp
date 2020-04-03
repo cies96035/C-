@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-//¯x§Î¤£¶W¹L10­Ó,½d³ò¤£¤jºâÂ²³æ¹Ï½× 
+//çŸ©å½¢ä¸è¶…éŽ10å€‹,ç¯„åœä¸å¤§ç®—ç°¡å–®åœ–è«– 
 
 #define is_in_figure x>Figure[i].lx&&x<Figure[i].rx&&y>Figure[i].ry&&y<Figure[i].ly
 

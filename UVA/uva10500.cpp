@@ -21,7 +21,7 @@ int main()
 		if(M==0&&N==0)break;
 		cin>>x>>y;
 		
-		//0µLªk¨ì¹F1¥i¥H¨ì¹F2¥¼¨ì¹L3¤w¨ì¹F¹L
+		//0ç„¡æ³•åˆ°é”1å¯ä»¥åˆ°é”2æœªåˆ°é3å·²åˆ°é”é
 		int go=0,robot[M][N],real[M][N],num=0; 
 		char k,output[4]={'X','0','?','0'};
 		

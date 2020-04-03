@@ -1,8 +1,8 @@
 #include<iostream>
 using namespace std;
 /*
-ÃD¥Ø¨D:2t ¬í«á©Ò"¸g¹Lªº¶ZÂ÷"¬O¦h¤Ö 
-v0¥i³]0
+é¡Œç›®æ±‚:2t ç§’å¾Œæ‰€"ç¶“éçš„è·é›¢"æ˜¯å¤šå°‘ 
+v0å¯è¨­0
  
 v0+at=v1
 v0+a2t=v2

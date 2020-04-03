@@ -1,4 +1,4 @@
-//³]x¬OÁà¼Æ¡A2x,3x,5x¬OÁà¼Æ 
+//è¨­xæ˜¯é†œæ•¸ï¼Œ2x,3x,5xæ˜¯é†œæ•¸ 
 
 #include<iostream>
 #include<queue> 

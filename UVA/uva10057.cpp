@@ -2,7 +2,7 @@
 #include<algorithm>
 using namespace std;
 
-//¼Æ¾ÇÃD 
+//æ•¸å­¸é¡Œ 
 
 int main()
 {
@@ -15,7 +15,7 @@ int main()
 		int x[n];
 		for(int i=0;i<n;i++)cin>>x[i];
 		sort(x,x+n);
-		if(n%2)//©_¼Æ­Ó 
+		if(n%2)//å¥‡æ•¸å€‹ 
 		{
 			int mid=x[n/2];
 			cout<<mid<<' '<<upper_bound(x,x+n,mid)-lower_bound(x,x+n,mid)<<" 1\n";

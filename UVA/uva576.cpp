@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-#define isvowel(k) (k=='a'||k=='e'||k=='i'||k=='o'||k=='u'||k=='y')//¥À­µ 
+#define isvowel(k) (k=='a'||k=='e'||k=='i'||k=='o'||k=='u'||k=='y')//æ¯éŸ³ 
 
 int main()
 {
@@ -11,7 +11,7 @@ int main()
 	string sentence;
 	while(getline(cin,sentence))
 	{
-		if(sentence=="e/o/i")break;//²×¤î±ø¥ó
+		if(sentence=="e/o/i")break;//çµ‚æ­¢æ¢ä»¶
 		int index=0,syllable=0,which_sentence=1;
 		bool issyllable=1;
 		do
@@ -27,19 +27,19 @@ int main()
 			else
 			{
 				issyllable=1;
-				if(sentence[index]=='/'||sentence[index]=='\0')//·íµ²§ô¤@­Ó¤l¥y®É,§PÂ_¦¹¤l¥y¦³´X­Ó­µ¸` 
+				if(sentence[index]=='/'||sentence[index]=='\0')//ç•¶çµæŸä¸€å€‹å­å¥æ™‚,åˆ¤æ–·æ­¤å­å¥æœ‰å¹¾å€‹éŸ³ç¯€ 
 				{
-					if(which_sentence==1&&syllable!=5)//²Ä¤@¤l¥y,«D5­µ¸`
+					if(which_sentence==1&&syllable!=5)//ç¬¬ä¸€å­å¥,é5éŸ³ç¯€
 					{
 						cout<<"1\n";
 						break;
 					} 
-					else if(which_sentence==2&&syllable!=7)//²Ä¤G¤l¥y,«D7­µ¸`
+					else if(which_sentence==2&&syllable!=7)//ç¬¬äºŒå­å¥,é7éŸ³ç¯€
 					{
 						cout<<"2\n";
 						break;
 					} 				
-					else if(which_sentence==3&&syllable!=5)//²Ä¤T¤l¥y,«D5­µ¸` 
+					else if(which_sentence==3&&syllable!=5)//ç¬¬ä¸‰å­å¥,é5éŸ³ç¯€ 
 					{
 						cout<<"3\n";
 						break;
@@ -48,7 +48,7 @@ int main()
 					which_sentence++;
 				}
 			}
-			if(sentence[index]=='\0')//¦pªG³£¨S¦³break§¹¾ãÅª§¹¥y¤l,¥Nªí¬O§¹¬ü¥y¤l 
+			if(sentence[index]=='\0')//å¦‚æœéƒ½æ²’æœ‰breakå®Œæ•´è®€å®Œå¥å­,ä»£è¡¨æ˜¯å®Œç¾å¥å­ 
 			{
 				cout<<"Y\n";
 				break;

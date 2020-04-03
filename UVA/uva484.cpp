@@ -2,10 +2,10 @@
 #include<vector>
 using namespace std;
 
-int num_times[400000050];//¬ö¿ý¦¸¼Æ 
+int num_times[400000050];//ç´€éŒ„æ¬¡æ•¸ 
 int main()
 {
-	vector<int> num_turn;//¬ö¿ý¶¶§Ç 
+	vector<int> num_turn;//ç´€éŒ„é †åº 
 	int num;
 	while(cin>>num)
 	{

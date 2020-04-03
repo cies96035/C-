@@ -6,7 +6,7 @@ int main()
 	
 	int N,M;
 	cin>>N>>M;
-	int K,b[N],dp1[N+1]={0},dp2[N+1]={0};//dp1©ñdp2ªÅ 
+	int K,b[N],dp1[N+1]={0},dp2[N+1]={0};//dp1æ”¾dp2ç©º 
 	//for(int i=0;i<N;i++)
 	//	cin>>b[i];
 	
@@ -26,7 +26,7 @@ int main()
 
 	
 	//part2
-	dp1[0]=b[0];//¥ı¦Y²Ä¤@¦C 
+	dp1[0]=b[0];//å…ˆåƒç¬¬ä¸€åˆ— 
 	for(int i=1;i<N;i++)
 	{
 		dp1[i]=dp2[i-1]+b[i];

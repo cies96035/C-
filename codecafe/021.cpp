@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-#define SP 1000 //¥i¯à¨ú350´N¦n¡A«OÀI°_¨£¨ú1000 
+#define SP 1000 //å¯èƒ½å–350å°±å¥½ï¼Œä¿éšªèµ·è¦‹å–1000 
 int main()
 {
 	cin.tie(0);
@@ -30,7 +30,7 @@ int main()
 		N-=k*coin[0];
 		cout<<sum+sp[N]<<'\n';
 	}
-	//¦n·Ğ 
+	//å¥½ç…© 
 	return 0;
 }
 

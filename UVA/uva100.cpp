@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-//¼É¤Oforce§Y¥i 
+//æš´åŠ›forceå³å¯ 
 int main()
 {
 	int i,j,ans;

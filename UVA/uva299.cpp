@@ -3,75 +3,75 @@ using namespace std;
 
 /*
 count inversion
-¨Ï¥Î merge sort >> D&C
-°Ñ¦Ò³o¸Ì: 
+ä½¿ç”¨ merge sort >> D&C
+åƒè€ƒé€™è£¡: 
 https://www.youtube.com/watch?v=MxiQa22KrSQ
-¹ê§@§Y¥i 
+å¯¦ä½œå³å¯ 
 */ 
 
 int num[2000000];
 long long count=0;
 
 
-//­pºâ¨â­Ó¤w±Æ¦C§Ç¦Cªº¥æ´«¼Æ¶q¡B¨Ã±Æ§Ç¨â­Ó§Ç¦C 
-//left~mid¥ª§Ç¦C,mid+1~right¥k§Ç¦C 
+//è¨ˆç®—å…©å€‹å·²æ’åˆ—åºåˆ—çš„äº¤æ›æ•¸é‡ã€ä¸¦æ’åºå…©å€‹åºåˆ— 
+//left~midå·¦åºåˆ—,mid+1~rightå³åºåˆ— 
 void count_inversion(int left,int mid,int right)
 {
-    int record[right-left+1],//¬ö¿ı¥¿½T¶¶§Ç¥Î
-    leftsub=left,rightsub=mid,//¨â­Ó§Ç¦Cªº°_ÀY 
-    index=0;//°O¿ı¥Îªº¦ì¸m
+    int record[right-left+1],//ç´€éŒ„æ­£ç¢ºé †åºç”¨
+    leftsub=left,rightsub=mid,//å…©å€‹åºåˆ—çš„èµ·é ­ 
+    index=0;//è¨˜éŒ„ç”¨çš„ä½ç½®
     
     /*
-    ¥Ñ©ó¤w±Æ§Ç¡A³Ì¤p­È¥²©w¦b¨â§Ç¦Cªº³Ì¥ªÃä¨ä¤@
-    ¤@¤@¤ñ¸û¨â­Ó§Ç¦Cªº°_ÀY¡A¨Ã©ñ¤J¬ö¿ıªº°}¦C¡A§Y¥i±Æ¥X¥Ñ¤p¨ì¤j¶¶§Çªº°}¦C
-    ¨ä¤¤·í¥ªÃäªº§Ç¦C¤ñ¸û¤j®É¡A­pºâ¥æ´«¦¸¼Æ 
+    ç”±æ–¼å·²æ’åºï¼Œæœ€å°å€¼å¿…å®šåœ¨å…©åºåˆ—çš„æœ€å·¦é‚Šå…¶ä¸€
+    ä¸€ä¸€æ¯”è¼ƒå…©å€‹åºåˆ—çš„èµ·é ­ï¼Œä¸¦æ”¾å…¥ç´€éŒ„çš„é™£åˆ—ï¼Œå³å¯æ’å‡ºç”±å°åˆ°å¤§é †åºçš„é™£åˆ—
+    å…¶ä¸­ç•¶å·¦é‚Šçš„åºåˆ—æ¯”è¼ƒå¤§æ™‚ï¼Œè¨ˆç®—äº¤æ›æ¬¡æ•¸ 
     */ 
-    //ª½¨ì¨ä¤¤¤@­Ó§Ç¦C¨SªF¦è¥i¥H¤ñ
+    //ç›´åˆ°å…¶ä¸­ä¸€å€‹åºåˆ—æ²’æ±è¥¿å¯ä»¥æ¯”
     while(true)
     {
         if(num[leftsub]<=num[rightsub])
             record[index++]=num[leftsub++];
-        else//­pºâ¥æ´«¦¸¼Æ 
+        else//è¨ˆç®—äº¤æ›æ¬¡æ•¸ 
         {
             record[index++]=num[rightsub++];
-            count+=mid-leftsub;//¼v¤ù3:25³¡¤À¹ê§@ 
+            count+=mid-leftsub;//å½±ç‰‡3:25éƒ¨åˆ†å¯¦ä½œ 
         }
-        //²×¤î±ø¥ó:ª½¨ì¦³¥ª¥k§Ç¦C¤¤¤@­Ó§Ç¦C¬ö¿ı§¹¤F¡A¨S±o¤ñ¸û®É²×¤î
-        //¨Ã§¹¦¨¬ö¿ı¡B½Æ»s§Ç¦C(¥»¨Ó¬O¤@­Ó°Ï¶¡¨â¬q±Æ§¹¶¶§Çªº¡AÅÜ¦¨¥ş³¡±Æ§¹¶¶§Çªº) 
-        if(leftsub==mid)//¥ª§Ç¦C¥ı¬ö¿ı§¹
+        //çµ‚æ­¢æ¢ä»¶:ç›´åˆ°æœ‰å·¦å³åºåˆ—ä¸­ä¸€å€‹åºåˆ—ç´€éŒ„å®Œäº†ï¼Œæ²’å¾—æ¯”è¼ƒæ™‚çµ‚æ­¢
+        //ä¸¦å®Œæˆç´€éŒ„ã€è¤‡è£½åºåˆ—(æœ¬ä¾†æ˜¯ä¸€å€‹å€é–“å…©æ®µæ’å®Œé †åºçš„ï¼Œè®Šæˆå…¨éƒ¨æ’å®Œé †åºçš„) 
+        if(leftsub==mid)//å·¦åºåˆ—å…ˆç´€éŒ„å®Œ
         {
-            //½Æ»s¨ì­ì°}¦C 
+            //è¤‡è£½åˆ°åŸé™£åˆ— 
             while(rightsub<=right)
                 record[index++]=num[rightsub++];
-            //µ²§ô
+            //çµæŸ
             break; 
         }
-        else if(rightsub>right)//¥k§Ç¦C¥ı¬ö¿ı§¹
+        else if(rightsub>right)//å³åºåˆ—å…ˆç´€éŒ„å®Œ
         {
             while(leftsub<mid)
                     record[index++]=num[leftsub++];
-            //µ²§ô
+            //çµæŸ
             break; 
         } 
     }
-    for(int i=left,j=0;i<=right;i++,j++)//½Æ»s°}¦C 
+    for(int i=left,j=0;i<=right;i++,j++)//è¤‡è£½é™£åˆ— 
         num[i]=record[j];
     return;
 }
 
-//»¼°j 
+//éè¿´ 
 void mergesort(int left,int right)
 {
     if(left!=right)
     {
-        //¤G¤À
+        //äºŒåˆ†
         int mid=(left+right)/2;
         
-        //¤À¦¨¨â¥b©¹¤U³B²z 
+        //åˆ†æˆå…©åŠå¾€ä¸‹è™•ç† 
         mergesort(left,mid);
         mergesort(mid+1,right);
         
-        //­pºâ¥æ´«¦¸¼Æ
+        //è¨ˆç®—äº¤æ›æ¬¡æ•¸
         count_inversion(left,mid+1,right);
     }
     return;

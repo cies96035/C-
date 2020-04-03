@@ -10,7 +10,7 @@ int main()
 	cin.tie(0);
 	ios_base::sync_with_stdio(0);
 	
-	//½è¼Æªí
+	//è³ªæ•¸è¡¨
 	for(int i=2;i<maxX;i++)
 		if(!prime[i])
 			for(int j=i;j<maxX;j+=i)

@@ -15,7 +15,7 @@ int main()
 	for(int i=2;i<maxX;i++)
 		divisors[i]=1;
 	
-	//½è¼Æªí
+	//è³ªæ•¸è¡¨
 	int most_divisor=0;
 	for(int i=2;i<maxX;i++)
 	{

@@ -5,7 +5,7 @@ const int maxX=32768;
 
 int prime[32768]={1,1};
 
-//§Ö³t¾­
+//å¿«é€Ÿå†ª
 inline int Pow(int x,int n)
 {
 	int ans=1;
@@ -24,7 +24,7 @@ int main()
 	cin.tie(0);
 	ios_base::sync_with_stdio(0);
 	
-	//½è¼Æªí
+	//è³ªæ•¸è¡¨
 	for(int i=2;i<maxX;i++)
 		if(!prime[i])
 			for(int j=i;j<maxX;j+=i)

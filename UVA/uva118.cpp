@@ -22,7 +22,7 @@ int main()
 		
 		losted=0;
 		
-		//³B²z¦r¦ê³¡¤À 
+		//è™•ç†å­—ä¸²éƒ¨åˆ† 
 		for(int i=0;i<todo.size();i++)
 		{
 			if(todo[i]=='L')faceid+=3;

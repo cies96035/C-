@@ -4,7 +4,7 @@
 using namespace std;
 
 
-//§PÂ_¬O§_¬°­^¤å¦r¥À 
+//åˆ¤æ–·æ˜¯å¦ç‚ºè‹±æ–‡å­—æ¯ 
 #define isalpha(k) ((k>='A'&&k<='Z')||(k>='a'&&k<='z'))
 
 int main()
@@ -21,15 +21,15 @@ int main()
 		for(int i=0;i<K;i++)
 			cin>>keyword[i];
 
-		cin.get();//¦Y±¼´«¦æ 
+		cin.get();//åƒæ‰æ›è¡Œ 
 		
-		//§ä¨ì³ÌÄêªº¨º¨ÇÂÇ¤f 
+		//æ‰¾åˆ°æœ€çˆ›çš„é‚£äº›è—‰å£ 
 		while(index<E)
 		{
 			/*
-			¬O¦r¥À->¥á¶i¤@­Ó¦r¦ê
-			¤£¬O¦r¥À->§PÂ_¦r¦ê¬O¤£¬OÃöÁä¦r
-			´«¦æ¡BEOF->§PÂ_³Ì¦hÃöÁä¦rªºÂÇ¤f 
+			æ˜¯å­—æ¯->ä¸Ÿé€²ä¸€å€‹å­—ä¸²
+			ä¸æ˜¯å­—æ¯->åˆ¤æ–·å­—ä¸²æ˜¯ä¸æ˜¯é—œéµå­—
+			æ›è¡Œã€EOF->åˆ¤æ–·æœ€å¤šé—œéµå­—çš„è—‰å£ 
 			*/
 			k=cin.get();
 			excuse[index]+=(char)k;
@@ -37,7 +37,7 @@ int main()
 				word+=(char)(k>='a'?k:k-'A'+'a');
 			else
 			{
-				//§PÂ_word¬O¤£¬OÃöÁä¦r 
+				//åˆ¤æ–·wordæ˜¯ä¸æ˜¯é—œéµå­— 
 				for(int i=0;i<K;i++)
 				{
 					if(word==keyword[i])
@@ -47,13 +47,13 @@ int main()
 					}
 				}
 				
-				//¦pªGexcuse[index]¥X²{ªºÃöÁä¦r³Ì¦h,°O¿ı¤U¨Ó 
+				//å¦‚æœexcuse[index]å‡ºç¾çš„é—œéµå­—æœ€å¤š,è¨˜éŒ„ä¸‹ä¾† 
 				if(k=='\n'||k==EOF)
 				{
 					//*test*/cout<<keyword_in_excuse<<endl;
-					if(keyword_in_excuse==max)//¥X²{¤@¼Ë¦hªº´N¥á¶i¥h
+					if(keyword_in_excuse==max)//å‡ºç¾ä¸€æ¨£å¤šçš„å°±ä¸Ÿé€²å»
 						worst_excuse_id.emplace_back(index);
-					else if(keyword_in_excuse>max)//¥X²{§ó¦hªº´N²M°£¤§«eªº¬ö¿ı¡A§ó·s
+					else if(keyword_in_excuse>max)//å‡ºç¾æ›´å¤šçš„å°±æ¸…é™¤ä¹‹å‰çš„ç´€éŒ„ï¼Œæ›´æ–°
 					{
 						worst_excuse_id.clear();
 						worst_excuse_id.emplace_back(index);
@@ -62,11 +62,11 @@ int main()
 					keyword_in_excuse=0;
 					index++;
 				}
-				word.clear();//word²MªÅ,·Ç³Æ¬ö¿ı¤U¤@µ§
+				word.clear();//wordæ¸…ç©º,æº–å‚™ç´€éŒ„ä¸‹ä¸€ç­†
 			}
 		}
 		
-		//¿é¥X 
+		//è¼¸å‡º 
 		cout<<"Excuse Set #"<<set++<<'\n';
 		for(unsigned int i=0;i<worst_excuse_id.size();i++)
 			cout<<excuse[worst_excuse_id[i]];

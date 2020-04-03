@@ -58,7 +58,7 @@ int main()
 			bool complete=0;
 			cin>>point.x>>point.y;
 			
-			//²Ä¤@Àu¥ı,·j´M·s¨ìÂÂµøµ¡ 
+			//ç¬¬ä¸€å„ªå…ˆ,æœå°‹æ–°åˆ°èˆŠè¦–çª— 
 			for(int i=window.size()-1;i>=0;i--)
 			{
 				if(is_point_in_window(point,window[i]))
@@ -69,16 +69,16 @@ int main()
 				}
 			}
 			
-			//¦pªG¥¼ÂIÀ»¨ìµøµ¡¡AÄ~Äò²Ä¤GÀu¥ı·j´Micon 
+			//å¦‚æœæœªé»æ“Šåˆ°è¦–çª—ï¼Œç¹¼çºŒç¬¬äºŒå„ªå…ˆæœå°‹icon 
 			if(!complete)
 			{
-				//¬ö¿ı¨C­Ó³Ìµu¶ZÂ÷iconªºid 
+				//ç´€éŒ„æ¯å€‹æœ€çŸ­è·é›¢iconçš„id 
 				vector <int> minid;
 				long long min=2e9,distance;
 				for(int i=0;i<icon.size();i++)
 				{
 					distance=pow((icon[i].x-point.x),2)+pow((icon[i].y-point.y),2);
-					//¦pªGicon³Qµøµ¡¾×¦í,±N¶ZÂ÷³]¬°«Ü¤j 
+					//å¦‚æœiconè¢«è¦–çª—æ“‹ä½,å°‡è·é›¢è¨­ç‚ºå¾ˆå¤§ 
 					for(int j=window.size()-1;j>=0;j--)
 					{
 						if(is_point_in_window(icon[i],window[j]))
@@ -87,7 +87,7 @@ int main()
 							break;
 						}
 					}
-					//±o¨ì©Ò¦³³Ì¤p¶ZÂ÷ 
+					//å¾—åˆ°æ‰€æœ‰æœ€å°è·é›¢ 
 					if(distance==min)
 						minid.push_back(i);
 					else if(distance<min)
@@ -97,7 +97,7 @@ int main()
 						minid.push_back(i);
 					}
 				}
-				//¿é¥X©Ò¦³³Ì¤p¶ZÂ÷ 
+				//è¼¸å‡ºæ‰€æœ‰æœ€å°è·é›¢ 
 				for(int i=0;i<minid.size();i++)
 					cout<<setw(3)<<minid[i]+1;
 				cout<<endl;

@@ -9,7 +9,7 @@ int main()
 {
 	cin.tie(0);
 	ios_base::sync_with_stdio(0);
-	int T,M,N;//´ú¸ê¼Æ,y¶bªø«×,x¶bªø«× 
+	int T,M,N;//æ¸¬è³‡æ•¸,yè»¸é•·åº¦,xè»¸é•·åº¦ 
 	cin>>T;
 	while(T--)
 	{
@@ -17,10 +17,10 @@ int main()
 		char input;
 		int ex,ey,sx,sy,trip[M][N];
 		memset(trip,0,sizeof(trip));
-		//trip¥Î¨Ó°O¿ý±q°_ÂI¨ì¹F¸Ó¦a»Ý­n¦h¤Ö¨B¼Æ
-		//0¥Nªí¥¼¨«¹L,¥i¥H«e©¹,-1¥Nªí¤£¯à«e©¹,¨ä¾l¼Æ¦r¥Nªí´¿¸g¨«¹L,¤]¤£¯à«e©¹
+		//tripç”¨ä¾†è¨˜éŒ„å¾žèµ·é»žåˆ°é”è©²åœ°éœ€è¦å¤šå°‘æ­¥æ•¸
+		//0ä»£è¡¨æœªèµ°éŽ,å¯ä»¥å‰å¾€,-1ä»£è¡¨ä¸èƒ½å‰å¾€,å…¶é¤˜æ•¸å­—ä»£è¡¨æ›¾ç¶“èµ°éŽ,ä¹Ÿä¸èƒ½å‰å¾€
 		
-		//®Ú¾Ú¿é¤J±o¨ì°_ÂI¡B²×ÂI¡B¥H¤Î¤£¯à«e©¹ªº¦ì¸m 
+		//æ ¹æ“šè¼¸å…¥å¾—åˆ°èµ·é»žã€çµ‚é»žã€ä»¥åŠä¸èƒ½å‰å¾€çš„ä½ç½® 
 		for(int i=M-1;i>=0;i--)
 			for(int j=0;j<N;j++)
 			{
@@ -53,7 +53,7 @@ int main()
 						trip[i-2][j+1]=-1;
 					if(j<N-1&&i<M-2)
 						trip[i+2][j+1]=-1;
-					trip[i][j]=-1;//ª`·N³o¦æ
+					trip[i][j]=-1;//æ³¨æ„é€™è¡Œ
 				} 
 			}
 		queue<pii> togo;
@@ -72,17 +72,17 @@ int main()
 			togo.pop();
 			for(int i=0;i<8;i++)
 			{
-				if(i==0)gox=x+1,goy=y+1;//¥k¤W 
-				else if(i==1)gox=x-1,goy=y-1;//¥ª¤W 
-				else if(i==2)gox=x+1,goy=y-1;//¥k¤W 
-				else if(i==3)gox=x-1,goy=y+1;//¥ª¤U 
-				else if(i==4)gox=x+1,goy=y;//¥k 
-				else if(i==5)gox=x-1,goy=y;//¥ª  
-				else if(i==6)gox=x,goy=y+1;//¤U 
-				else if(i==7)gox=x,goy=y-1;//¤W
-				if((gox>=0&&gox<N)&&(goy>=0&&goy<M))//§PÂ_µL¶W¥X°}¦C½d³ò
+				if(i==0)gox=x+1,goy=y+1;//å³ä¸Š 
+				else if(i==1)gox=x-1,goy=y-1;//å·¦ä¸Š 
+				else if(i==2)gox=x+1,goy=y-1;//å³ä¸Š 
+				else if(i==3)gox=x-1,goy=y+1;//å·¦ä¸‹ 
+				else if(i==4)gox=x+1,goy=y;//å³ 
+				else if(i==5)gox=x-1,goy=y;//å·¦  
+				else if(i==6)gox=x,goy=y+1;//ä¸‹ 
+				else if(i==7)gox=x,goy=y-1;//ä¸Š
+				if((gox>=0&&gox<N)&&(goy>=0&&goy<M))//åˆ¤æ–·ç„¡è¶…å‡ºé™£åˆ—ç¯„åœ
 				{
-					//¦pªG¨S¦³³Q°O¿ý¹L(¥i¥H¨«) 
+					//å¦‚æžœæ²’æœ‰è¢«è¨˜éŒ„éŽ(å¯ä»¥èµ°) 
 					if(!trip[goy][gox]) 
 					{
 						//*test*/cout<<' '<<gox<<goy<<' '<<trip[goy][gox]<<endl;

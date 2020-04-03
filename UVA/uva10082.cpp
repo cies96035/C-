@@ -6,7 +6,7 @@ int main()
 	cin.tie(0);
 	ios_base::sync_with_stdio(0);
 	
-	//�ت�,�Ψҥ~ :  ; ' = 
+	//建表,及例外 :  ; ' = 
 	char alpha[29]={ // A ~ Z [ \ ]
 	'*','V','X','S','W',
 	'D','F','G','U','H',

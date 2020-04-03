@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-//§PÂ_¨C­Ó¦r¤¸,Âù¤Ş¸¹ªº¸Ü¦A¨ÌÃD·N¿é¥X§Y¥i 
+//åˆ¤æ–·æ¯å€‹å­—å…ƒ,é›™å¼•è™Ÿçš„è©±å†ä¾é¡Œæ„è¼¸å‡ºå³å¯ 
 int main()
 {
 	string qutoes;

@@ -2,9 +2,9 @@
 using namespace std;
 
 /*
-¼Æ¾ÇÃD 
-¨ÌÃD·N¥i±osqrt(n+1)-sqrt(1)=S
-¦A±o¨ì(S+1)^2-1=n
+æ•¸å­¸é¡Œ 
+ä¾é¡Œæ„å¯å¾—sqrt(n+1)-sqrt(1)=S
+å†å¾—åˆ°(S+1)^2-1=n
 */ 
 int main()
 {
