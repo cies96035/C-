@@ -2,7 +2,10 @@
 #include<cstring>
 using namespace std;
 
-int arr[200],n=0,len[200];
+typedef pair<int,int> pii;
+int arr[200],n=0,longest=0;
+pii maxlen[200];
+int best[2];
 
 bool ispal(int s,int e)
 {
@@ -19,6 +22,8 @@ int main()
 {
 	char k;
 	int sum=0;
+	
+	//input part
 	while(cin.get(k))
 	{
 		if(k>='0'&&k<='9')
@@ -34,19 +39,56 @@ int main()
 			break;
 		} 
 	}
-	for(int i=0;i<n;i++)
+	
+	
+	for(int i=n-1;i>=0;i--)
 	{
-		for(int j=n-1;j>=0;j--)
+		for(int j=n-1;j>=i;j--)
 		{
 			if(ispal(i,j))
 			{
-				len[i]=j-i+1;
+				maxlen[i]=pii(j-i+1,i);
 				break;
 			}
 		}
-		cout<<len[i]<<endl;
+		if(i>0&&maxlen[i+1].first>=maxlen[i].first)maxlen[i]=maxlen[i+1];
+		//cout<<maxlen[i].first<<maxlen[i].second<<endl;
 	}
-	//for(int i=0;i)
+	
+	for(int i=n-1;i>=0;i--)
+	{
+		int l=0;
+		//find i+1 head & longest second pal
+		for(int k=i-1,j=k;j>=0;j--)
+		{
+			if(ispal(j,k))
+			{
+				if(k-j+1>=l)
+				{
+					l=k-j+1;
+				}
+			}
+		}
+		cout<<l<<maxlen[i].first<<endl;
+		if(l+maxlen[i].first>longest)
+		{
+			longest=l+maxlen[i].first;
+			best[0]=i;
+			best[1]=l;
+		}
+	}
+	cout<<best[0]<<best[1]<<endl;
+	for(int i=best[0]-best[1];i<best[0];i++)
+	{
+		cout<<arr[i]<<' ';
+	}
+	for(int i=1;i<=best[1];i++)
+	{
+		cout<<arr[maxlen[best[1]].second+i]<<' ';
+	}
+	cout<<endl;
+	
 	return 0;
 }
+// 1 2 3 2 1 2 1
 
