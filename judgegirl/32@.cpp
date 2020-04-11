@@ -40,26 +40,25 @@ int main()
 		} 
 	}
 	
-	
-	for(int i=n-1;i>=0;i--)
+	//maxlen->i之前最長回文，以及其最右邊的尾巴 
+	for(int i=0;i<n;i++)
 	{
-		for(int j=n-1;j>=i;j--)
+		for(int j=0;j<=i;j++)
 		{
-			if(ispal(i,j))
+			if(ispal(j,i))
 			{
-				maxlen[i]=pii(j-i+1,i);
+				maxlen[i]=pii(i-j+1,i);
 				break;
 			}
 		}
-		if(i>0&&maxlen[i+1].first>=maxlen[i].first)maxlen[i]=maxlen[i+1];
-		//cout<<maxlen[i].first<<maxlen[i].second<<endl;
+		if(i>0&&maxlen[i-1].first>maxlen[i].first)maxlen[i]=maxlen[i-1];
+		//cout<<maxlen[i].first<<maxlen[i].second<<' ';
 	}
-	
-	for(int i=n-1;i>=0;i--)
+	for(int i=0;i<n;i++)
 	{
 		int l=0;
 		//find i+1 head & longest second pal
-		for(int k=i-1,j=k;j>=0;j--)
+		for(int j=i+1,k=j;k<n;k++)
 		{
 			if(ispal(j,k))
 			{
@@ -69,26 +68,35 @@ int main()
 				}
 			}
 		}
-		cout<<l<<maxlen[i].first<<endl;
 		if(l+maxlen[i].first>longest)
 		{
 			longest=l+maxlen[i].first;
 			best[0]=i;
 			best[1]=l;
 		}
+		else if(l+maxlen[i].first==longest)
+		{
+			if(maxlen[i].second-maxlen[i].first>maxlen[best[0]].second-maxlen[best[0]].first)
+			{
+				best[0]=i;
+				best[1]=l;
+			}
+		}
 	}
-	cout<<best[0]<<best[1]<<endl;
-	for(int i=best[0]-best[1];i<best[0];i++)
+	//cout<<endl<<longest<<endl;
+	//cout<<best[0]<<best[1]<<endl;
+	for(int i=best[0]-maxlen[best[0]].first+1;i<=best[0];i++)
 	{
 		cout<<arr[i]<<' ';
 	}
 	for(int i=1;i<=best[1];i++)
 	{
-		cout<<arr[maxlen[best[1]].second+i]<<' ';
+		cout<<arr[best[0]+i]<<' ';
 	}
 	cout<<endl;
 	
 	return 0;
 }
 // 1 2 3 2 1 2 1
+// 7 1 2 3 2 1 1
 
