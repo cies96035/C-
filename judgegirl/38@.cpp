@@ -1,11 +1,10 @@
 #include<iostream>
-#include<map>
+#include<map> 
 using namespace std;
 
-int num,power[3],amount[3];
-bool f(int n,int a,int b,int c)
+int num,power[3],amount[3],sum;
+bool f(int n,int a,int b,int c)//stack overflow
 {
-	//cout<<n<<endl;
 	bool k=0;
 	if(n==0)
 		return 1;
@@ -28,9 +27,13 @@ int main()
 	{
 		cin>>num;
 		for(int i=0;i<3;i++)
+		{
 			cin>>amount[i];
+			sum+=amount[i];
+		}
 		for(int i=0;i<3;i++)
 			cin>>power[i];
+		if(sum>30000)
 		if(f(num,amount[0],amount[1],amount[2]))
 			cout<<"yes\n";
 		else
