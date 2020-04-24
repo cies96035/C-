@@ -5,12 +5,12 @@ int main()
 {
 	cin.tie(0);
 	ios_base::sync_with_stdio(0);
+	
 	char k;
 	int ans=0;
 	long double beat=0;
 	while(cin.get(k))
 	{
-		//cout<<beat<<endl;
 		if(k=='/')
 		{
 			if(beat==1)ans++;

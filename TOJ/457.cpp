@@ -2,9 +2,11 @@
 #include<algorithm>
 using namespace std;
 
-#define maxn 1000100
-#define maxid 10000100
-int num[maxid],E[maxid],n,k;
+#define maxn 1000010
+#define maxid 10000010
+typedef long long ll;
+int prime[maxid]//record i's prime factor
+,E[maxid],n,k;
 
 struct Star
 {
@@ -20,25 +22,25 @@ bool cmp(Star a,Star b)
 void Init()
 {
     for(int i=2;i<maxid;i+=2)
-		num[i]=2;
-	for(long long i=3;i<maxid;i++)
+		prime[i]=2;
+	for(ll i=3;i<maxid;i++)
 	{
-		if(!num[i])
+		if(!prime[i])
 		{
-			num[i]=i;
+			prime[i]=i;
 			for(long long j=i*i;j<maxid;j+=i)
-				num[j]=i;
+				prime[j]=i;
 		}
 	}
 }
 
 int getvalue(int id)
 {
-	int ans=1,tmp,ID=id;
-	while(num[id]>1)
+	int ans=1,tmp,origin=id;
+	while(prime[id]>1)//until pr
 	{
-		tmp=num[id];
-		if(E[id])return E[ID]=ans*E[id];
+		tmp=prime[id];
+		if(E[id])return E[origin]=ans*E[id];
 		ans*=tmp-1;
 		id/=tmp;
 		while(id%tmp==0)
@@ -47,7 +49,7 @@ int getvalue(int id)
 			ans*=tmp;
 		}
 	}
-	return E[ID]=ans;
+	return E[origin]=ans;
 }
 
 int main()
