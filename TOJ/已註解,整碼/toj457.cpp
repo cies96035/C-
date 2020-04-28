@@ -6,7 +6,8 @@ using namespace std;
 #define maxid 10000010
 typedef long long ll;
 int prime[maxid]//record i's prime factor
-,E[maxid],n,k;
+,E[maxid]//cache
+,n,k;
 
 struct Star
 {
@@ -19,34 +20,38 @@ bool cmp(Star a,Star b)
 	return a.id<b.id;
 }
 
+//get every num's prime factor
 void Init()
 {
-    for(int i=2;i<maxid;i+=2)
-		prime[i]=2;
-	for(ll i=3;i<maxid;i++)
+	for(ll i=2;i<maxid;i++)
 	{
 		if(!prime[i])
 		{
 			prime[i]=i;
-			for(long long j=i*i;j<maxid;j+=i)
+			for(ll j=i*i;j<maxid;j+=i)
 				prime[j]=i;
 		}
 	}
+	return;
 }
 
 int getvalue(int id)
 {
-	int ans=1,tmp,origin=id;
-	while(prime[id]>1)//until pr
+	int ans=1,id_primefactor,origin=id;
+	while(id!=1)//因式分解直到1
 	{
-		tmp=prime[id];
-		if(E[id])return E[origin]=ans*E[id];
-		ans*=tmp-1;
-		id/=tmp;
-		while(id%tmp==0)
+		id_primefactor=prime[id];
+		if(E[id])//如果E[id]找過了，可以用E[id]求出E[origin]，E[origin/id]=ans
+			return E[origin]=ans*E[id];
+		else
 		{
-			id/=tmp;
-			ans*=tmp;
+			id/=id_primefactor;
+			ans*=id_primefactor-1;
+			while(id%id_primefactor==0)
+			{
+				id/=id_primefactor;
+				ans*=id_primefactor;
+			}
 		}
 	}
 	return E[origin]=ans;

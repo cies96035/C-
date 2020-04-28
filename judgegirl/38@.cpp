@@ -3,7 +3,15 @@
 using namespace std;
 
 int num,power[3],amount[3],sum;
-bool f(int n,int a,int b,int c)//stack overflow
+int two_power[31];
+void Init()
+{
+	two_power[0]=1;
+	for(int i=0;i<30;i++)
+		two_power[i+1]=two_power[i]*2;
+	return ;
+}
+bool f(int n,int a,int ap,int b,int bp,int c,int cp)//stack overflow
 {
 	bool k=0;
 	if(n==0)
