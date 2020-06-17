@@ -1,43 +1,52 @@
 #include<iostream>
-#include<vector> 
 using namespace std;
 
-#define Max 50000
+#define Max 47000
 
 typedef long long ll;
-ll g;
 bool x;
-int isnt_prime[Max],Prime[Max],Primesize=0;
+int g,isnt_prime[Max],Prime[Max],Primesize=0;
+
 int main()
 {
 	cin.tie(0);
 	ios_base::sync_with_stdio(0);
 	
+	//pre
 	for(ll i=2;i<Max;i++)
-	{
 		if(!isnt_prime[i])
 		{
 			Prime[Primesize++]=i;
 			for(ll j=i*i;j<Max;j+=i)
-				isnt_prime[j]=1;
+				if(!isnt_prime[j])
+					isnt_prime[j]=1;
 		}
-	}
+	Prime[Primesize]=1;
 	
 	while(cin>>g&&g)
 	{
+		//Init
 		x=0;
+		
+		//output
 		cout<<g<<" = ";
-		if(g<0)
+		
+		if(g<0)//if negative
 		{
 			cout<<-1<<" x ";
 			g=-g;
 		}
 		
-		for(int i=0;i<Primesize&&g!=1;)
+		//output factors
+		for(int i=0,out=0;g!=1;)
 		{
-			if(g%Prime[i])
-				i++;
-			else
+			while(g%Prime[i])//if not g's factor
+				if(++i<Primesize);
+				else//g is a prime
+					out=1;
+			if(out)
+				break;
+			while(!(g%Prime[i]))//if Prime[i] is g's factor
 			{
 				if(x)
 					cout<<" x ";
@@ -48,6 +57,7 @@ int main()
 			}
 		}
 		
+		//if lager than Max and g is a prime
 		if(!x)
 			cout<<g;
 		cout<<'\n';
