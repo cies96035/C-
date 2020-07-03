@@ -10,7 +10,7 @@ using namespace std;
 5: 1,4 2,3 3,2 4,1 *
 */
 
-int term[Max],termindex=2;
+int line_amount[Max],line_amount_index=2;
 int main()
 {
   cin.tie(0);
@@ -18,17 +18,18 @@ int main()
 
   //Init
   for(int i=1;i<Max;i++)
-  term[termindex]=term[termindex++]+i;
-  int N,amount;
-  while(cin>>N)
+  line_amount[line_amount_index]=line_amount[line_amount_index++]+i;
+  int term,TA;//Total amount
+
+  while(cin>>term)
   {
-    cout<<"TERM "<<N<<" IS ";
-    amount=lower_bound(term,term+termindex,N)-term-1;
-    N-=term[amount];
-    if(amount%2)
-      cout<<N<<'/'<<amount-N<<'\n';
+    cout<<"TERM "<<term<<" IS ";
+    TA=lower_bound(line_amount,line_amount+line_amount_index,term)-line_amount-1;
+    term-=line_amount[TA];
+    if(TA%2)
+      cout<<term<<'/'<<TA-term<<'\n';
     else
-      cout<<amount-N<<'/'<<N<<'\n';
+      cout<<TA-term<<'/'<<term<<'\n';
   }
   return 0;
 }
