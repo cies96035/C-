@@ -2,17 +2,21 @@
 #include<algorithm>
 using namespace std;
 
-int T;
-int length[3],Case=1;
+typedef long long ll;
+int T,Case=1;
+ll length[3];
 int main()
 {
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
+
     cin>>T;
     while(T--)
     {
         cin>>length[0]>>length[1]>>length[2];
         sort(length,length+3);
         cout<<"Case "<<Case++<<": ";
-        if(length[2]>length[0]+length[1])
+        if(length[2]>=length[0]+length[1]||length[0]<=0)
             cout<<"Invalid\n";
         else if(length[0]==length[2])
             cout<<"Equilateral\n";
