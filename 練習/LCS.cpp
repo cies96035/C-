@@ -1,4 +1,5 @@
-#include<iostream>
+#include <iostream>
+#include <algorithm>
 using namespace std;
 const int n1 = 7, n2 = 5;
 // 為了實作方便，從陣列的第1格開始存入序列。
