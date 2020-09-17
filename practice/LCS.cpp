@@ -2,25 +2,25 @@
 #include <algorithm>
 using namespace std;
 const int n1 = 7, n2 = 5;
-// ¬°¤F¹ê§@¤è«K¡A±q°}¦Cªº²Ä1®æ¶}©l¦s¤J§Ç¦C¡C
+// ç‚ºäº†å¯¦ä½œæ–¹ä¾¿ï¼Œå¾é™£åˆ—çš„ç¬¬1æ ¼é–‹å§‹å­˜å…¥åºåˆ—ã€‚
 string s1 = "2579312";
 string s2 = "35328";
-int length[7+1][5+1];   // DPªí®æ
+int length[7+1][5+1];   // DPè¡¨æ ¼
  
 void LCS()
 {
-    // ªì©l¤Æ¡G·ís1©Îs2¬OªÅ¶°¦X¡A«hLCS¬OªÅ¶°¦X¡C
+    // åˆå§‹åŒ–ï¼šç•¶s1æˆ–s2æ˜¯ç©ºé›†åˆï¼Œå‰‡LCSæ˜¯ç©ºé›†åˆã€‚
     // length[x][0] = length[0][x] = 0;
     for (int i=0; i<=n1; i++) length[i][0] = 0;
     for (int j=0; j<=n2; j++) length[0][j] = 0;
  
-    // ¶ñªí®æ¡G¨Ì·Ó»¼°j¤½¦¡
+    // å¡«è¡¨æ ¼ï¼šä¾ç…§éè¿´å…¬å¼
     for (int i=0; i<n1; i++)
     {
         for (int j=0; j<n2; j++)
         {
             if (s1[i] == s2[j])
-                // +1¬O¦]¬°e1ªºªø«×¬°1
+                // +1æ˜¯å› ç‚ºe1çš„é•·åº¦ç‚º1
                 length[i+1][j+1] = length[i][j] + 1;
             else
                 length[i+1][j+1] = max(length[i][j+1],
@@ -30,7 +30,7 @@ void LCS()
         cout<<endl;
 	}
  
-    cout << "LCSªºªø«×¬O" << length[n1][n2];
+    cout << "LCSçš„é•·åº¦æ˜¯" << length[n1][n2];
 }
 int main()
 {

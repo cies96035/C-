@@ -1,4 +1,4 @@
-//sort½m²ß 
+//sortç·´ç¿’ 
 
 #include<iostream>
 #include<algorithm>
@@ -11,10 +11,10 @@ struct point
 	int x,y;
 };
 
-//Ãö©ó¨ç¼Æ¶Ç¤J­Èªº¤è¦¡¡Aºô¸ô¤W¬O»¡const &a³o¼Ë³Ì¦n¡A¨ãÅé­ì¦]©|¤£²M·¡ 
+//é—œæ–¼å‡½æ•¸å‚³å…¥å€¼çš„æ–¹å¼ï¼Œç¶²è·¯ä¸Šæ˜¯èªªconst &aé€™æ¨£æœ€å¥½ï¼Œå…·é«”åŸå› å°šä¸æ¸…æ¥š 
 bool smaller(int const &a,int const &b)
 {
-	if(a>=b)return 1;//¦pªG«e­±ªº­È>«á­±ªº­È¡A´N¬O¥¿½Tªº
+	if(a>=b)return 1;//å¦‚æœå‰é¢çš„å€¼>å¾Œé¢çš„å€¼ï¼Œå°±æ˜¯æ­£ç¢ºçš„
 	return 0;
 }
 
@@ -23,14 +23,14 @@ bool Reverse(int const &a,int const &b)
 	return 1;
 }
 
-//sort¦n¥Îªº¦a¤è¦b©ó¥¦¦³¤è«K¨Ì±ø¥ó±Æ§ÇStructªº¥\¯à 
+//sortå¥½ç”¨çš„åœ°æ–¹åœ¨æ–¼å®ƒæœ‰æ–¹ä¾¿ä¾æ¢ä»¶æ’åºStructçš„åŠŸèƒ½ 
 bool comparepoint(point const &a,point const &b)
 {
-	//¥ı¤ñ¨â­Óx®y¼Ğ±Æ§Ç¡AÅıx¸û¤jªÌ±Æ«e­± 
+	//å…ˆæ¯”å…©å€‹xåº§æ¨™æ’åºï¼Œè®“xè¼ƒå¤§è€…æ’å‰é¢ 
 	if(a.x>b.x)return 1;
 	if(a.x<b.x)return 0;
 	
-	//x®y¼Ğ³£¤@¼Ë´N¦A¤ñ¸ûy®y¼Ğ¡AÅıY®y¼Ğ¸û¤jªÌ±Æ«e­± 
+	//xåº§æ¨™éƒ½ä¸€æ¨£å°±å†æ¯”è¼ƒyåº§æ¨™ï¼Œè®“Yåº§æ¨™è¼ƒå¤§è€…æ’å‰é¢ 
 	if(a.y>b.y)return 1;
 	return 0;
 }
@@ -42,31 +42,31 @@ int main()
 	{
 		int array[len]={8,7,1,11,2,6,4,7,3,4};
 		if(A==1)
-		{	//¤£¦Û­qªº±Æ§Ç¡A§¹¾ã¥Ñ¤p¨ì¤j
+		{	//ä¸è‡ªè¨‚çš„æ’åºï¼Œå®Œæ•´ç”±å°åˆ°å¤§
 			sort(array,array+len); 
 			for(int i=0;i<len;i++)cout<<array[i]<<' ';
 			cout<<endl<<endl;
 		}
 		else if(A==2)
-		{	//¯S©w°Ï°ìªº±Æ§Ç(3~8) 
+		{	//ç‰¹å®šå€åŸŸçš„æ’åº(3~8) 
 			sort(array+3,array+8); 
 			for(int i=0;i<len;i++)cout<<array[i]<<' ';
 			cout<<endl<<endl;
 		}
 		else if(A==3)
-		{	//¦Û­q¥Ñ¤j±Æ¨ì¤p 
+		{	//è‡ªè¨‚ç”±å¤§æ’åˆ°å° 
 			sort(array,array+len,smaller); 
 			for(int i=0;i<len;i++)cout<<array[i]<<' ';
 			cout<<endl<<endl;
 		}
 		else if(A==4)
-		{	//­ËÂà¾ã­Ó°}¦C 
+		{	//å€’è½‰æ•´å€‹é™£åˆ— 
 			sort(array,array+len,Reverse); 
 			for(int i=0;i<len;i++)cout<<array[i]<<' ';
 			cout<<endl<<endl;
 		}
 		else
-		{	//±Æ§Ç¦Û­qªº¸ê®Æµ²ºc 
+		{	//æ’åºè‡ªè¨‚çš„è³‡æ–™çµæ§‹ 
 			point P[6]={{1,2},{2,4},{1,5},{2,3},{3,5},{4,7}};
 			sort(P,P+6,comparepoint);
 			for(int i=0;i<6;i++)cout<<P[i].x<<','<<P[i].y<<' ';

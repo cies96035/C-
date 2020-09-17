@@ -3,7 +3,7 @@
 
 using namespace std;
 
-ifstream the_input("input.txt");
+ifstream the_input("matrix_input.txt");
 typedef long long ll;
 #define MaxN 50
 #define roll(x,y) matrix[x][(y+n-k)%(n)+k]
