@@ -1,11 +1,13 @@
+#include<cstring>
 #include<iostream>
-#include<stdio.h>
+
 using namespace std;
 
 int main()
 {
-    cin.tie(0);
-    ios_base::sync_with_stdio(0);
-    
+    string s="abc";
+    cout<<s.size()<<endl;
+    cout<<sizeof(s)<<endl;
+    cout<<sizeof(s+"123")<<endl;
     return 0;
 }

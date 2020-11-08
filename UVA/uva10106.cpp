@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-#define maxL 300
+#define maxL 1000
 string num1,num2;
 
 void inverse(string &s)
