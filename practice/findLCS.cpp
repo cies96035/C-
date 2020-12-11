@@ -21,7 +21,7 @@ struct DP
     int LCSLength;
 };
 
-set<string> vs;
+set<string> setLCS;
 DP dp[maxS][maxS];
 string A, B;
 
@@ -34,7 +34,7 @@ void findLCS(int i, int j, string str)
 
     if(S.LCSLength==0)
     {
-        vs.insert(str);
+        setLCS.insert(str);
         return;
     }
 
@@ -86,9 +86,9 @@ int main()
 
         findLCS(A.size(), B.size(), "");
 
-        cout << "LCS amounts: " << vs.size() << '\n';
+        cout << "LCS amounts: " << setLCS.size() << '\n';
 
-        for(set<string>::iterator i = vs.begin() ; i != vs.end() ; i++)
+        for(set<string>::iterator i = setLCS.begin() ; i != setLCS.end() ; i++)
             cout << *i << '\n';
         return 0;
 }
