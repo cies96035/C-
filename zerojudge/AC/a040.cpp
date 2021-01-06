@@ -1,4 +1,5 @@
 #include<iostream>
+#include<
 using namespace std;
 
 int pow(int x,int p)//x^p
