@@ -14,7 +14,7 @@ int main()
 	將num[N]視為num[0]
 	num[0]視為num[-N]
 	*/
-    int T,t,x,num[2*N+1],min=N*2,max=0;
+    int T,t,x,num[2*N+1],minFire=N*2,max=0;
     memset(num,0,sizeof(num));
     cin>>T;
     while(T--)
@@ -25,14 +25,14 @@ int main()
             cin>>x;
             num[N+x]++;
             if(x+N>max)max=N+x;
-            if(x+N<min)min=N+x;
+            if(x+N<minFire)minFire=N+x;
         }
-        cout<<max-min<<'\n';          
+        cout<<max-minFire<<'\n';          
         num[max]--;//用掉一次
-        num[min]--;//用掉一次
+        num[minFire]--;//用掉一次
 		//暴力更新最大及最小值
         while(!num[max])max--; 
-        while(!num[min])min++;
+        while(!num[minFire])minFire++;
     }
     return 0;
 }

@@ -35,7 +35,7 @@ int main() {
     
     while(!togo.empty())
     {
-        int now=togo.front(),min=2e9,minid;
+        int now=togo.front(),minFire=2e9,minid;
         if(now==end)break;
         togo.pop();
         while(!link[now].empty())
@@ -48,9 +48,9 @@ int main() {
         for(int i=0;i<N;i++)
         {
         	if(visited[i])continue;
-        	if(ans[i]<min&&ans[i]>=0)
+        	if(ans[i]<minFire&&ans[i]>=0)
 			{
-				min=ans[i];
+				minFire=ans[i];
 				minid=i;
 			}
 		}

@@ -30,7 +30,7 @@ int main()
         memset(DP,0,sizeof(int)*MaxS*MaxS);
         DP[0][0]=1;
         int m,S;
-        int min=inf;
+        int minFire=inf;
 
         cin>>m>>S;
         for(int i=0;i<m;i++)
@@ -43,13 +43,13 @@ int main()
                         if(DP[j][k]==0||DP[j][k]>DP[j-x][k-y]+1)
                         {
                             DP[j][k]=DP[j-x][k-y]+1;
-                            if(j*j+k*k==S*S&&min>DP[j][k])
-                                min=DP[j][k];
+                            if(j*j+k*k==S*S&&minFire>DP[j][k])
+                                minFire=DP[j][k];
                         }
             //print(S+1);
         }
-        if(min!=inf)
-            cout<<min-1<<'\n';
+        if(minFire!=inf)
+            cout<<minFire-1<<'\n';
         else
             cout<<"not possible\n";
         
