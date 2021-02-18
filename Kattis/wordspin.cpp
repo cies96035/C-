@@ -23,7 +23,7 @@ void getCnt(int s, int e){
         s2[i] -= Min;
     }
     cnt += std::abs(Min);
-
+    
     //cout << s<<' '<<e<<endl;
     for(int i = s, ss; i < e;){
         if(s2[i] == 0){
