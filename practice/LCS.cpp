@@ -30,7 +30,7 @@ void LCS()
         cout<<endl;
 	}
  
-    cout << "LCS的長度是" << length[n1][n2];
+    cout << "LCS Length:" << length[n1][n2] << '\n';
 }
 int main()
 {
