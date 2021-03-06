@@ -1,3 +1,5 @@
 # CPP_programs
-主要是[TOJ](URL 'https://toj.tfcis.org/oj/')的解題碼  
-另有[UVA](URL 'https://uva.onlinejudge.org/'),[judgegirl](URL 'https://judgegirl.csie.org/'),[kattis](URL 'https://open.kattis.com/')...
+各OJ網站的code
+[TOJ](URL 'https://toj.tfcis.org/oj/'),
+[UVA](URL 'https://uva.onlinejudge.org/'),
+[kattis](URL 'https://open.kattis.com/')...
