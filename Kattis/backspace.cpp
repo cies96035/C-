@@ -1,21 +1,20 @@
 #include<iostream>
-#include<stack>
+#include<algorithm>
 using namespace std;
 
 const int MAX_S = 1001000;
 char words[MAX_S];
 int wordsIndex;
-char c;
 int main()
 {
     cin.tie(0);
     ios_base::sync_with_stdio(0);
     
-    while(cin >> c){
-        if(c == '<' && wordsIndex != 0){
+    while(cin >> words[wordsIndex]){
+        if(words[wordsIndex] == '<' && wordsIndex != 0){
             wordsIndex--;
         }else{
-            words[wordsIndex++] = c;
+            wordsIndex++;
         }
     }
     words[wordsIndex] = '\0';
