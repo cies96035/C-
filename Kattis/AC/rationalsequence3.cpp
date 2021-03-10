@@ -3,8 +3,8 @@ using namespace std;
 using ll = long long;
 using pll = pair<ll, ll>;
 
-ll P, K, N;
 pll frac;
+ll P, K, N;
 
 void getAns(){
     N >>= 1;
