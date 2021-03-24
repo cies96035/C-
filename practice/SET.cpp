@@ -1,4 +1,5 @@
-https://github.com/liaojason2/vscode-cpp-for-windows#include<iostream>
+//https://github.com/liaojason2/vscode-cpp-for-windows#include<iostream>
+#include<iostream>
 using namespace std;
 
 #define n 100001

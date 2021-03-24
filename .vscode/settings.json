@@ -5,6 +5,7 @@
         "cstdlib": "cpp",
         "string": "cpp",
         "random": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "iostream": "cpp"
     }
 }
