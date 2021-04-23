@@ -1,10 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
+using ll = long long;
 using ld = long double;
 const int MAX_N = 100100;
 
 struct POINT{
-    ld x, y;
+    ll x, y;
 };
 
 bool cmpx (const POINT &a, const POINT &b){
@@ -15,21 +16,19 @@ bool cmpy (const POINT &a, const POINT &b){
 }
 
 int n;
-POINT point[MAX_N];
+POINT point[MAX_N], tmp[MAX_N];
 POINT BA, BB;
-ld dis;
-ld tmpdis;
+ll dis;
+ld iptA, iptB;
 
-ld distance(const POINT &a, const POINT &b){
-    ld dx = a.x - b.x;
-    ld dy = a.y - b.y;
-    return sqrt(dx * dx + dy * dy);
+ll distance(const POINT &a, const POINT &b){
+    ll dx = a.x - b.x;
+    ll dy = a.y - b.y;
+    return dx * dx + dy * dy;
 }
 void DaC(int l, int r){
-    static int mid;
-    static int a, b;
-    if(r - l < 4){//暴力
-        sort(point + l, point + r, cmpy);
+    int mid, idx;
+    if(r - l < 4){//force
         for(int i = l; i < r; i++){
             for(int j = i + 1; j < r; j++){
                 if(dis > distance(point[i], point[j])){
@@ -39,20 +38,64 @@ void DaC(int l, int r){
                 }
             }
         }
+        sort(point + l, point + r, cmpy);
     }else{
+        idx = l;
         mid = (l + r) / 2;
+        int mx = point[mid].x;
         DaC(l, mid);
         DaC(mid, r);
-        merge(point + l, point + mid, point + mid, point + r, point + l, cmpy);
         for(int i = l; i < r; i++){
-            for(int j = 1; j <= 4 && i + j < r; j++){
-                if(dis > distance(point[i], point[i + j])){
-                    dis = distance(point[i], point[i + j]);
+            if(mx - dis <= point[i].x && point[i].x <= mx + dis){
+                swap(point[idx++], point[i]);
+            }
+        }
+
+        sort(point + l, point + idx, cmpy);
+        
+        for(int i = l; i < idx; i++){
+            for(int j = i + 1; j < idx && point[j].y - point[i].y < dis; j++){
+                if(dis > distance(point[i], point[j])){
+                    dis = distance(point[i], point[j]);
                     BA = point[i];
                     BB = point[j];
                 }
             }
         }
+        // idx = mid;
+        // for(int i = l; i < mid; i++){
+        //     idx = lower_bound(point + idx, point + r, point[i], cmpy) - point;
+        //     for(int j = 0; j <= 3 && idx + j < r; j++){
+        //         if(dis > distance(point[i], point[idx + j])){
+        //             dis = distance(point[i], point[idx + j]);
+        //             BA = point[i];
+        //             BB = point[idx + j];
+        //         }
+        //     }
+        // }
+
+        // idx = l;
+        // for(int i = mid; i < r; i++){
+        //     idx = lower_bound(point + idx, point + mid, point[i], cmpy) - point;
+        //     for(int j = 0; j <= 3 && idx + j < r; j++){
+        //         if(dis > distance(point[i], point[idx + j])){
+        //             dis = distance(point[i], point[idx + j]);
+        //             BA = point[i];
+        //             BB = point[idx + j];
+        //         }
+        //     }
+        // }
+        
+        // inplace_merge(point + l, point + mid, point + r, cmpy);
+    }
+}
+
+void llTold(ll x, bool opinion){
+    cout << x / 100 << '.' << setw(2) << setfill('0') << abs(x % 100);
+    if(opinion){
+        cout << ' ';
+    }else{
+        cout << '\n';
     }
 }
 int main()
@@ -61,17 +104,18 @@ int main()
     ios_base::sync_with_stdio(0);
     
     while(cin >> n && n){
-        dis = 10000000;
+        dis = 1e18;
         for(int i = 0; i < n; i++){
-            cin >> point[i].x >> point[i].y;
+            cin >> iptA >> iptB;
+            point[i].x = round(100 * iptA);
+            point[i].y = round(100 * iptB);
         }
         sort(point, point + n, cmpx);
         DaC(0, n);
-        // for(int i = 0; i < n; i++){
-        //     cout << point[i].y << ' ';
-        // }
-        // cout << endl;
-        cout << BA.x << ' ' << BA.y << ' ' << BB.x << ' ' << BB.y << '\n';
+        llTold(BA.x, 1);
+        llTold(BA.y, 1);
+        llTold(BB.x, 1);
+        llTold(BB.y, 0);
     }
     return 0;
 }
