@@ -1,5 +1,4 @@
 #include<iostream>
-#queue<
 #include<vector>
 using namespace std;
 

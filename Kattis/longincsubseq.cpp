@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int MAX_N = 300;
+const int MAX_N = 100100;
 int arr[MAX_N];
 int pos[MAX_N];
 int n;
@@ -22,7 +22,7 @@ void findLIS(){
     }
     for(int i = n - 1, idx = LIS.size() - 1; i >= 0; i--){
         if(pos[i] == idx){
-            LIS[idx] = arr[i];
+            LIS[idx] = i;
             idx--;
         }
     }
@@ -38,9 +38,9 @@ int main()
             cin >> arr[i];
         }
         findLIS();
-        cout << LIS.size();
+        cout << LIS.size() << '\n';
         for(auto l : LIS){
-            cout << ' ' << l;
+            cout << l << ' ';
         }
         cout << '\n';
     }
