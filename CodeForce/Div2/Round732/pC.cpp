@@ -44,7 +44,7 @@ int main()
             cin >> a[i].num;
             a[i].pos = i;
         }
-        sort(a, a + n);
+        sort(a, a + n);                                  
         if( check() ){
             cout << "YES\n";
         }else{
