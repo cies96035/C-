@@ -21,7 +21,7 @@ int main()
 {
     cin.tie(0);
     ios_base::sync_with_stdio(0);
-    
+    cout << qpow(2, MOD - 2, MOD) << endl;
     cin >> n;
     while(n--){
         cin >> a >> b >> c;
