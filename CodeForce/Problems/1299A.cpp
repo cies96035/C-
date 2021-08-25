@@ -27,7 +27,7 @@ int main()
     // cout << ans << endl;
     rep(i, 0, n){
         // cout << a[i] << ' ' << (ans & a[i]) << endl;
-        if((ans & a[i]) > (ans & a[Maxpos])){
+        if((ans & a[i]) > (ans & a[Maxpos])){ 
             Maxpos = i;
         }
     }
