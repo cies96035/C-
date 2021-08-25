@@ -10,14 +10,12 @@ struct Num
 	ll P,R;
 };
 
-//㎝穝Num ansa,bㄢ程そ计P(程INT_MAX)㎝緇计R 
 Num Nummix(Num a,Num b)
 {
 	if(a.P<b.P)swap(a,b);
 	if(!(a.P%b.P))return a;
 	Num ans;
 	
-	//а癘或暗ㄓ堵臸猭 
 	
 	//7 4 5 2
 	ll x=a.P%b.P,//x=2=7%5
