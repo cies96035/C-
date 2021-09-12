@@ -8,6 +8,11 @@
         "limits": "cpp",
         "iostream": "cpp",
         "*.tcc": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "tuple": "cpp",
+        "bitset": "cpp",
+        "any": "cpp",
+        "chrono": "cpp",
+        "valarray": "cpp"
     }
 }
