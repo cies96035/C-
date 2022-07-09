@@ -6,9 +6,7 @@ using ll = long long;
 
 const int MAX_N = 2e5 + 5;
 const ll MOD = 998244353;
-int t;
-int n;
-int ipt;
+int t, n, ipt;
 ll fact(int x){
     ll ans = 1;
     rrep(i, 2, x){

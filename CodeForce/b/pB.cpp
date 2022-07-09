@@ -67,18 +67,3 @@ int main()
     }
     return 0;
 }
-
-/*
-scpc
-acm
-syria
-acpc
-accepted
-
-accepted
-acm
-acpc
-scpc
-syria
-
-*/
